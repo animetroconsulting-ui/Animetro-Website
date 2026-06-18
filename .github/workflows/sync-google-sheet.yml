@@ -1,0 +1,43 @@
+name: Sync Google Sheet to website
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: google-sheet-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Generate static site from Google Sheet
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Sync website files
+        env:
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: python scripts/sync_google_sheet_site.py
+
+      - name: Commit generated updates
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Sync website from Google Sheet"
+          branch: main
+          file_pattern: "index.html en/ zh/ assets/ content/"
