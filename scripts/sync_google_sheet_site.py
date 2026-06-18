@@ -235,6 +235,21 @@ def escape(value: str) -> str:
     return html.escape(value or "", quote=True)
 
 
+def hero_slideshow_html(lang: str) -> str:
+    if lang == "zh":
+        return """<aside class="hero-media hero-slideshow" aria-label="私人教育諮詢">
+          <img src="/assets/images/hero-consulting-1.jpg" alt="家庭與教育顧問諮詢">
+          <img src="/assets/images/hero-consulting-2.jpg" alt="學生與家庭教育規劃諮詢">
+          <img src="/assets/images/hero-consulting-3.png" alt="Animetro Consulting 成長超越升學品牌圖">
+        </aside>"""
+
+    return """<aside class="hero-media hero-slideshow" aria-label="Private education consultation">
+          <img src="/assets/images/hero-consulting-1.jpg" alt="Family meeting with an education consultant">
+          <img src="/assets/images/hero-consulting-2.jpg" alt="Student and family consultation with an advisor">
+          <img src="/assets/images/hero-consulting-3.png" alt="Animetro Consulting growth beyond admission banner">
+        </aside>"""
+
+
 def card_grid(rows: list[dict[str, str]], lang: str, images: list[dict[str, str]]) -> str:
     cards: list[str] = []
     for row in rows[:12]:
@@ -269,12 +284,9 @@ def page_html(lang: str, content_rows: list[dict[str, str]], brand_rows: list[di
         "由 Google Sheet 內容主表自動生成。" if is_zh else "Automatically generated from the Google Sheet content master.",
     )
     primary_cta = pick_content(content_rows, ["primary", "cta"], lang, "預約免費私人諮詢" if is_zh else "Book a Free Private Consultation")
-    services_heading = pick_content(content_rows, ["services", "heading"], lang, "核心服務" if is_zh else "Core Services")
     contact_heading = pick_content(content_rows, ["contact", "heading"], lang, "聯絡我們" if is_zh else "Contact Us")
     footer = pick_content(content_rows, ["footer"], lang, "Education Beyond Admission")
     logo = brand_value(brand_rows, ["header logo", "logo"], "/assets/brand/animetro-horizontal.svg")
-    hero_image = image_for(image_rows, ["home hero", "hero"], "")
-    service_rows = section_rows(content_rows, "service") or content_rows[:6]
     contact_text = pick_content(content_rows, ["contact", "intro"], lang, "consulting@animetro.ca")
 
     html_lang = "zh-Hant" if is_zh else "en"
@@ -284,7 +296,6 @@ def page_html(lang: str, content_rows: list[dict[str, str]], brand_rows: list[di
     nav_services = "服務" if is_zh else "Services"
     nav_contact = "聯絡" if is_zh else "Contact"
 
-    hero_media = f'<img src="{escape(hero_image)}" alt="{escape(headline)}">' if hero_image else ""
     return f"""<!doctype html>
 <html lang="{html_lang}">
   <head>
@@ -300,30 +311,24 @@ def page_html(lang: str, content_rows: list[dict[str, str]], brand_rows: list[di
         <a href="{home_href}"><img class="brand-logo" src="{escape(logo)}" alt="{escape(title)}"></a>
         <div class="nav-links">
           <a class="active" href="{home_href}">{'首頁' if is_zh else 'Home'}</a>
-          <a href="#services">{nav_services}</a>
+          <a href="{home_href}services/">{nav_services}</a>
           <a href="#contact">{nav_contact}</a>
           <a href="{other_href}">{other_label}</a>
         </div>
       </nav>
     </header>
     <main class="page">
-      <section class="hero">
+      <section class="hero hero-with-media">
         <div>
           <p class="eyebrow">{escape(eyebrow)}</p>
           <h1>{escape(headline)}</h1>
           <p class="lead">{escape(lead)}</p>
           <div class="actions">
             <a class="button" href="#contact">{escape(primary_cta)}</a>
-            <a class="button secondary" href="#services">{escape(nav_services)}</a>
+            <a class="button secondary" href="{home_href}services/">{escape(nav_services)}</a>
           </div>
         </div>
-        {f'<aside class="panel">{hero_media}</aside>' if hero_media else ''}
-      </section>
-      <section class="section" id="services">
-        <h2>{escape(services_heading)}</h2>
-        <div class="grid">
-          {card_grid(service_rows, lang, image_rows)}
-        </div>
+        {hero_slideshow_html(lang)}
       </section>
       <section class="section panel" id="contact">
         <h2>{escape(contact_heading)}</h2>
