@@ -9,24 +9,71 @@ Static bilingual website for Animetro Education Consulting / 艾美加教育顧�
 - `/zh/` contains Traditional Chinese pages.
 - `/assets/styles.css` contains shared design styles.
 
-## Edit Content
+## Source of Truth
 
-Edit the page text directly in the matching language folder:
+The Google Sheet named **Animetro Website Content Master** is the single source of truth for website content.
 
-- English homepage: `en/index.html`
-- English services: `en/services/index.html`
-- English about: `en/about/index.html`
-- English contact: `en/contact/index.html`
-- Chinese homepage: `zh/index.html`
-- Chinese services: `zh/services/index.html`
-- Chinese about: `zh/about/index.html`
-- Chinese contact: `zh/contact/index.html`
+Required tabs:
+
+- `websitecontentmaster`
+- `Brand Identity`
+- `Website Images`
+
+The sync workflow reads those tabs, exports them into `content/`, regenerates the static website files, commits the results to `main`, and lets Vercel auto-deploy from GitHub.
+
+Do not use Git submodules.
+
+## Automatic Sync
+
+The workflow is:
+
+```text
+Google Sheet
+  -> GitHub Actions
+  -> generated static files committed to main
+  -> Vercel auto-deploy
+```
+
+The workflow runs:
+
+- manually from GitHub Actions using **Run workflow**
+- hourly on a schedule
+
+Workflow file:
+
+```text
+.github/workflows/sync-google-sheet.yml
+```
+
+The sync script generates or updates:
+
+- `index.html`
+- `en/index.html`
+- `zh/index.html`
+- `assets/`
+- `content/`
+
+## GitHub Secrets
+
+Add these secrets in GitHub:
+
+- `GOOGLE_SHEET_ID`: the spreadsheet ID for **Animetro Website Content Master**
+- `GOOGLE_SERVICE_ACCOUNT_JSON`: the full JSON credentials for a Google service account that can read the spreadsheet
+
+The spreadsheet ID is the long value in a Google Sheet URL:
+
+```text
+https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
+```
+
+Share the Google Sheet with the service account email as a Viewer.
 
 ## Local Preview
 
 From this folder, run:
 
 ```bash
+pip install -r requirements.txt
 python3 -m http.server 4173
 ```
 
@@ -34,6 +81,14 @@ Then open:
 
 ```text
 http://localhost:4173/
+```
+
+To test the sync locally, export credentials and run:
+
+```bash
+export GOOGLE_SHEET_ID="your-sheet-id"
+export GOOGLE_SERVICE_ACCOUNT_JSON='{"type":"service_account",...}'
+python scripts/sync_google_sheet_site.py
 ```
 
 ## Vercel Deployment
@@ -47,7 +102,7 @@ Use these Vercel settings:
 - Output Directory: leave blank
 - Install Command: leave blank
 
-Vercel should deploy the static files directly from the repository root.
+Vercel should deploy the static files directly from the repository root whenever GitHub receives a commit on `main`.
 
 ## GitHub Upload
 
@@ -61,6 +116,9 @@ Upload these files and folders to GitHub:
 - `vercel.json`
 - `.gitignore`
 - `README.md`
+- `requirements.txt`
+- `scripts/`
+- `.github/workflows/`
 
 Do not upload:
 
