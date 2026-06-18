@@ -31,7 +31,11 @@ ASSETS_DIR = ROOT / "assets"
 EN_DIR = ROOT / "en"
 ZH_DIR = ROOT / "zh"
 
-REQUIRED_TABS = ["websitecontentmaster", "Brand Identity", "Website Images"]
+REQUIRED_TABS = {
+    "websitecontentmaster": ["websitecontentmaster", "websitecontentmaster01", "Website Content Master"],
+    "Brand Identity": ["Brand Identity", "brand identity", "    Brand Identity"],
+    "Website Images": ["Website Images", "website images"],
+}
 SHEETS_SCOPE = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 
 
@@ -81,7 +85,34 @@ def normalize_headers(headers: list[str]) -> list[str]:
     return normalized
 
 
-def fetch_table(service: Any, spreadsheet_id: str, tab_name: str) -> SheetTable:
+def sheet_title_key(value: str) -> str:
+    return clean_key(value.strip())
+
+
+def resolve_required_tabs(service: Any, spreadsheet_id: str) -> dict[str, str]:
+    metadata = service.spreadsheets().get(spreadsheetId=spreadsheet_id, fields="sheets.properties.title").execute()
+    available = {
+        sheet_title_key(sheet["properties"]["title"]): sheet["properties"]["title"]
+        for sheet in metadata.get("sheets", [])
+    }
+    resolved: dict[str, str] = {}
+    missing: list[str] = []
+    for canonical, aliases in REQUIRED_TABS.items():
+        match = ""
+        for alias in aliases:
+            match = available.get(sheet_title_key(alias), "")
+            if match:
+                break
+        if match:
+            resolved[canonical] = match
+        else:
+            missing.append(f"{canonical} (accepted names: {', '.join(aliases)})")
+    if missing:
+        raise RuntimeError("Missing required Google Sheet tabs: " + "; ".join(missing))
+    return resolved
+
+
+def fetch_table(service: Any, spreadsheet_id: str, tab_name: str, canonical_name: str | None = None) -> SheetTable:
     response = (
         service.spreadsheets()
         .values()
@@ -90,7 +121,7 @@ def fetch_table(service: Any, spreadsheet_id: str, tab_name: str) -> SheetTable:
     )
     values = response.get("values", [])
     if not values:
-        return SheetTable(tab_name, [], [])
+        return SheetTable(canonical_name or tab_name, [], [])
 
     headers = normalize_headers([str(cell).strip() for cell in values[0]])
     rows: list[dict[str, str]] = []
@@ -100,7 +131,7 @@ def fetch_table(service: Any, spreadsheet_id: str, tab_name: str) -> SheetTable:
             row[headers[index]] = str(cell).strip()
         if any(row.values()):
             rows.append(row)
-    return SheetTable(tab_name, headers, rows)
+    return SheetTable(canonical_name or tab_name, headers, rows)
 
 
 def write_table(table: SheetTable) -> None:
@@ -337,10 +368,11 @@ def main() -> None:
     spreadsheet_id = env_required("GOOGLE_SHEET_ID")
     service = sheets_service()
     tables: dict[str, SheetTable] = {}
-    for tab in REQUIRED_TABS:
-        table = fetch_table(service, spreadsheet_id, tab)
+    resolved_tabs = resolve_required_tabs(service, spreadsheet_id)
+    for canonical, tab in resolved_tabs.items():
+        table = fetch_table(service, spreadsheet_id, tab, canonical)
         write_table(table)
-        tables[tab] = table
+        tables[canonical] = table
     write_site(tables)
     print("Synced Google Sheet content into static site files.")
 
