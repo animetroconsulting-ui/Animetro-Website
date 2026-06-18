@@ -1,0 +1,150 @@
+Page,Section,Content Key,English Text,Chinese Text,"Section ID
+"," Button Text
+",Link,Image File,Status,Notes
+Home,Hero,hero_title,Strategic Education Consulting for Future-Ready Students,面向未來學生的全方位戰略教育諮詢,,,,consulting-meeting.jpg,Approved,首页主标题
+Home,Hero,hero_subtitle,"Animetro Consulting helps families design personalized education pathways across school admissions, university planning, GPA management, STEAM development, student-athlete strategy, and gifted learner support.",艾美加教育顧問 为学生和家庭提供个性化教育路径规划，涵盖私校申请、大学申请、GPA 管理、STEAM 发展、学生运动员规划与天赋学习支持。艾美加戰略教育顧問為學生與家庭提供個性化教育路徑規劃，涵蓋私校申請、大學申請、GPA 管理、STEAM 發展、學生運動員規劃與招募，以及天賦與多元學習支持,,,,consulting-meeting.jpg,Approved,首页副标题
+Home,Hero,hero_primary_cta,Book a Private Consultation,預約私人諮詢,,,,,Approved,主按钮
+Home,Hero,hero_secondary_cta,Explore Our Services,了解我們的服務,,,,,Approved,副按钮
+Home,Service,service_education_strategy_title,Education Strategy,全方位戰略教育規劃,strategic-planning,,zh/services/#strategic-planning,,Approved,服务卡片标题
+Home,Service,service_education_strategy_desc,"Long-term academic planning, school selection, enrichment direction, and family decision support.",长期學业规划、學校选择、活动方向与家庭决策支持,,,,,Approved,服务卡片说明
+Home,Service,service_prep_title,Prep School Admissions,菁英私校申请,elite-private-school,,zh/services/#elite-private-school,prep-school-campus.jpg,Approved,服务卡片标题
+Home,Service,service_prep_desc,"Personalized guidance for students ages 4–19, including private school, boarding school, elementary, middle school, and high school applications.",為 4–19 歲學生提供個性化升學指導，包括私立學校、寄宿學校、小學、初中及高中申請,,,,prep-school-campus.jpg,Approved,服务卡片说明
+Home,Service,service_university_title,University Admissions,大學申請,university-application,,zh/services/#university-application,university-campus.jpg,Approved,服务卡片标题
+Home,Service,service_university_desc,"Strategic planning for university applications, essays, activities, and academic positioning.",围绕大学申请、文书、活动规划与学术定位提供策略支持。,,,,university-campus.jpg,Approved,服务卡片说明
+Home,Service,service_gpa_title,GPA Management,GPA 管理、選課策略與學校溝通,gpa-management,,zh/services/#gpa-management,student-study.jpg,Approved,服务卡片标题
+Home,Service,service_gpa_desc,"Academic performance planning, course strategy, study routines, and grade improvement support.",提供學业表现规划、选课策略、学习习惯建立与成绩提升支,,,,student-study.jpg,Approved,服务卡片说明
+Home,Contact,contact_cta_title,Start Your Personalized Education Plan,開始你的個性化教育規劃,,,,,Approved,联系区标题
+Home,Contact,contact_cta_button,Contact Animetro Strategic Education Consulting,聯繫艾美加戰略教育顧問,,,,,Approved,联系按钮
+Home,Navigation,nav_education_strategy,Education Strategy,全方位戰略教育規劃,,,,,Approved,导航栏
+Home,Navigation,nav_prep_school,Prep School Admissions,菁英私校申请,,,,,Approved,导航栏
+Home,Navigation,nav_university,University Admissions,大學申請,,,,,Approved,导航栏
+Home,Navigation,nav_gpa,GPA Management,GPA 管理,,,,,Approved,导航栏
+Home,Navigation,nav_steam,STEAM Pathway,STEAM 路径,steam-pathway,,zh/services/#steam-pathway,,Approved,导航栏
+Home,Navigation,nav_student_athlete,Student-Athlete,學生運動員規劃與招募,,,,,Approved,导航栏
+Home,Navigation,nav_gifted,Gifted & Neurodiversity,天賦與多元學習支持,,,,,Approved,导航栏
+Home,Navigation,nav_about,About,关于我们,student-athlete,,zh/services/#student-athlete,,Approved,导航栏
+Home,Navigation,nav_contact,Contact,联系我们,,,,,Approved,导航栏
+Home,About,About Animetro Education Consulting,About Animetro Strategic Education Consulting,关于艾美加教育顧問,gifted-diverse-learning,,zh/services/#gifted-diverse-learning,,Approved,关于我们标题
+Home,About,about_desc,"Animetro Education Consulting supports high-net-worth families with long-term educational strategy, admissions planning, student development, school communication, and cross-border education resource integration.",艾美加教育顧問為高淨值家庭提供長期教育策略、升學規劃、學生發展支持、學校溝通與跨國教育資源整合。,,,,,Approved,关于我们说明
+Home,About,company_credibility_title,About Animetro Strategic Education Consulting,關於艾美加教育顧問,,,,,Approved,
+Home,About,company_credibility_body,"Animetro is a federally registered Canadian company based in Toronto, with roots dating back to 2002. Animetro Education Consulting operates as its education consulting brand, focusing on long-term educational strategy, admissions planning, student development support, and cross-border education resource integration for high-net-worth families.",艾美加 是一家總部位於多倫多的加拿大聯邦註冊公司，自 2002 年起建立品牌與服務基礎。艾美加教育顧問作為其教育顧問品牌，專注於為高淨值家庭提供長期教育策略、升學規劃、學生發展支持與跨國教育資源整合。,,,,,Approved,
+Home,About,vision_title,Vision,願景,,,,,Approved,
+Home,About,vision_body,"To build a boutique educational ecosystem that helps gifted, neurodivergent, highly sensitive, and intellectually unique students grow into confident, resilient, self-aware, and authentically differentiated individuals through long-term developmental guidance, whole-person education, and meaningful human connection. We envision an educational model that goes beyond admissions outcomes and supports students in building meaningful, balanced, and sustainable lives.",建立一個精品化的教育成長生態系統，透過長期成長指導、完整人格教育與深度人文陪伴，幫助具備天賦、多元學習特質、高敏感度與獨特思維方式的學生，逐漸成長為自信、有韌性、有方向感、情緒穩定且具有真實差異化特質的人。我們希望建立的教育，不僅關注申請結果，而是真正幫助學生建立長期、有意義、平衡且可持續的人生.,,,,,Approved,
+Home,About,mission_title,Mission Statement,使命,,,,,Approved,
+Home,About,mission_body,"Our mission is to provide long-term educational strategy, developmental mentorship, and ecosystem-based support that empowers students and families to navigate academic growth, emotional development, leadership, identity formation, executive function, and future educational pathways with clarity, confidence, and sustainability. We believe education is not about manufacturing perfect applicants, but about nurturing authentic human potential.",我們的使命是透過長期教育策略、成長指導與生態系統式支持，幫助學生與家庭建立學術成長能力、情緒發展、領導力、自我認同、執行功能與長期教育路徑，並以清晰、自信與可持續的方式面對未來。我們相信，教育不是製造完美申請者，而是幫助學生逐漸成長為最真實、最穩定、最有生命力的自己。,,,,,Approved,
+Home,About,values_title,Core Values,核心價值觀,,,,,Approved,
+Home,About,values_body,"Nurture the Nature: Every child has a unique developmental rhythm, cognitive profile, emotional pattern, and life trajectory. Whole-Person Development: True success requires balance between academic growth, emotional well-being, mental health, physical health, resilience, relationships, and long-term sustainability. Authentic Growth Over Artificial Packaging: We prioritize authentic long-term development over short-term admissions manipulation or superficial profile engineering. Long-Term Developmental Partnership: Meaningful educational development requires trust, consistency, communication, strategic alignment, and long-term accompaniment. Emotional Safety & Human Dignity: Students deserve to feel understood, emotionally safe, respected, and valued beyond performance metrics.",順勢培養：每個學生都有獨特的認知方式、情緒特質、天賦、成長節奏與人生軌跡。完整人格發展：真正長期可持續的成功，必須建立在學術成長、情緒健康、心理健康、身體健康、韌性、人際關係與長期生活平衡之上。真實成長高於短期包裝：我們重視真實長期成長，而不是短期包裝、表面定位、履歷工程或不自然的申請操作。長期成長型合作：真正有價值的教育支持，需要信任、一致性、溝通、長期策略對齊與持續陪伴。情緒安全與人的尊嚴：學生不應只被 GPA、排名、競賽或外在成就定義。他們需要被理解、尊重、接納，並擁有情緒安全感。,,,,,Approved,
+Home,About,culture_title,Corporate Culture,企業文化,,,,,Approved,
+Home,About,culture_body,"Our culture is built on long-term trust, intellectual honesty, emotional empathy, strategic thinking, deep personalization, ecosystem collaboration, and meaningful human relationships. We operate as a boutique educational ecosystem rather than a large-scale transactional agency. We value depth over scale, quality over quantity, alignment over sales, and authentic development over superficial prestige.",我們的企業文化建立在長期信任、認知誠實、情緒共情、戰略思維、深度個性化、資源整合與有意義的人際關係之上。我們不是大規模交易型機構，而是一個精品教育成長生態系統。我們更重視深度高於規模、品質高於數量、理念匹配高於銷售，以及真實成長高於表面名校光環。,,,,,Approved,
+Home,About,philosophy_title,Educational Philosophy,教育理念,,,,,Approved,
+Home,About,philosophy_body,"Education is not simply about helping students enter elite schools. Education is about helping students understand themselves, build confidence, develop resilience, maintain emotional well-being, discover meaningful direction, and become capable of building fulfilling lives.",教育並不只是把學生送進名校。真正有意義的教育，是幫助學生認識自己、建立自信、發展韌性、保持情緒健康、找到有意義的方向，並逐漸擁有建立豐富人生的能力。,,,,,Approved,
+Home,About,team_title,Our Advisory Team,我們的顧問團隊,,,,,Approved,
+Home,Team,team_intro,"Animetro Education Consulting operates through a boutique advisory and resource-integration model. Based on each student’s needs, we bring together education consultants, mentors, writing advisors, STEM coaches, and student development specialists across North America and Asia.",艾美加教育顧問採用精品化顧問與資源整合模式，根據每位學生與家庭的具體需求，整合北美、亞洲與專業教育領域的顧問、導師、寫作教練、STEM 教練與學生成長支持資源。,,,,,Approved,
+Home,Team,team_emily,"Emily Huang | Founder & Strategic Education Consultant | Canada / North America | Emily specializes in long-term educational strategy, private school and university pathway planning, neurodiversity-informed student support, family education strategy, GPA management, school communication, and whole-person development.",Emily Huang｜創辦人｜戰略教育顧問｜加拿大 / 北美｜Emily 專注於長期教育策略、菁英私校與大學申請路徑規劃、多元學習學生支持、家庭教育策略、GPA 管理、學校溝通與完整人格發展。,,,,,Approved,
+Home,Team,team_Leonard,"Leonard Wong| Co-Founder & Senior Education Strategy Advisor | MBA, Ohio University; Bachelor’s degree in English Literature, Beijing Foreign Languages Institute | Leonard specializes in strategic education consulting, holistic essay development, personal narrative building, academic positioning, and long-term student growth strategy.",Leonard Wong｜聯合創辦人｜資深教育策略顧問｜Ohio University MBA；北京外國語學院英語文學學士｜Leonard 專注於教育策略諮詢、整體文書規劃、個人敘事塑造、學術定位與學生長期成長策略。,,,,,Approved,
+Home,Team,team_frances,"Frances Wong | Co-Founder & Asia Strategic Partnerships Lead | MBA; Based in Hong Kong and Beijing | Frances brings over 25 years of experience in venture capital, senior government relations, cross-border business development, strategic partnerships, and high-net-worth family relationship management. She supports Asia-based families with regional communication, education partnership development, resource coordination, and cross-border education planning.",Frances Wong｜聯合創辦人｜亞洲戰略合作與高端家庭關係負責人｜MBA；常駐香港及北京｜Frances 擁有超過 25 年創投、資深政府關係、跨境商務發展、戰略合作與高淨值家庭關係管理經驗。她負責支持亞洲家庭溝通、區域教育合作、資源協調與跨國教育規劃。,,,,,Approved,
+Home,Team,team_lloyd,"Dr. Lloyd | Strategic Partner & Senior U.S. Education Strategy Advisor | Based in Philadelphia | Dr. Lloyd is a strategic partner of Animetro Education Consulting and brings over 40 years of experience in education consulting, U.S. school and university advising, academic pathway planning, student development, and family education guidance. He supports families with U.S. education strategy, university positioning, long-term student development, and educational fit within the North American education system.",Dr. Lloyd｜戰略合作夥伴｜美國教育策略資深顧問｜常駐費城｜Dr. Lloyd 是艾美加教育顧問的戰略合作夥伴，擁有超過 40 年教育顧問、美國學校與大學升學指導、學術路徑規劃、學生發展與家庭教育諮詢經驗。他支持家庭進行美國教育策略、大學定位、長期學生發展與北美教育體系下的教育匹配規劃。,,,,,Approved,
+Home,Team,team_David,"Prof. David | Senior Psychology & Student Development Advisor | PhD, University of Waterloo; Professor at the University of Toronto | Prof. David brings over 35 years of experience in psychology, student development, learning profiles, emotional well-being, and family support. As a Senior Advisor for Animetro Education Consulting, he supports the development of student well-being, psychoeducational understanding, and whole-person growth frameworks.",Prof. David｜資深心理學與學生發展顧問｜University of Waterloo 博士；University of Toronto 教授｜Prof. David 擁有超過 35 年心理學、學生發展、學習特質、情緒健康與家庭支持經驗。作為艾美加教育顧問的資深顧問，他支持學生心理健康、心理教育理解與完整人格成長框架的發展。,,,,,Approved,
+,Team,team_brooke,"Brooke Duan | Boarding School & Student Life Advisor; Director of Art Portfolio Development | Master’s degree in Print Media, Central Academy of Fine Arts; Senior Curator and Donor, Gu Yuan Art Museum, China; Project-Based Special Curator, The Metropolitan Museum of Art | Brooke has contributed to the preservation, donation, and public presentation of Gu Yuan’s artistic legacy, including the donation of over 300 pieces of Gu Yuan’s artworks and related materials to the Gu Yuan Art Museum. She supports students with boarding school adjustment, student life planning, and art portfolio development.",Brooke Duan｜寄宿學校與學生生活顧問；藝術作品集發展總監｜中央美術學院版畫專業碩士；中國古元美術館資深策展人與捐贈人；美國大都會藝術博物館項目制特邀策展人｜Brooke 長期參與古元藝術遺產的保存、捐贈與公共展示工作，包括向中國古元美術館捐贈超過 300 件古元藝術作品及相關資料。她支持學生寄宿學校適應、學生生活規劃與藝術作品集發展。,,,,,Approved,
+Home,Why,why_title,Why Families Choose Animetro,為什麼家庭選擇艾美加教育顧問,,,,,Approved,优势标题
+Home,Why,why_1,Personalized pathway planning,個性化路徑規劃,,,,,Approved,优势点
+Home,Why,why_2,Cross-border education insight,跨國教育體系經驗,,,,,Approved,优势点
+Home,Why,why_3,Family-centered guidance,以家庭為中心的諮詢支持,,,,,Approved,优势点
+Home,Why,why_4,"Academic, STEAM, athletics, and gifted learner strategy",學術、STEAM、運動員與天賦學生綜合規劃,,,,,Approved,优势点
+Home,Process,process_title,Our Consulting Process,我們的諮詢流程,,,,,Approved,流程标题
+Home,Process,process_1,Initial family consultation,初步家庭諮詢,,,,,Approved,流程步骤
+Home,Process,process_2,Student profile review,學生畫像與背景評估,,,,,Approved,流程步骤
+Home,Process,process_3,Personalized pathway strategy,个性化路径策略制定,,,,,Approved,流程步骤
+Home,Process,process_4,Ongoing planning and execution support,持续规划与执行支持,,,,,Approved,流程步骤
+Home,FAQ,faq_title,Frequently Asked Questions,常见问题,,,,,Approved,FAQ 标题
+Home,FAQ,faq_1_q,Who do you work with?,你們主要服務哪些家庭？,,,,,Approved,FAQ 问题
+Home,FAQ,faq_1_a,"We work with families seeking strategic education planning for private school, university, GPA management, STEAM, athletics, and gifted learner development.",我們服務希望進行私校申請、大學申請、GPA 管理、STEAM 發展、學生運動員規劃與招募，以及天賦學生與多元學習學生發展的家庭。,,,,,Approved,FAQ 回答
+Home,FAQ,faq_2_q,Do you provide both English and Chinese support?,你們提供英文和中文服務嗎？,,,,,Approved,FAQ 问题
+Home,FAQ,faq_2_a,Yes. Animetro provides bilingual communication support while keeping the website English and Chinese versions separate.,是的。艾美加教育顧問可以提供中英文沟通支持，但网站会保持英文版和中文版分开显示。,,,,,Approved,FAQ 回答
+Home,FAQ,faq_3_q,How are you different from traditional admissions agencies?,你們和傳統升學機構最大的不同是什麼？,,,,,,FAQ 问题
+Home,FAQ,faq_3_a,"Animetro Education Consulting is not a large-scale transactional admissions agency. We operate as a boutique, deeply personalized education consulting practice focused on long-term growth, educational fit, whole-person development, and sustainable strategic planning.",艾美加教育顧問不是大型流水線式升學機構，而是精品化、深度陪伴型的教育顧問服務。我們不只關注短期申請包裝，而更重視學生的長期成長路徑、教育環境匹配、自我認同建立、完整人格發展與可持續的教育策略。,,,,,Approved,FAQ 回答
+Home,FAQ,faq_4_q,Do you only help with school applications?,你們只是幫學生申請學校嗎？,,,,,Approved,FAQ 问题
+Home,FAQ,faq_4_a,"No. We do not only help students complete one application. We provide long-term support in educational strategy, academic planning, activity development, school selection, family decision-making, student well-being, and future identity building.",不是。我們不只是協助學生完成一次申請，而是從長期教育策略、學業管理、活動發展、學校選擇、家庭決策、心理健康與學生未來身份塑造等方面提供整體支持。,,,,,Approved,FAQ 回答
+Home,FAQ,faq_5_q,"Do you support gifted, neurodivergent, or highly sensitive students?",你們支持天賦、多元學習或高敏感學生嗎？,,,,,Approved,FAQ 问题
+Home,FAQ,faq_5_a,"Yes. We pay close attention to students’ cognitive profiles, emotional needs, executive function, school adjustment, identity development, and long-term growth. Many high-potential students need a more personalized support system to thrive.",是的。我們特別關注學生的認知方式、情緒需求、執行功能、學校適應、自我認同與長期發展。很多高潛力學生需要更個性化的支持系統，才能真正穩定成長。,,,,,Approved,FAQ 回答
+Home,Footer,footer_tagline,Strategic education consulting for future-ready students.,面向未來學生的戰略教育諮詢,,,,,Approved,页脚标语
+Home,Footer,footer_contact,Contact Animetro Education Consulting,联系 艾美加教育顧問,,,,,Approved,页脚联系
+Home,Education Strategy,education_strategy_title,Comprehensive Strategetic Education Strategy,全方位戰略教育規劃,,,,,Approved,区块标题
+Home,Education Strategy,education_strategy_subtitle,Build a clear long-term academic and personal growth pathway.,建立清晰的長期學業與個人成長路徑,,,,,Approved,区块副标题
+Home,Education Strategy,education_strategy_desc,"We help families understand the student’s strengths, academic profile, personality, interests, and future goals, then design a practical education roadmap.",我們幫助家庭理解學生的優勢、學業背景、性格特點、興趣方向與未來目標，並據此制定可執行的教育路線圖。,,,,,Approved,区块说明
+Home,Education Strategy,education_strategy_point_1,School selection and pathway planning,學校選擇與路徑規劃,,,,,Approved,要点
+Home,Education Strategy,education_strategy_point_2,Course planning and academic direction,課程規劃與學業方向,,,,,Approved,要点
+Home,Education Strategy,education_strategy_point_3,Extracurricular and enrichment strategy,課外活動與背景提升策略,,,,,Approved,要点
+Home,Education Strategy,education_strategy_point_4,Family decision-making support,家庭教育决策支持,,,,,Approved,要点
+,,,,,,,,,,
+Home,Prep School Admissions,prep_title,Elite Private School Applications,菁英私校申请,,,,,Approved,区块标题
+Home,Prep School Admissions,prep_subtitle,"Personalized guidance for private school, boarding school...",為 4–19 歲學生提供私立學校與寄宿學校申請指導,,,,,Approved,区块副标题
+Home,Prep School Admissions,prep_desc,"We support families through school research, student positioning, application planning, interviews, essays, parent communication, and final school decision-making.",我們為家庭提供學校調研、學生定位、申請規劃、面試準備、文書支持、家長溝通與最終擇校決策支持，涵蓋小學、初中、高中、私立學校與寄宿學校申請。,,,,,Approved,区块说明
+Home,Prep School Admissions,prep_point_1,School list strategy,學校名單策略,,,,,Approved,要点
+Home,Prep School Admissions,prep_point_2,Student profile positioning,學生背景定位,,,,,Approved,要点
+Home,Prep School Admissions,prep_point_3,Interview and application preparation,面試與申請準備,,,,,Approved,要点
+Home,Prep School Admissions,prep_point_4,Parent communication and decision support,家長溝通與擇校決策支持,,,,,Approved,要点
+,,,,,,,,,,
+Home,University Admissions,university_title,University Admissions,大學申請,,,,,Approved,区块标题
+Home,University Admissions,university_subtitle,"Strategic planning for university applications, essays, activities, and academic positioning.",建立有競爭力的美國及加拿大大學申請策略,,,,,Approved,区块副标题
+Home,University Admissions,university_desc,"We help students build a strong application narrative based on academic performance, interests, extracurricular activities, leadership, personal story, and future direction.",我們幫助學生基於學業表現、興趣方向、課外活動、領導力、個人故事與未來目標，建立有競爭力的大學申請敘事。,,,,,Approved,区块说明
+Home,University Admissions,university_point_1,Major and university fit strategy,美國及加拿大大學匹配策略,,,,,Approved,要点
+Home,University Admissions,university_point_2,Activity and leadership development,活動與領導力發展,,,,,Approved,要点
+Home,University Admissions,university_point_3,Essay and application narrative planning,文書與申請故事線規劃,,,,,Approved,要点
+Home,University Admissions,university_point_4,Scholarship and financial aid strategy,獎學金與助學金策略,,,,,Approved,要点
+,,,,,,,,,,
+Home,GPA Management,gpa_title,"GPA Management, Course Strategy & School Communication",GPA 管理、選課策略與學校溝通,,,,,Approved,区块标题
+Home,GPA Management,gpa_subtitle,Academic performance planning for stronger grades and healthier study routines.,提升學業表現，建立健康有效的學習系統,,,,,Approved,区块副标题
+Home,GPA Management,gpa_desc,"We help students identify academic gaps, improve study systems, plan course choices, manage workload, and build stronger communication with school and teachers.",我們幫助學生識別學業短板、改善學習系統、規劃選課、管理學習壓力，並建立更有效的學校與老師溝通方式。,,,,,Approved,区块说明
+Home,GPA Management,gpa_point_1,Course selection and workload planning,選課與學習負荷規劃,,,,,Approved,要点
+Home,GPA Management,gpa_point_2,Study routine and time management,學習習慣與時間管理,,,,,Approved,要点
+Home,GPA Management,gpa_point_3,Grade improvement strategy,成績提升策略,,,,,Approved,要点
+Home,GPA Management,gpa_point_4,School communication support,學校溝通支持,,,,,Approved,要点
+,,,,,,,,,,
+Home,STEAM Pathway,steam_title,STEAM Pathway,STEAM 成長路徑,,,,,Approved,区块标题
+Home,STEAM Pathway,steam_subtitle,"Build interdisciplinary strength through science, technology, engineering, arts, and mathematics.",建立跨學科競爭力與未來學術身份,,,,,Approved,区块副标题
+Home,STEAM Pathway,steam_desc,"We help students develop project-based experiences, competition pathways, research interests, robotics exposure, creative technology skills, and long-term STEM identity.",我們幫助學生透過科學、技術、工程、藝術與數學方向，發展項目式學習經歷、競賽路徑、研究興趣、機器人方向、創意科技能力與長期 STEM/STEAM 身份定位,,,,,Approved,区块说明
+Home,STEAM Pathway,steam_point_1,Robotics and engineering exposure,機器人與工程方向探索,,,,,Approved,要点
+Home,STEAM Pathway,steam_point_2,Competition and project planning,競賽與項目規劃,,,,,Approved,要点
+Home,STEAM Pathway,steam_point_3,Research and innovation development,研究與創新能力發展,,,,,Approved,要点
+Home,STEAM Pathway,steam_point_4,STEM identity building for applications,面向申請的 STEM/STEAM 身份塑造,,,,,Approved,要点
+,,,,,,,,,,
+Home,Student-Athlete,athlete_title,Student-Athlete Planning & Recruiting,學生運動員規劃與招募,,,,,Approved,区块标题
+Home,Student-Athlete,athlete_subtitle,"Support for students balancing academics, athletic development, and admissions goals.",在學業、運動與升學目標之間建立平衡路徑,,,,,Approved,区块副标题
+Home,Student-Athlete,athlete_desc,"We help student-athletes plan school fit, academic expectations, training schedules, athletic profiles, communication strategy, and long-term development pathways.",我們幫助學生運動員規劃學校匹配、學業要求、訓練安排、運動背景資料、教練溝通策略與長期升學發展路徑。,,,,,Approved,区块说明
+Home,Student-Athlete,athlete_point_1,Academic and athletic balance,學業與運動平衡,,,,,Approved,要点
+Home,Student-Athlete,athlete_point_2,School and team fit strategy,學校與隊伍匹配策略,,,,,Approved,要点
+Home,Student-Athlete,athlete_point_3,Athletic profile development,運動員背景資料建立,,,,,Approved,要点
+Home,Student-Athlete,athlete_point_4,Long-term training and admissions planning,長期訓練與升學規劃,,,,,Approved,要点
+,,,,,,,,,,
+Home,Gifted & Neurodiversity,gifted_title,Gifted & Neurodiversity Support,天賦與多元學習支持,,,,,Approved,区块标题
+Home,Gifted & Neurodiversity,gifted_subtitle,Supportive education planning for gifted learners and students with diverse learning profiles.,為天賦型學生和具有多元學習特點的學生提供支持性教育規劃,,,,,Approved,区块副标题
+Home,Gifted & Neurodiversity,gifted_desc,"We help families understand a student’s learning profile, emotional needs, strengths, challenges, school support options, enrichment opportunities, and advocacy needs.",我們幫助家庭理解學生的學習特點、情緒需求、優勢、挑戰、學校支持方式、拓展機會與權益溝通需求。,,,,,Approved,区块说明
+Home,Gifted & Neurodiversity,gifted_point_1,Strength-based student profile review,基於優勢的學生畫像分析,,,,,Approved,要点
+Home,Gifted & Neurodiversity,gifted_point_2,School support and accommodation guidance,學校支持與 accommodation 指導,,,,,Approved,要点
+Home,Gifted & Neurodiversity,gifted_point_3,Emotional and learning routine support,情緒與學習習慣支持,,,,,Approved,要点
+Home,Gifted & Neurodiversity,gifted_point_4,Family advocacy and communication strategy,家庭倡導與溝通策略,,,,,Approved,要点
+Home,Mental Health Support,mental_health_title,Student Mental Health Support,學生心理健康支持,,,zh/services/#mental-health-support,,Approved,區塊標題
+Home,Mental Health Support,mental_health_subtitle,Helping students build emotional stability while navigating academic pressure and school life,支持學生在學業壓力、情緒健康與學校適應中建立更穩定的成長狀態,,,,,Approved,區塊標題
+Home,Mental Health Support,mental_health_point_1,Academic stress and emotional well-being observation,學業壓力與情緒狀態觀察,,,,,Approved,要點
+Home,Mental Health Support,mental_health_point_2,School adjustment and peer relationship support,學校適應與人際關係支持,,,,,Approved,要點
+Home,Mental Health Support,mental_health_point_3,Family communication and parent-child relationship guidance,家庭溝通與親子關係協調,,,,,Approved,要點
+Home,Mental Health Support,mental_health_point_4,Referral suggestions for psychoeducational assessment or professional support when needed,必要時提供心理教育評估與專業資源轉介建議,,,,,Approved,要點
+Home,Guardianship Support,guardianship_title,Short-Term Guardianship & Student Care Support,短期監護與學生照顧支持,,,zh/services/#short-term-guardianship,,Approved,區塊標題
+Home,Guardianship Support,guardianship_subtitle,Stable and caring support for students when parents are temporarily away,在父母短期不在身邊時，為學生提供穩定、安全與有溫度的照顧支持,,,,,Approved,區塊副標題
+Home,Guardianship Support,guardianship_desc,"We support families when parents are temporarily outside Canada, traveling, returning home, or unable to manage student matters in person. Our short-term guardianship and student care support may include school communication, emergency contact support, daily care coordination, regular family updates, and assistance with school, medical, or accommodation-related matters when needed.",我們為父母短期不在加拿大、臨時出差、返國或無法親自處理學生事務的家庭，提供短期監護與學生照顧支持。服務可包括學校溝通、緊急聯絡、生活安排協調、家長定期回報，以及必要時協助處理醫療、學校或住宿相關事務，幫助學生在父母不在身邊期間保持學業、生活與情緒穩定。,,,,,Approved,區塊說明
+Home,Guardianship Support,guardianship_point_1,Short-term guardianship arrangement,短期監護安排,,,,,Approved,要點
+Home,Guardianship Support,guardianship_point_2,Communication with schools and teachers,學校與老師溝通,,,,,Approved,要點
+Home,Guardianship Support,guardianship_point_3,Emergency contact and accompaniment support,緊急聯絡與陪同支持,,,,,Approved,要點
+Home,Guardianship Support,guardianship_point_4,Daily student care coordination,學生日常生活協調,,,,,Approved,要點
+Home,Guardianship Support,guardianship_point_5,Regular updates while parents are away,家長不在期間的定期回報,,,,,Approved,要點
+Home,Guardianship Support,guardianship_point_6,"Support with school, medical, or accommodation-related matters when needed",必要時協助學校、醫療或住宿相關事務,,,,,Approved,要點
+Services,School Visit,school_visit_title,"Elite School Visit, Interview & Family Readiness Program",菁英學校深度訪校與面試準備服務,school-visit-interview,了解更多,zh/services/#school-visit-interview,,Approved,School Visit Service Content Keys:
+Services,School Visit,school_visit_subtitle,"Private school visits, interview preparation, school communication, and family decision support",為家庭提供學校參訪、面試準備、學校溝通與短期安排支持,,,,,Approved,school_visit_title
+Services,School Visit,school_visit_desc,"We support families exploring private schools, boarding schools, and international education pathways through in-depth school visit planning, interview preparation, school communication, and family decision support. This service may include school shortlisting, campus visit planning, student and parent interview preparation, first-round interview coaching, post-visit strategy review, and coordination of vacation programs, short-term stays, or student care when needed.",,我們為正在考慮私立學校、寄宿學校或國際教育路徑的家庭，提供深度訪校、學校溝通、面試準備與家庭決策支持。服務可包括學校名單規劃、校園參訪安排、學生與家長面試準備、第一輪面試輔導、訪校後策略分析，以及必要時的假期營隊、短期住宿或學生照顧協調。,,,,Approved,區塊說明
+Services,School Visit,school_visit_point_1,Elite school visit and itinerary planning,菁英學校訪校與行程規劃,,,,,Approved,要點
+Services,School Visit,school_visit_point_2,Student and parent interview preparation,學生與家長面試準備,,,,,Approved,要點
+Services,School Visit,school_visit_point_3,First-round interview coaching and mock interviews,第一輪面試輔導與模擬,,,,,Approved,要點
+Services,School Visit,school_visit_point_4,School communication and pre-visit preparation,學校溝通與訪校前準備,,,,,Approved,要點
+Services,School Visit,school_visit_point_5,Post-visit school fit and decision review,訪校後學校匹配與決策分析,,,,,Approved,要點
+Services,School Visit,school_visit_point_6,"Vacation camp, short-term stay, and student care coordination",假期營隊、短期住宿與學生照顧協調,,,,,Approved,要點

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Animetro Education Consulting daily logo</title>
+  <desc id="desc">Clean daily brand logo with A infinity monogram, English wordmark, and Chinese brand name without the laurel wreath.</desc>
+  <rect width="1200" height="1200" fill="#FFFFFF"/>
+  <g transform="translate(280 85) scale(1)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M190 450 L312 165 L434 450" stroke="#081A34" stroke-width="34"/>
+    <path d="M242 360 H382" stroke="#081A34" stroke-width="24"/>
+    <path d="M328 314 C376 246 438 246 486 314 C438 382 376 382 328 314 C280 246 218 246 170 314 C218 382 280 382 328 314 Z" stroke="#B58928" stroke-width="25"/>
+    <path d="M170 492 H470" stroke="#B58928" stroke-width="12"/>
+    <circle cx="320" cy="492" r="13" fill="#B58928" stroke="none"/>
+  </g>
+  <text x="600" y="755" text-anchor="middle" fill="#081A34" font-family="Cinzel, Cormorant Garamond, Trajan Pro, Libre Baskerville, Baskerville, Georgia, serif" font-size="82" font-weight="600" letter-spacing="9">ANIMETRO</text>
+  <text x="600" y="835" text-anchor="middle" fill="#B58928" font-family="Cormorant Garamond, Libre Baskerville, Baskerville, Georgia, serif" font-size="34" letter-spacing="7">EDUCATION CONSULTING</text>
+  <path d="M380 885 H820" stroke="#B58928" stroke-width="4"/>
+  <text x="600" y="958" text-anchor="middle" fill="#081A34" font-family="Noto Serif CJK SC, Songti SC, STSong, serif" font-size="40" letter-spacing="3">艾美加教育顾问</text>
+</svg>

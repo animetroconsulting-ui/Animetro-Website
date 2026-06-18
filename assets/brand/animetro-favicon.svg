@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Animetro A infinity monogram</title>
+  <desc id="desc">A clean navy and gold A infinity monogram for Animetro Education Consulting.</desc>
+  <rect width="640" height="640" fill="none"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M190 450 L312 165 L434 450" stroke="#081A34" stroke-width="34"/>
+    <path d="M242 360 H382" stroke="#081A34" stroke-width="24"/>
+    <path d="M328 314 C376 246 438 246 486 314 C438 382 376 382 328 314 C280 246 218 246 170 314 C218 382 280 382 328 314 Z" stroke="#B58928" stroke-width="25"/>
+    <path d="M170 492 H470" stroke="#B58928" stroke-width="12"/>
+    <circle cx="320" cy="492" r="13" fill="#B58928" stroke="none"/>
+  </g>
+</svg>
