@@ -15,7 +15,7 @@ The Google Sheet named **Animetro Website Content Master** is the single source 
 
 Required tabs:
 
-- `websitecontentmaster`
+- `websitecontentmaster01` (the sync also accepts `websitecontentmaster`)
 - `Brand Identity`
 - `Website Images`
 
@@ -60,7 +60,13 @@ Add these secrets in GitHub:
 - `GOOGLE_SHEET_ID`: the spreadsheet ID for **Animetro Website Content Master**
 - `GOOGLE_SERVICE_ACCOUNT_JSON`: the full JSON credentials for a Google service account that can read the spreadsheet
 
-The spreadsheet ID is the long value in a Google Sheet URL:
+This repository is already configured to use this spreadsheet by default:
+
+```text
+1MjWHgypp0SItMQI6AHiUoTAqTzhe8pyeFVUblcnSDTg
+```
+
+You only need to set `GOOGLE_SHEET_ID` if you want to override that default. The spreadsheet ID is the long value in a Google Sheet URL:
 
 ```text
 https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
