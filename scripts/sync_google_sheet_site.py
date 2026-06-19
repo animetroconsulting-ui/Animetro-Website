@@ -32,7 +32,17 @@ EN_DIR = ROOT / "en"
 ZH_DIR = ROOT / "zh"
 
 REQUIRED_TABS = {
-    "websitecontentmaster": ["websitecontentmaster", "websitecontentmaster01", "Website Content Master"],
+    "websitecontentmaster": [
+        "Website-conetent-2",
+        "Website-content-2",
+        "Website Content 2",
+        "website-content 2",
+        "websitecontent2",
+        "website-content-1",
+        "websitecontentmaster",
+        "websitecontentmaster01",
+        "Website Content Master",
+    ],
     "Brand Identity": ["Brand Identity", "brand identity", "    Brand Identity"],
     "Website Images": ["Website Images", "website images"],
 }
