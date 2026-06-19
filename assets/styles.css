@@ -779,7 +779,7 @@ p {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(260px, 1fr) minmax(200px, 0.75fr) minmax(420px, 1.35fr);
+  grid-template-columns: minmax(260px, 1fr) minmax(200px, 0.72fr) minmax(360px, 1.15fr);
   align-items: center;
   gap: 26px;
 }
@@ -815,7 +815,7 @@ p {
 }
 
 .footer-contact,
-.footer-nav {
+.footer-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 16px;
@@ -829,20 +829,76 @@ p {
 }
 
 .footer-contact a,
-.footer-nav a {
+.footer-actions a {
   color: inherit;
 }
 
 .footer-contact a:hover,
-.footer-nav a:hover {
+.footer-actions a:hover {
   color: #ffffff;
 }
 
-.footer-nav {
+.footer-actions {
+  align-items: center;
   justify-content: flex-end;
-  color: rgba(255, 255, 255, 0.76);
-  font-size: 0.94rem;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.footer-cta {
+  display: inline-grid;
+  gap: 2px;
+  min-width: 132px;
+  padding: 11px 16px;
+  border: 1px solid rgba(231, 199, 130, 0.68);
+  border-radius: 999px;
+  color: #12223d;
+  background: #f2d48a;
+  font-size: 0.98rem;
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.footer-cta small {
+  color: rgba(18, 34, 61, 0.78);
+  font-size: 0.74rem;
   font-weight: 700;
+}
+
+.footer-cta:hover,
+.footer-cta:focus-visible {
+  color: #08162a;
+  background: #ffe1a1;
+  box-shadow: 0 0 0 3px rgba(231, 199, 130, 0.24);
+}
+
+.footer-qr-list {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.footer-qr {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.footer-qr img {
+  display: block;
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  padding: 5px;
+  border: 1px solid rgba(231, 199, 130, 0.35);
+  border-radius: 8px;
+  background: #ffffff;
 }
 
 .zh-home {
@@ -1133,7 +1189,11 @@ p {
     gap: 22px;
   }
 
-  .footer-nav {
+  .footer-actions {
+    justify-content: flex-start;
+  }
+
+  .footer-qr-list {
     justify-content: flex-start;
   }
 
