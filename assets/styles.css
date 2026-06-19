@@ -847,7 +847,8 @@ p {
 .footer-cta {
   display: inline-grid;
   gap: 2px;
-  min-width: 132px;
+  max-width: 220px;
+  min-width: 180px;
   padding: 11px 16px;
   border: 1px solid rgba(231, 199, 130, 0.68);
   border-radius: 999px;
@@ -885,9 +886,11 @@ p {
   justify-items: center;
   margin: 0;
   color: rgba(255, 255, 255, 0.82);
-  font-size: 0.74rem;
+  max-width: 104px;
+  font-size: 0.72rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.18;
+  text-align: center;
 }
 
 .footer-qr img {
@@ -899,6 +902,14 @@ p {
   border: 1px solid rgba(231, 199, 130, 0.35);
   border-radius: 8px;
   background: #ffffff;
+}
+
+.footer-copyright {
+  width: min(1120px, calc(100% - 32px));
+  margin: 22px auto 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.82rem;
+  line-height: 1.4;
 }
 
 .zh-home {
