@@ -239,14 +239,14 @@ def hero_slideshow_html(lang: str) -> str:
     if lang == "zh":
         return """<aside class="hero-media hero-slideshow" aria-label="私人教育諮詢">
           <img src="/assets/images/hero-consulting-1.jpg" alt="家庭與教育顧問諮詢">
-          <img src="/assets/images/hero-consulting-2.jpg" alt="學生與家庭教育規劃諮詢">
-          <img src="/assets/images/hero-consulting-3.png" alt="Animetro Consulting 成長超越升學品牌圖">
+          <img src="/assets/images/hero-consulting-2.png" alt="學生與家庭教育規劃諮詢">
+          <img src="/assets/images/hero-consulting-3.jpg" alt="Animetro Consulting 成長超越升學品牌圖">
         </aside>"""
 
     return """<aside class="hero-media hero-slideshow" aria-label="Private education consultation">
           <img src="/assets/images/hero-consulting-1.jpg" alt="Family meeting with an education consultant">
-          <img src="/assets/images/hero-consulting-2.jpg" alt="Student and family consultation with an advisor">
-          <img src="/assets/images/hero-consulting-3.png" alt="Animetro Consulting growth beyond admission banner">
+          <img src="/assets/images/hero-consulting-2.png" alt="Student and family consultation with an advisor">
+          <img src="/assets/images/hero-consulting-3.jpg" alt="Animetro Consulting growth beyond admission banner">
         </aside>"""
 
 
