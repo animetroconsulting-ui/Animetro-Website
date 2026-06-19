@@ -471,6 +471,21 @@ p {
   margin-top: 24px;
 }
 
+.philosophy-image {
+  margin: 28px 0 0;
+  overflow: hidden;
+  border: 1px solid rgba(181, 138, 68, 0.24);
+  border-radius: 8px;
+  background: #fff7e8;
+}
+
+.philosophy-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
 .page-hero {
   padding: 72px 0 34px;
 }
