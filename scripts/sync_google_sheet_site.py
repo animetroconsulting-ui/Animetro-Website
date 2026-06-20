@@ -47,7 +47,11 @@ REQUIRED_TABS = {
     "Website Images": ["Website Images", "website images"],
 }
 SHEETS_SCOPE = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
-NAV_KEYS = ["home", "services", "about", "events", "resources", "contact"]
+NAV_KEYS = ["home", "services", "about", "resources", "insights", "events", "contact"]
+HEADER_LOGO_SRC = "/assets/brand/exports/animetro-header-logo-light-2026.png"
+FOOTER_LOGO_SRC = "/assets/brand/exports/animetro-header-logo-dark-2026.png"
+FAVICON_SRC = "/assets/brand/exports/animetro-favicon-logo-2026.png"
+APP_ICON_SRC = "/assets/brand/exports/animetro-app-icon-logo-2026.png"
 
 
 @dataclass
@@ -190,6 +194,14 @@ def first(row: dict[str, str], names: list[str], default: str = "") -> str:
     return default
 
 
+def normalize_brand_text(value: str) -> str:
+    return (
+        value.replace("Growth Beyong Admission", "Growth Beyond Admission")
+        .replace("Growth Beyond Admissions", "Growth Beyond Admission")
+        .replace("Education Beyond Admission", "Growth Beyond Admission")
+    )
+
+
 def row_key(row: dict[str, str]) -> str:
     return first(row, ["key", "content key", "content_key", "id", "slug", "field"])
 
@@ -224,10 +236,10 @@ def build_key_index(rows: list[dict[str, str]]) -> dict[str, dict[str, str]]:
 
 def lang_value(row: dict[str, str] | None, lang: str, default: str = "") -> str:
     if not row:
-        return default
+        return normalize_brand_text(default)
     if lang == "en":
-        return first(row, ["English Text", "English", "en", "english_content", "content_en", "value_en"], default)
-    return first(row, ["Traditional Chinese Text", "Chinese Text", "zh", "Chinese", "traditional_chinese", "zh_hant", "content_zh", "value_zh"], default)
+        return normalize_brand_text(first(row, ["English Text", "English", "en", "english_content", "content_en", "value_en"], default))
+    return normalize_brand_text(first(row, ["Traditional Chinese Text", "Chinese Text", "zh", "Chinese", "traditional_chinese", "zh_hant", "content_zh", "value_zh"], default))
 
 
 def text(index: dict[str, dict[str, str]], key: str, lang: str, default: str = "") -> str:
@@ -271,10 +283,11 @@ def nav_html(index: dict[str, dict[str, str]], lang: str, active: str, depth: in
         cls = ' class="active"' if active == nav_key else ""
         links.append(f'<a{cls} href="{href}">{escape(label)}</a>')
     links.append(f'<a class="lang-link" href="{other}" lang="zh-Hant">{escape(other_label)}</a>')
+    links.append('<a class="nav-cta" href="/start-here">Start Here</a>')
     nav_links_html = "\n          ".join(links)
     return f'''    <header class="site-header">
       <nav class="nav" aria-label="Main navigation">
-        <a class="brand" href="{home}" aria-label="{escape(logo_alt)} home"><img class="brand-logo" src="/assets/brand/exports/website-header-transparent.png" alt="{escape(logo_alt)}"></a>
+        <a class="brand" href="{home}" aria-label="{escape(logo_alt)} home"><img class="brand-logo" src="{HEADER_LOGO_SRC}" alt="{escape(logo_alt)}"></a>
         <div class="nav-links">
           {nav_links_html}
         </div>
@@ -290,7 +303,11 @@ def sheet_asset_path(value: str, fallback: str) -> str:
         return asset
     aliases = {
         "finallogo0617.png": "/assets/brand/exports/animetro-primary-transparent.png",
-        "animetrowebsite_header0617.png": "/assets/brand/exports/website-header-transparent.png",
+        "animetrowebsite_header0617.png": HEADER_LOGO_SRC,
+        "animetro-header-logo-light-2026.png": HEADER_LOGO_SRC,
+        "animetro-header-logo-dark-2026.png": FOOTER_LOGO_SRC,
+        "animetro-favicon-logo-2026.png": FAVICON_SRC,
+        "animetro-app-icon-logo-2026.png": APP_ICON_SRC,
         "wechat-qr.jpg": "/assets/images/contact/wechat-qr.jpeg",
         "wechat-qr.jpeg": "/assets/images/contact/wechat-qr.jpeg",
         "whatsapp-qr.jpg": "/assets/images/contact/whatsapp-qr.jpeg",
@@ -315,7 +332,7 @@ def hero_slideshow_html(lang: str) -> str:
 
 def footer_html(index: dict[str, dict[str, str]], lang: str) -> str:
     is_zh = lang == "zh"
-    logo_alt = text(index, "footer_logo", lang, "艾美加教育顧問" if is_zh else "Animetro Consulting")
+    logo_alt = "Animetro Consulting"
     tagline = text(index, "footer_tagline", lang, "成長超越升學" if is_zh else "Growth Beyond Admission")
     phone = text(index, "footer_phone", lang, "905-955-7068")
     email = text(index, "footer_email", lang, "consulting@animetro.ca")
@@ -323,14 +340,14 @@ def footer_html(index: dict[str, dict[str, str]], lang: str) -> str:
     website_href = link_value(index, "footer_website", "https://www.animetro.ca/")
     copyright_text = text(index, "footer_copyright", lang, "© 2026 艾美加教育顧問．版權所有" if is_zh else "© 2026 Animetro Consulting. All Rights Reserved.")
     contact_label = "聯絡方式" if is_zh else "Contact"
-    services_label = text(index, "nav_services", lang, "服務" if is_zh else "Services")
+    nav_label = "網站導覽" if is_zh else "Explore"
     qr_label = "二维码" if is_zh else "QR Codes"
-    get_started = "開始諮詢" if is_zh else "Get Started"
+    get_started = "Start Here"
     qr_wechat = text(index, "footer_wechat_label", lang, "掃碼添加微信" if is_zh else "Scan to connect on WeChat")
     qr_whatsapp = text(index, "footer_whatsapp_label", lang, "掃碼聯絡 WhatsApp" if is_zh else "Scan to connect on WhatsApp")
     footer_logo_src = sheet_asset_path(
         link_value(index, "footer_logo") or image_value(index, "footer_logo"),
-        "/assets/brand/exports/animetro-primary-transparent.png",
+        FOOTER_LOGO_SRC,
     )
     whatsapp_src = sheet_asset_path(
         link_value(index, "footer_whatsapp_qr") or image_value(index, "footer_whatsapp_qr"),
@@ -341,7 +358,12 @@ def footer_html(index: dict[str, dict[str, str]], lang: str) -> str:
         "/assets/images/contact/wechat-qr.jpeg",
     )
     base = "/zh" if is_zh else "/en"
-    service_links = service_link_items(index, lang, footer=True)
+    nav_links = []
+    for nav_key in NAV_KEYS:
+        label = text(index, f"nav_{nav_key}", lang, nav_key.title())
+        href = base + "/" if nav_key == "home" else f"{base}/{nav_key}/"
+        nav_links.append(f'<a href="{href}">{escape(label)}</a>')
+    nav_links_html = "\n          ".join(nav_links)
     return f'''    <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-brand"><img class="footer-logo" src="{escape(footer_logo_src)}" alt="{escape(logo_alt)}"><span>{escape(logo_alt)}<small>{escape(tagline)}</small></span></div>
@@ -350,14 +372,14 @@ def footer_html(index: dict[str, dict[str, str]], lang: str) -> str:
           <a href="tel:+19059557068">{escape(phone)}</a>
           <a href="mailto:{escape(email)}">{escape(email)}</a>
           <a href="{escape(website_href)}">{escape(website)}</a>
-          <a class="footer-cta" href="{base}/contact/">{escape(get_started)}</a>
         </div>
-        <nav class="footer-services" aria-label="{escape(services_label)}">
-          <p class="footer-column-title">{escape(services_label)}</p>
-          {service_links}
+        <nav class="footer-services" aria-label="{escape(nav_label)}">
+          <p class="footer-column-title">{escape(nav_label)}</p>
+          {nav_links_html}
         </nav>
         <div class="footer-actions">
           <p class="footer-column-title">{escape(qr_label)}</p>
+          <a class="footer-cta" href="/start-here">{escape(get_started)}</a>
           <div class="footer-qr-list" aria-label="{escape(qr_label)}">
             <figure class="footer-qr"><img src="{escape(whatsapp_src)}" alt="WhatsApp QR code"><figcaption>{escape(qr_whatsapp)}</figcaption></figure>
             <figure class="footer-qr"><img src="{escape(wechat_src)}" alt="WeChat QR code"><figcaption>{escape(qr_wechat)}</figcaption></figure>
@@ -376,8 +398,8 @@ def page_shell(index: dict[str, dict[str, str]], lang: str, active: str, title_s
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/assets/brand/uploads/05_Animetro_Social_Icon.png" type="image/png">
-    <link rel="apple-touch-icon" href="/assets/brand/uploads/05_Animetro_Social_Icon.png">
+    <link rel="icon" href="{FAVICON_SRC}" type="image/png">
+    <link rel="apple-touch-icon" href="{APP_ICON_SRC}">
     <title>{escape(page_title(lang, title_suffix))}</title>{desc}
     <link rel="stylesheet" href="{rel_css(depth)}">
   </head>
@@ -635,6 +657,8 @@ def write_site(tables: dict[str, SheetTable]) -> None:
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="refresh" content="0; url=/en/">
     <link rel="canonical" href="/en/">
+    <link rel="icon" href="/assets/brand/exports/animetro-favicon-logo-2026.png" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/brand/exports/animetro-app-icon-logo-2026.png">
     <title>Animetro Consulting</title>
   </head>
   <body>

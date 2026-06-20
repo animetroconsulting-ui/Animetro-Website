@@ -1,14 +1,15 @@
 :root {
-  --ink: #17243a;
+  --ink: #0b2e63;
   --muted: #5d6674;
-  --paper: #fffdf8;
+  --paper: #ffffff;
   --panel: #ffffff;
-  --linen: #f6f0e6;
-  --navy: #20365f;
-  --gold: #b58a44;
-  --gold-soft: #efe2c7;
+  --linen: #f8f4eb;
+  --navy: #0b2e63;
+  --gold: #d4a017;
+  --gold-soft: #f3d27a;
+  --charcoal: #2e2e2e;
   --line: #e7ddcf;
-  --shadow: 0 22px 60px rgba(31, 45, 77, 0.1);
+  --shadow: 0 22px 60px rgba(11, 46, 99, 0.1);
   font-family: "Inter", "Segoe UI", "Noto Sans", "Noto Sans TC", Arial, sans-serif;
 }
 
@@ -37,14 +38,14 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid rgba(181, 138, 68, 0.32);
-  background: rgba(246, 238, 224, 0.97);
+  border-bottom: 1px solid rgba(212, 160, 23, 0.22);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(16px);
 }
 
 .nav {
-  width: min(1120px, calc(100% - 32px));
-  min-height: 104px;
+  width: min(1240px, calc(100% - 32px));
+  min-height: 112px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -74,8 +75,8 @@ a {
 .brand-logo {
   display: block;
   width: auto;
-  max-width: min(470px, 56vw);
-  height: 104px;
+  max-width: min(520px, 42vw);
+  height: 112px;
   object-fit: contain;
 }
 
@@ -118,9 +119,9 @@ html[lang="zh-Hant"] .button {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   color: var(--muted);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 650;
 }
 
@@ -135,6 +136,21 @@ html[lang="zh-Hant"] .button {
   border-radius: 999px;
   color: var(--navy);
   background: var(--panel);
+}
+
+.nav-cta {
+  padding: 10px 16px;
+  border: 1px solid rgba(212, 160, 23, 0.78);
+  border-radius: 999px;
+  color: var(--navy);
+  background: var(--gold);
+  box-shadow: 0 10px 24px rgba(212, 160, 23, 0.18);
+}
+
+.nav-links .nav-cta:hover,
+.nav-links .nav-cta:focus-visible {
+  color: var(--navy);
+  background: var(--gold-soft);
 }
 
 .hero,
@@ -347,9 +363,9 @@ p {
   justify-content: center;
   padding: 12px 18px;
   border-radius: 999px;
-  border: 1px solid var(--navy);
-  background: var(--navy);
-  color: #fff;
+  border: 1px solid rgba(212, 160, 23, 0.88);
+  background: var(--gold);
+  color: var(--navy);
   font-size: 0.98rem;
   font-weight: 700;
 }
@@ -357,6 +373,7 @@ p {
 .button.secondary {
   background: transparent;
   color: var(--navy);
+  border-color: var(--navy);
 }
 
 .hero-card {
@@ -747,7 +764,7 @@ p {
   border-radius: 8px;
   padding: 13px 14px;
   color: var(--ink);
-  background: #fffdf8;
+  background: #ffffff;
   font: inherit;
 }
 
@@ -795,24 +812,25 @@ p {
 }
 
 .site-footer {
-  border-top: 1px solid rgba(181, 138, 68, 0.28);
-  padding: 26px 0 20px;
+  border-top: 1px solid rgba(212, 160, 23, 0.38);
+  padding: 30px 0 20px;
   color: rgba(255, 255, 255, 0.82);
-  background: linear-gradient(135deg, #12223d 0%, #20365f 100%);
+  background: linear-gradient(135deg, #071b3a 0%, #0b2e63 100%);
 }
 
 .footer-inner {
-  width: min(1120px, calc(100% - 32px));
+  width: min(1240px, calc(100% - 32px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(250px, 1.1fr) minmax(180px, 0.8fr) minmax(190px, 0.9fr) minmax(250px, 1fr);
+  grid-template-columns: minmax(320px, 1.25fr) minmax(180px, 0.8fr) minmax(210px, 0.9fr) minmax(310px, 1fr);
   align-items: start;
   gap: 22px 26px;
 }
 
 .footer-brand {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
   gap: 14px;
   min-width: 0;
 }
@@ -828,14 +846,14 @@ p {
 .footer-brand small {
   display: block;
   margin-top: 4px;
-  color: #e7c782;
+  color: var(--gold-soft);
   font-size: 0.92rem;
   font-weight: 700;
   line-height: 1.35;
 }
 
 .footer-logo {
-  width: 86px;
+  width: min(300px, 100%);
   height: auto;
   flex: 0 0 auto;
 }
@@ -843,7 +861,7 @@ p {
 .footer-column-title {
   width: 100%;
   margin: 0 0 2px;
-  color: #e7c782;
+  color: var(--gold-soft);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -880,22 +898,29 @@ p {
 }
 
 .footer-actions {
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  gap: 14px;
   color: rgba(255, 255, 255, 0.86);
 }
 
+.footer-actions .footer-column-title {
+  flex-basis: 100%;
+  text-align: right;
+}
+
 .footer-cta {
-  display: inline-grid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: 2px;
-  max-width: 220px;
-  min-width: 180px;
-  padding: 11px 16px;
-  border: 1px solid rgba(231, 199, 130, 0.68);
+  min-width: 150px;
+  padding: 12px 18px;
+  border: 1px solid rgba(212, 160, 23, 0.88);
   border-radius: 999px;
-  color: #12223d;
-  background: #f2d48a;
+  color: var(--navy);
+  background: var(--gold);
   font-size: 0.98rem;
   font-weight: 800;
   line-height: 1.1;
@@ -910,8 +935,8 @@ p {
 
 .footer-cta:hover,
 .footer-cta:focus-visible {
-  color: #08162a;
-  background: #ffe1a1;
+  color: var(--navy);
+  background: var(--gold-soft);
   box-shadow: 0 0 0 3px rgba(231, 199, 130, 0.24);
 }
 
@@ -1015,7 +1040,7 @@ p {
 .zh-home {
   background:
     radial-gradient(circle at 12% 8%, rgba(239, 226, 199, 0.7), transparent 28%),
-    linear-gradient(180deg, #fffdf8 0%, #fbf4e8 48%, #fffdf8 100%);
+    linear-gradient(180deg, #ffffff 0%, #f8f4eb 48%, #ffffff 100%);
 }
 
 .zh-home .site-header {
@@ -1113,7 +1138,7 @@ p {
 
 .zh-home .button.secondary {
   border-color: rgba(181, 138, 68, 0.7);
-  background: #fffdf8;
+  background: #ffffff;
   color: #1d365d;
   box-shadow: none;
 }
@@ -1218,7 +1243,7 @@ p {
 }
 
 .zh-home .why-section {
-  background: #fffdf8;
+  background: #ffffff;
 }
 
 .zh-home .why-section .section {
@@ -1255,7 +1280,7 @@ p {
 .zh-home .why-card h3 {
   position: relative;
   padding-top: 18px;
-  color: #20365f;
+  color: #0b2e63;
   font-size: 1.12rem;
 }
 
@@ -1291,8 +1316,8 @@ p {
   }
 
   .brand-logo {
-    height: 64px;
-    max-width: min(330px, 84vw);
+    height: 76px;
+    max-width: min(360px, 88vw);
   }
 
   .footer-inner {
@@ -1303,6 +1328,10 @@ p {
   .footer-actions {
     justify-content: flex-start;
     flex-wrap: wrap;
+  }
+
+  .footer-actions .footer-column-title {
+    text-align: left;
   }
 
   .footer-qr-list {
