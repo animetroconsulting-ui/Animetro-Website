@@ -21,7 +21,6 @@ from pathlib import Path
 from typing import Any
 
 from google.oauth2 import service_account
-from google.auth import default as google_auth_default
 from googleapiclient.discovery import build
 
 
@@ -64,13 +63,32 @@ def env_required(name: str) -> str:
 
 
 def credentials():
-    raw_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "").strip()
-    if raw_json:
-        info = json.loads(raw_json)
-        return service_account.Credentials.from_service_account_info(info, scopes=SHEETS_SCOPE)
+    raw_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "")
+    trimmed_json = raw_json.strip()
+    diagnostic = f"GOOGLE_SERVICE_ACCOUNT_JSON length: {len(raw_json)}"
+    if (
+        not trimmed_json
+        or not trimmed_json.startswith("{")
+        or not trimmed_json.endswith("}")
+    ):
+        raise RuntimeError(
+            "GOOGLE_SERVICE_ACCOUNT_JSON is empty or invalid. "
+            "Paste the full downloaded Google service account JSON file content into "
+            "the GitHub repository secret. It must start with { and end with }. "
+            + diagnostic
+        )
 
-    creds, _ = google_auth_default(scopes=SHEETS_SCOPE)
-    return creds
+    try:
+        info = json.loads(trimmed_json)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(
+            "GOOGLE_SERVICE_ACCOUNT_JSON is empty or invalid. "
+            "Paste the full downloaded Google service account JSON file content into "
+            "the GitHub repository secret. It must start with { and end with }. "
+            + diagnostic
+        ) from exc
+
+    return service_account.Credentials.from_service_account_info(info, scopes=SHEETS_SCOPE)
 
 
 def sheets_service():
