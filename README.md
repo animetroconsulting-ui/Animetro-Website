@@ -15,7 +15,7 @@ The Google Sheet named **Animetro Website Content Master** is the single source 
 
 Required tabs:
 
-- `websitecontentmaster01` (the sync also accepts `websitecontentmaster`)
+- `Website-conetent-2` (the sync also accepts common `Website Content 2` spelling variants and older `websitecontentmaster` names)
 - `Brand Identity`
 - `Website Images`
 

@@ -21,7 +21,6 @@ from pathlib import Path
 from typing import Any
 
 from google.oauth2 import service_account
-from google.auth import default as google_auth_default
 from googleapiclient.discovery import build
 
 
@@ -32,7 +31,17 @@ EN_DIR = ROOT / "en"
 ZH_DIR = ROOT / "zh"
 
 REQUIRED_TABS = {
-    "websitecontentmaster": ["websitecontentmaster", "websitecontentmaster01", "Website Content Master"],
+    "websitecontentmaster": [
+        "Website-conetent-2",
+        "Website-content-2",
+        "Website Content 2",
+        "website-content 2",
+        "websitecontent2",
+        "website-content-1",
+        "websitecontentmaster",
+        "websitecontentmaster01",
+        "Website Content Master",
+    ],
     "Brand Identity": ["Brand Identity", "brand identity", "    Brand Identity"],
     "Website Images": ["Website Images", "website images"],
 }
@@ -54,13 +63,32 @@ def env_required(name: str) -> str:
 
 
 def credentials():
-    raw_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "").strip()
-    if raw_json:
-        info = json.loads(raw_json)
-        return service_account.Credentials.from_service_account_info(info, scopes=SHEETS_SCOPE)
+    raw_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "")
+    trimmed_json = raw_json.strip()
+    diagnostic = f"GOOGLE_SERVICE_ACCOUNT_JSON length: {len(raw_json)}"
+    if (
+        not trimmed_json
+        or not trimmed_json.startswith("{")
+        or not trimmed_json.endswith("}")
+    ):
+        raise RuntimeError(
+            "GOOGLE_SERVICE_ACCOUNT_JSON is empty or invalid. "
+            "Paste the full downloaded Google service account JSON file content into "
+            "the GitHub repository secret. It must start with { and end with }. "
+            + diagnostic
+        )
 
-    creds, _ = google_auth_default(scopes=SHEETS_SCOPE)
-    return creds
+    try:
+        info = json.loads(trimmed_json)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(
+            "GOOGLE_SERVICE_ACCOUNT_JSON is empty or invalid. "
+            "Paste the full downloaded Google service account JSON file content into "
+            "the GitHub repository secret. It must start with { and end with }. "
+            + diagnostic
+        ) from exc
+
+    return service_account.Credentials.from_service_account_info(info, scopes=SHEETS_SCOPE)
 
 
 def sheets_service():
@@ -239,14 +267,14 @@ def hero_slideshow_html(lang: str) -> str:
     if lang == "zh":
         return """<aside class="hero-media hero-slideshow" aria-label="私人教育諮詢">
           <img src="/assets/images/hero-consulting-1.jpg" alt="家庭與教育顧問諮詢">
-          <img src="/assets/images/hero-consulting-2.jpg" alt="學生與家庭教育規劃諮詢">
-          <img src="/assets/images/hero-consulting-3.png" alt="Animetro Consulting 成長超越升學品牌圖">
+          <img src="/assets/images/hero-consulting-2.png" alt="學生與家庭教育規劃諮詢">
+          <img src="/assets/images/hero-consulting-3.jpg" alt="Animetro Consulting 成長超越升學品牌圖">
         </aside>"""
 
     return """<aside class="hero-media hero-slideshow" aria-label="Private education consultation">
           <img src="/assets/images/hero-consulting-1.jpg" alt="Family meeting with an education consultant">
-          <img src="/assets/images/hero-consulting-2.jpg" alt="Student and family consultation with an advisor">
-          <img src="/assets/images/hero-consulting-3.png" alt="Animetro Consulting growth beyond admission banner">
+          <img src="/assets/images/hero-consulting-2.png" alt="Student and family consultation with an advisor">
+          <img src="/assets/images/hero-consulting-3.jpg" alt="Animetro Consulting growth beyond admission banner">
         </aside>"""
 
 
