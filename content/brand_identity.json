@@ -1,0 +1,474 @@
+[
+  {
+    "category": "Company Information",
+    "item": "Company Name",
+    "english_value": "Animetro Consulting",
+    "chinese_value": "Animetro教育咨询",
+    "status": "Approved",
+    "notes": "Official business name"
+  },
+  {
+    "category": "Company Information",
+    "item": "Website",
+    "english_value": "www.animetro.ca",
+    "chinese_value": "www.animetro.ca",
+    "status": "Approved",
+    "notes": "Official website"
+  },
+  {
+    "category": "Company Information",
+    "item": "Email",
+    "english_value": "consulting@animetro.ca",
+    "chinese_value": "consulting@animetro.ca",
+    "status": "Approved",
+    "notes": "Primary contact email"
+  },
+  {
+    "category": "Company Information",
+    "item": "Location",
+    "english_value": "Richmond Hill, Ontario, Canada",
+    "chinese_value": "加拿大安大略省 Richmond Hill",
+    "status": "Approved",
+    "notes": "Primary location"
+  },
+  {
+    "category": "Company Information",
+    "item": "Service Area",
+    "english_value": "Canada, United States, International Families",
+    "chinese_value": "加拿大、美国及国际家庭",
+    "status": "Approved",
+    "notes": "Service coverage"
+  },
+  {
+    "category": "Brand Positioning",
+    "item": "Tagline",
+    "english_value": "Growth Beyond Admission",
+    "chinese_value": "成長超越升學",
+    "status": "Approved",
+    "notes": "Primary tagline"
+  },
+  {
+    "category": "Brand Positioning",
+    "item": "Mission",
+    "english_value": "Empower students and families through strategic education planning and personalized pathways.",
+    "chinese_value": "通过战略教育规划和个性化发展路径赋能学生与家庭",
+    "status": "Approved",
+    "notes": "Official mission"
+  },
+  {
+    "category": "Brand Positioning",
+    "item": "Vision",
+    "english_value": "Help every student discover and achieve their best future pathway.",
+    "chinese_value": "帮助每位学生发现并实现最适合自己的未来发展道路",
+    "status": "Approved",
+    "notes": "Official vision"
+  },
+  {
+    "category": "Brand Positioning",
+    "item": "Value Proposition",
+    "english_value": "Comprehensive strategic education consulting from childhood to university admissions.",
+    "chinese_value": "从儿童成长到大学申请的一站式战略教育咨询服务",
+    "status": "Approved",
+    "notes": "Core positioning"
+  },
+  {
+    "category": "Brand Voice",
+    "item": "Tone",
+    "english_value": "Professional",
+    "chinese_value": "专业",
+    "status": "Approved",
+    "notes": "Brand voice"
+  },
+  {
+    "category": "Brand Voice",
+    "item": "Tone",
+    "english_value": "Strategic",
+    "chinese_value": "策略性",
+    "status": "Approved",
+    "notes": "Brand voice"
+  },
+  {
+    "category": "Brand Voice",
+    "item": "Tone",
+    "english_value": "Trustworthy",
+    "chinese_value": "值得信赖",
+    "status": "Approved",
+    "notes": "Brand voice"
+  },
+  {
+    "category": "Brand Voice",
+    "item": "Tone",
+    "english_value": "Family-Centered",
+    "chinese_value": "以家庭为中心",
+    "status": "Approved",
+    "notes": "Brand voice"
+  },
+  {
+    "category": "Brand Voice",
+    "item": "Tone",
+    "english_value": "Supportive",
+    "chinese_value": "支持性",
+    "status": "Approved",
+    "notes": "Brand voice"
+  },
+  {
+    "category": "Brand Voice",
+    "item": "Tone",
+    "english_value": "Educational",
+    "chinese_value": "教育导向",
+    "status": "Approved",
+    "notes": "Brand voice"
+  },
+  {
+    "category": "Target Audience",
+    "item": "Primary Audience",
+    "english_value": "Families with students age 4-19",
+    "chinese_value": "拥有4至19岁学生的家庭",
+    "status": "Approved",
+    "notes": "Core audience"
+  },
+  {
+    "category": "Target Audience",
+    "item": "Secondary Audience",
+    "english_value": "Elite Private School Applicants",
+    "chinese_value": "菁英私校申请家庭",
+    "status": "Approved",
+    "notes": "Audience segment"
+  },
+  {
+    "category": "Target Audience",
+    "item": "Secondary Audience",
+    "english_value": "Boarding School Applicants",
+    "chinese_value": "寄宿学校申请家庭",
+    "status": "Approved",
+    "notes": "Audience segment"
+  },
+  {
+    "category": "Target Audience",
+    "item": "Secondary Audience",
+    "english_value": "University Applicants",
+    "chinese_value": "大学申请家庭",
+    "status": "Approved",
+    "notes": "Audience segment"
+  },
+  {
+    "category": "Target Audience",
+    "item": "Secondary Audience",
+    "english_value": "Student Athletes",
+    "chinese_value": "学生运动员家庭",
+    "status": "Approved",
+    "notes": "Audience segment"
+  },
+  {
+    "category": "Target Audience",
+    "item": "Secondary Audience",
+    "english_value": "Gifted Students",
+    "chinese_value": "资优学生家庭",
+    "status": "Approved",
+    "notes": "Audience segment"
+  },
+  {
+    "category": "Target Audience",
+    "item": "Secondary Audience",
+    "english_value": "Neurodiverse Learners",
+    "chinese_value": "神经多元学生家庭",
+    "status": "Approved",
+    "notes": "Audience segment"
+  },
+  {
+    "category": "Target Audience",
+    "item": "Secondary Audience",
+    "english_value": "International Families",
+    "chinese_value": "国际家庭",
+    "status": "Approved",
+    "notes": "Audience segment"
+  },
+  {
+    "category": "Core Services",
+    "item": "Service",
+    "english_value": "Education Strategy",
+    "chinese_value": "教育戰略规划",
+    "status": "Approved",
+    "notes": "Primary service"
+  },
+  {
+    "category": "Core Services",
+    "item": "Service",
+    "english_value": "Prep School Admissions",
+    "chinese_value": "私校申请规划",
+    "status": "Approved",
+    "notes": "Primary service"
+  },
+  {
+    "category": "Core Services",
+    "item": "Service",
+    "english_value": "School Visit and Interview Preparation",
+    "chinese_value": "访校与面试准备",
+    "status": "Approved",
+    "notes": "Primary service"
+  },
+  {
+    "category": "Core Services",
+    "item": "Service",
+    "english_value": "University Admissions",
+    "chinese_value": "大学申请规划",
+    "status": "Approved",
+    "notes": "Primary service"
+  },
+  {
+    "category": "Core Services",
+    "item": "Service",
+    "english_value": "GPA Management",
+    "chinese_value": "GPA管理",
+    "status": "Approved",
+    "notes": "Primary service"
+  },
+  {
+    "category": "Core Services",
+    "item": "Service",
+    "english_value": "STEAM Pathway",
+    "chinese_value": "STEAM发展路径",
+    "status": "Approved",
+    "notes": "Primary service"
+  },
+  {
+    "category": "Core Services",
+    "item": "Service",
+    "english_value": "Student Athlete Strategy",
+    "chinese_value": "学生运动员规划",
+    "status": "Approved",
+    "notes": "Primary service"
+  },
+  {
+    "category": "Core Services",
+    "item": "Service",
+    "english_value": "Gifted and Neurodiversity Support",
+    "chinese_value": "高智商与神经多元譜系學生成長支持",
+    "status": "Approved",
+    "notes": "Primary service"
+  },
+  {
+    "category": "Core Services",
+    "item": "Service",
+    "english_value": "Mental Health and Wellbeing Support",
+    "chinese_value": "心理健康与成长支持",
+    "status": "Approved",
+    "notes": "Primary service"
+  },
+  {
+    "category": "Core Services",
+    "item": "Service",
+    "english_value": "Short-Term Guardianship",
+    "chinese_value": "短期监护服务",
+    "status": "Approved",
+    "notes": "Primary service"
+  },
+  {
+    "category": "Core Values",
+    "item": "Value",
+    "english_value": "Student-Centered",
+    "chinese_value": "以学生为中心",
+    "status": "Approved",
+    "notes": "Core value"
+  },
+  {
+    "category": "Core Values",
+    "item": "Value",
+    "english_value": "Long-Term Growth",
+    "chinese_value": "长期成长",
+    "status": "Approved",
+    "notes": "Core value"
+  },
+  {
+    "category": "Core Values",
+    "item": "Value",
+    "english_value": "Integrity",
+    "chinese_value": "诚信",
+    "status": "Approved",
+    "notes": "Core value"
+  },
+  {
+    "category": "Core Values",
+    "item": "Value",
+    "english_value": "Excellence",
+    "chinese_value": "卓越",
+    "status": "Approved",
+    "notes": "Core value"
+  },
+  {
+    "category": "Core Values",
+    "item": "Value",
+    "english_value": "Collaboration",
+    "chinese_value": "合作",
+    "status": "Approved",
+    "notes": "Core value"
+  },
+  {
+    "category": "Core Values",
+    "item": "Value",
+    "english_value": "Personalized Planning",
+    "chinese_value": "个性化规划",
+    "status": "Approved",
+    "notes": "Core value"
+  },
+  {
+    "category": "Visual Identity",
+    "item": "Primary Color",
+    "english_value": "#1F4E79",
+    "chinese_value": "深蓝色",
+    "status": "Approved",
+    "notes": "Primary brand color"
+  },
+  {
+    "category": "Visual Identity",
+    "item": "Secondary Color",
+    "english_value": "#D4AF37",
+    "chinese_value": "金色",
+    "status": "Approved",
+    "notes": "Secondary brand color"
+  },
+  {
+    "category": "Visual Identity",
+    "item": "Background Color",
+    "english_value": "#FFFFFF",
+    "chinese_value": "白色",
+    "status": "Approved",
+    "notes": "Background color"
+  },
+  {
+    "category": "Visual Identity",
+    "item": "Text Color",
+    "english_value": "#333333",
+    "chinese_value": "深灰色",
+    "status": "Approved",
+    "notes": "Body text color"
+  },
+  {
+    "category": "Visual Identity",
+    "item": "Accent Color",
+    "english_value": "#4A90E2",
+    "chinese_value": "亮蓝色",
+    "status": "Approved",
+    "notes": "Accent color"
+  },
+  {
+    "category": "Logo",
+    "item": "Primary Logo",
+    "english_value": "Animetro Logo Horizontal",
+    "chinese_value": "Animetro横版Logo",
+    "status": "Approved",
+    "notes": "Main logo"
+  },
+  {
+    "category": "Logo",
+    "item": "Logo Usage",
+    "english_value": "Website Header",
+    "chinese_value": "网站页眉",
+    "status": "Approved",
+    "notes": "Usage"
+  },
+  {
+    "category": "Logo",
+    "item": "Logo Usage",
+    "english_value": "Website Footer",
+    "chinese_value": "网站页脚",
+    "status": "Approved",
+    "notes": "Usage"
+  },
+  {
+    "category": "Logo",
+    "item": "Logo Usage",
+    "english_value": "Social Media",
+    "chinese_value": "社交媒体",
+    "status": "Approved",
+    "notes": "Usage"
+  },
+  {
+    "category": "SEO Keywords",
+    "item": "Primary Keyword",
+    "english_value": "Education Consulting",
+    "chinese_value": "教育咨询",
+    "status": "Approved",
+    "notes": "SEO keyword"
+  },
+  {
+    "category": "SEO Keywords",
+    "item": "Primary Keyword",
+    "english_value": "Private School Admissions",
+    "chinese_value": "私校申请",
+    "status": "Approved",
+    "notes": "SEO keyword"
+  },
+  {
+    "category": "SEO Keywords",
+    "item": "Primary Keyword",
+    "english_value": "Boarding School Admissions",
+    "chinese_value": "寄宿学校申请",
+    "status": "Approved",
+    "notes": "SEO keyword"
+  },
+  {
+    "category": "SEO Keywords",
+    "item": "Primary Keyword",
+    "english_value": "University Admissions",
+    "chinese_value": "大学申请",
+    "status": "Approved",
+    "notes": "SEO keyword"
+  },
+  {
+    "category": "SEO Keywords",
+    "item": "Primary Keyword",
+    "english_value": "Student Athlete Planning",
+    "chinese_value": "学生运动员规划",
+    "status": "Approved",
+    "notes": "SEO keyword"
+  },
+  {
+    "category": "SEO Keywords",
+    "item": "Primary Keyword",
+    "english_value": "STEAM Education",
+    "chinese_value": "STEAM教育",
+    "status": "Approved",
+    "notes": "SEO keyword"
+  },
+  {
+    "category": "SEO Keywords",
+    "item": "Primary Keyword",
+    "english_value": "Gifted Education",
+    "chinese_value": "资优教育",
+    "status": "Approved",
+    "notes": "SEO keyword"
+  },
+  {
+    "category": "SEO Keywords",
+    "item": "Primary Keyword",
+    "english_value": "Neurodiversity Support",
+    "chinese_value": "神经多元支持",
+    "status": "Approved",
+    "notes": "SEO keyword"
+  },
+  {
+    "category": "Contact Information",
+    "item": "Primary CTA",
+    "english_value": "Book a Free Private Consultation",
+    "chinese_value": "预约免费一對一咨询",
+    "status": "Approved",
+    "notes": "Main website CTA"
+  },
+  {
+    "category": "Contact Information",
+    "item": "Email",
+    "english_value": "consulting@animetro.ca",
+    "chinese_value": "consulting@animetro.ca",
+    "status": "Approved",
+    "notes": "Contact email"
+  },
+  {
+    "category": "Contact Information",
+    "item": "Website",
+    "english_value": "www.animetro.ca",
+    "chinese_value": "www.animetro.ca",
+    "status": "Approved",
+    "notes": "Official website"
+  }
+]
