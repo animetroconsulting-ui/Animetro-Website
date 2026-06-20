@@ -1,60 +1,60 @@
-category,item,english_value,chinese_value,status,notes
-Company Information,Company Name,Animetro Consulting,Animetro教育咨询,Approved,Official business name
-Company Information,Website,www.animetro.ca,www.animetro.ca,Approved,Official website
-Company Information,Email,consulting@animetro.ca,consulting@animetro.ca,Approved,Primary contact email
-Company Information,Location,"Richmond Hill, Ontario, Canada",加拿大安大略省 Richmond Hill,Approved,Primary location
-Company Information,Service Area,"Canada, United States, International Families",加拿大、美国及国际家庭,Approved,Service coverage
-Brand Positioning,Tagline,Growth Beyond Admission,成長超越升學,Approved,Primary tagline
-Brand Positioning,Mission,Empower students and families through strategic education planning and personalized pathways.,通过战略教育规划和个性化发展路径赋能学生与家庭,Approved,Official mission
-Brand Positioning,Vision,Help every student discover and achieve their best future pathway.,帮助每位学生发现并实现最适合自己的未来发展道路,Approved,Official vision
-Brand Positioning,Value Proposition,Comprehensive strategic education consulting from childhood to university admissions.,从儿童成长到大学申请的一站式战略教育咨询服务,Approved,Core positioning
-Brand Voice,Tone,Professional,专业,Approved,Brand voice
-Brand Voice,Tone,Strategic,策略性,Approved,Brand voice
-Brand Voice,Tone,Trustworthy,值得信赖,Approved,Brand voice
-Brand Voice,Tone,Family-Centered,以家庭为中心,Approved,Brand voice
-Brand Voice,Tone,Supportive,支持性,Approved,Brand voice
-Brand Voice,Tone,Educational,教育导向,Approved,Brand voice
-Target Audience,Primary Audience,Families with students age 4-19,拥有4至19岁学生的家庭,Approved,Core audience
-Target Audience,Secondary Audience,Elite Private School Applicants,菁英私校申请家庭,Approved,Audience segment
-Target Audience,Secondary Audience,Boarding School Applicants,寄宿学校申请家庭,Approved,Audience segment
-Target Audience,Secondary Audience,University Applicants,大学申请家庭,Approved,Audience segment
-Target Audience,Secondary Audience,Student Athletes,学生运动员家庭,Approved,Audience segment
-Target Audience,Secondary Audience,Gifted Students,资优学生家庭,Approved,Audience segment
-Target Audience,Secondary Audience,Neurodiverse Learners,神经多元学生家庭,Approved,Audience segment
-Target Audience,Secondary Audience,International Families,国际家庭,Approved,Audience segment
-Core Services,Service,Education Strategy,教育戰略规划,Approved,Primary service
-Core Services,Service,Prep School Admissions,私校申请规划,Approved,Primary service
-Core Services,Service,School Visit and Interview Preparation,访校与面试准备,Approved,Primary service
-Core Services,Service,University Admissions,大学申请规划,Approved,Primary service
-Core Services,Service,GPA Management,GPA管理,Approved,Primary service
-Core Services,Service,STEAM Pathway,STEAM发展路径,Approved,Primary service
-Core Services,Service,Student Athlete Strategy,学生运动员规划,Approved,Primary service
-Core Services,Service,Gifted and Neurodiversity Support,高智商与神经多元譜系學生成長支持,Approved,Primary service
-Core Services,Service,Mental Health and Wellbeing Support,心理健康与成长支持,Approved,Primary service
-Core Services,Service,Short-Term Guardianship,短期监护服务,Approved,Primary service
-Core Values,Value,Student-Centered,以学生为中心,Approved,Core value
-Core Values,Value,Long-Term Growth,长期成长,Approved,Core value
-Core Values,Value,Integrity,诚信,Approved,Core value
-Core Values,Value,Excellence,卓越,Approved,Core value
-Core Values,Value,Collaboration,合作,Approved,Core value
-Core Values,Value,Personalized Planning,个性化规划,Approved,Core value
-Visual Identity,Primary Color,#1F4E79,深蓝色,Approved,Primary brand color
-Visual Identity,Secondary Color,#D4AF37,金色,Approved,Secondary brand color
-Visual Identity,Background Color,#FFFFFF,白色,Approved,Background color
-Visual Identity,Text Color,#333333,深灰色,Approved,Body text color
-Visual Identity,Accent Color,#4A90E2,亮蓝色,Approved,Accent color
-Logo,Primary Logo,Animetro Logo Horizontal,Animetro横版Logo,Approved,Main logo
-Logo,Logo Usage,Website Header,网站页眉,Approved,Usage
-Logo,Logo Usage,Website Footer,网站页脚,Approved,Usage
-Logo,Logo Usage,Social Media,社交媒体,Approved,Usage
-SEO Keywords,Primary Keyword,Education Consulting,教育咨询,Approved,SEO keyword
-SEO Keywords,Primary Keyword,Private School Admissions,私校申请,Approved,SEO keyword
-SEO Keywords,Primary Keyword,Boarding School Admissions,寄宿学校申请,Approved,SEO keyword
-SEO Keywords,Primary Keyword,University Admissions,大学申请,Approved,SEO keyword
-SEO Keywords,Primary Keyword,Student Athlete Planning,学生运动员规划,Approved,SEO keyword
-SEO Keywords,Primary Keyword,STEAM Education,STEAM教育,Approved,SEO keyword
-SEO Keywords,Primary Keyword,Gifted Education,资优教育,Approved,SEO keyword
-SEO Keywords,Primary Keyword,Neurodiversity Support,神经多元支持,Approved,SEO keyword
-Contact Information,Primary CTA,Book a Free Private Consultation,预约免费一對一咨询,Approved,Main website CTA
-Contact Information,Email,consulting@animetro.ca,consulting@animetro.ca,Approved,Contact email
-Contact Information,Website,www.animetro.ca,www.animetro.ca,Approved,Official website
+category,item,english_value,chinese_value,status,notes,links
+Company Information,Company Name,Animetro Consulting,Animetro教育咨询,Approved,Official business name,
+Company Information,Website,www.animetro.ca,www.animetro.ca,Approved,Official website,
+Company Information,Email,consulting@animetro.ca,consulting@animetro.ca,Approved,Primary contact email,
+Company Information,Location,"Richmond Hill, Ontario, Canada",加拿大安大略省 Richmond Hill,Approved,Primary location,
+Company Information,Service Area,"Canada, United States, International Families",加拿大、美国及国际家庭,Approved,Service coverage,
+Brand Positioning,Tagline,Growth Beyond Admission,成長超越升學,Approved,Primary tagline,
+Brand Positioning,Mission,Empower students and families through strategic education planning and personalized pathways.,通过战略教育规划和个性化发展路径赋能学生与家庭,Approved,Official mission,
+Brand Positioning,Vision,Help every student discover and achieve their best future pathway.,帮助每位学生发现并实现最适合自己的未来发展道路,Approved,Official vision,
+Brand Positioning,Value Proposition,Comprehensive strategic education consulting from childhood to university admissions.,从儿童成长到大学申请的一站式战略教育咨询服务,Approved,Core positioning,
+Brand Voice,Tone,Professional,专业,Approved,Brand voice,
+Brand Voice,Tone,Strategic,策略性,Approved,Brand voice,
+Brand Voice,Tone,Trustworthy,值得信赖,Approved,Brand voice,
+Brand Voice,Tone,Family-Centered,以家庭为中心,Approved,Brand voice,
+Brand Voice,Tone,Supportive,支持性,Approved,Brand voice,
+Brand Voice,Tone,Educational,教育导向,Approved,Brand voice,
+Target Audience,Primary Audience,Families with students age 4-19,拥有4至19岁学生的家庭,Approved,Core audience,
+Target Audience,Secondary Audience,Elite Private School Applicants,菁英私校申请家庭,Approved,Audience segment,
+Target Audience,Secondary Audience,Boarding School Applicants,寄宿学校申请家庭,Approved,Audience segment,
+Target Audience,Secondary Audience,University Applicants,大学申请家庭,Approved,Audience segment,
+Target Audience,Secondary Audience,Student Athletes,学生运动员家庭,Approved,Audience segment,
+Target Audience,Secondary Audience,Gifted Students,资优学生家庭,Approved,Audience segment,
+Target Audience,Secondary Audience,Neurodiverse Learners,神经多元学生家庭,Approved,Audience segment,
+Target Audience,Secondary Audience,International Families,国际家庭,Approved,Audience segment,
+Core Services,Service,Education Strategy,教育戰略规划,Approved,Primary service,
+Core Services,Service,Prep School Admissions,私校申请规划,Approved,Primary service,
+Core Services,Service,School Visit and Interview Preparation,访校与面试准备,Approved,Primary service,
+Core Services,Service,University Admissions,大学申请规划,Approved,Primary service,
+Core Services,Service,GPA Management,GPA管理,Approved,Primary service,
+Core Services,Service,STEAM Pathway,STEAM发展路径,Approved,Primary service,
+Core Services,Service,Student Athlete Strategy,学生运动员规划,Approved,Primary service,
+Core Services,Service,Gifted and Neurodiversity Support,高智商与神经多元譜系學生成長支持,Approved,Primary service,
+Core Services,Service,Mental Health and Wellbeing Support,心理健康与成长支持,Approved,Primary service,
+Core Services,Service,Short-Term Guardianship,短期监护服务,Approved,Primary service,
+Core Values,Value,Student-Centered,以学生为中心,Approved,Core value,
+Core Values,Value,Long-Term Growth,长期成长,Approved,Core value,
+Core Values,Value,Integrity,诚信,Approved,Core value,
+Core Values,Value,Excellence,卓越,Approved,Core value,
+Core Values,Value,Collaboration,合作,Approved,Core value,
+Core Values,Value,Personalized Planning,个性化规划,Approved,Core value,
+Visual Identity,Primary Color,#1F4E79,深蓝色,Approved,Primary brand color,
+Visual Identity,Secondary Color,#D4AF37,金色,Approved,Secondary brand color,
+Visual Identity,Background Color,#FFFFFF,白色,Approved,Background color,
+Visual Identity,Text Color,#333333,深灰色,Approved,Body text color,
+Visual Identity,Accent Color,#4A90E2,亮蓝色,Approved,Accent color,
+Logo,Primary Logo,Animetro Logo Horizontal,Animetro横版Logo,Approved,Main logo,
+Logo,Logo Usage,Website Header,网站页眉,Approved,Usage,
+Logo,Logo Usage,Website Footer,网站页脚,Approved,Usage,
+Logo,Logo Usage,Social Media,社交媒体,Approved,Usage,
+SEO Keywords,Primary Keyword,Education Consulting,教育咨询,Approved,SEO keyword,
+SEO Keywords,Primary Keyword,Private School Admissions,私校申请,Approved,SEO keyword,
+SEO Keywords,Primary Keyword,Boarding School Admissions,寄宿学校申请,Approved,SEO keyword,
+SEO Keywords,Primary Keyword,University Admissions,大学申请,Approved,SEO keyword,
+SEO Keywords,Primary Keyword,Student Athlete Planning,学生运动员规划,Approved,SEO keyword,
+SEO Keywords,Primary Keyword,STEAM Education,STEAM教育,Approved,SEO keyword,
+SEO Keywords,Primary Keyword,Gifted Education,资优教育,Approved,SEO keyword,
+SEO Keywords,Primary Keyword,Neurodiversity Support,神经多元支持,Approved,SEO keyword,
+Contact Information,Primary CTA,Book a Free Private Consultation,预约免费一對一咨询,Approved,Main website CTA,
+Contact Information,Email,consulting@animetro.ca,consulting@animetro.ca,Approved,Contact email,
+Contact Information,Website,www.animetro.ca,www.animetro.ca,Approved,Official website,
