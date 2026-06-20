@@ -282,6 +282,76 @@ def card_grid(rows: list[dict[str, str]], lang: str, images: list[dict[str, str]
     return "\n".join(cards) or '<p class="lead">Content will appear here after the Google Sheet is populated.</p>'
 
 
+def footer_html(lang: str) -> str:
+    if lang == "zh":
+        return """    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand"><img class="footer-logo" src="/assets/brand/exports/animetro-primary-transparent.png" alt="艾美加教育顧問"><span>艾美加教育顧問<small>成長超越升學</small></span></div>
+        <div class="footer-contact" aria-label="聯絡資訊">
+          <p class="footer-column-title">聯絡方式</p>
+          <a href="tel:+19059557068">905-955-7068</a>
+          <a href="mailto:consulting@animetro.ca">consulting@animetro.ca</a>
+          <a href="https://www.animetro.ca/">www.animetro.ca</a>
+          <a class="footer-cta" href="/zh/contact/">開始諮詢</a>
+        </div>
+        <nav class="footer-services" aria-label="服務">
+          <p class="footer-column-title">服務</p>
+          <a href="/zh/services/#strategic-planning">教育规划</a>
+          <a href="/zh/services/#elite-private-school">私校申请</a>
+          <a href="/zh/services/#school-visit-interview">访校与面试准备</a>
+          <a href="/zh/services/#university-application">大学申请</a>
+          <a href="/zh/services/#gpa-management">GPA 管理</a>
+          <a href="/zh/services/#steam-pathway">STEAM 路径</a>
+          <a href="/zh/services/#student-athlete">学生运动员规划</a>
+          <a href="/zh/services/#gifted-diverse-learning">天赋与多元学习支持</a>
+          <a href="/zh/services/#mental-health-support">学生心理健康支持</a>
+          <a href="/zh/services/#short-term-guardianship">短期监护与学生照顾</a>
+        </nav>
+        <div class="footer-actions">
+          <p class="footer-column-title">二维码</p>
+          <div class="footer-qr-list" aria-label="通訊二維碼">
+            <figure class="footer-qr"><img src="/assets/images/contact/whatsapp-qr.jpeg" alt="WhatsApp 二維碼"><figcaption>WhatsApp</figcaption></figure>
+            <figure class="footer-qr"><img src="/assets/images/contact/wechat-qr.jpeg" alt="微信二維碼"><figcaption>微信</figcaption></figure>
+          </div>
+        </div>
+      </div>
+      <p class="footer-copyright">© 2026 艾美加教育顧問．版權所有</p>
+    </footer>"""
+    return """    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand"><img class="footer-logo" src="/assets/brand/exports/animetro-primary-transparent.png" alt="Animetro Consulting"><span>Animetro Consulting<small>Growth Beyond Admission</small></span></div>
+        <div class="footer-contact" aria-label="Contact information">
+          <p class="footer-column-title">Contact</p>
+          <a href="tel:+19059557068">905-955-7068</a>
+          <a href="mailto:consulting@animetro.ca">consulting@animetro.ca</a>
+          <a href="https://www.animetro.ca/">www.animetro.ca</a>
+          <a class="footer-cta" href="/en/contact/">Get Started</a>
+        </div>
+        <nav class="footer-services" aria-label="Services">
+          <p class="footer-column-title">Services</p>
+          <a href="/en/services/#strategic-planning">Education Strategy</a>
+          <a href="/en/services/#elite-private-school">Prep School Admissions</a>
+          <a href="/en/services/#school-visit-interview">School Visit &amp; Interview Preparation</a>
+          <a href="/en/services/#university-application">University Admissions</a>
+          <a href="/en/services/#gpa-management">GPA Management</a>
+          <a href="/en/services/#steam-pathway">STEAM Pathway</a>
+          <a href="/en/services/#student-athlete">Student-Athlete Planning</a>
+          <a href="/en/services/#gifted-diverse-learning">Gifted &amp; Neurodiversity Support</a>
+          <a href="/en/services/#mental-health-support">Student Mental Health Support</a>
+          <a href="/en/services/#short-term-guardianship">Short-Term Guardianship</a>
+        </nav>
+        <div class="footer-actions">
+          <p class="footer-column-title">QR Codes</p>
+          <div class="footer-qr-list" aria-label="Messaging QR codes">
+            <figure class="footer-qr"><img src="/assets/images/contact/whatsapp-qr.jpeg" alt="WhatsApp QR code"><figcaption>WhatsApp</figcaption></figure>
+            <figure class="footer-qr"><img src="/assets/images/contact/wechat-qr.jpeg" alt="WeChat QR code"><figcaption>WeChat</figcaption></figure>
+          </div>
+        </div>
+      </div>
+      <p class="footer-copyright">© 2026 Animetro Consulting. All Rights Reserved.</p>
+    </footer>"""
+
+
 def page_html(lang: str, content_rows: list[dict[str, str]], brand_rows: list[dict[str, str]], image_rows: list[dict[str, str]]) -> str:
     is_zh = lang == "zh"
     title = pick_content(content_rows, ["home", "title"], lang, "艾美加教育顾问" if is_zh else "Animetro Consulting")
@@ -295,7 +365,6 @@ def page_html(lang: str, content_rows: list[dict[str, str]], brand_rows: list[di
     )
     primary_cta = pick_content(content_rows, ["primary", "cta"], lang, "預約免費私人諮詢" if is_zh else "Book a Free Private Consultation")
     contact_heading = pick_content(content_rows, ["contact", "heading"], lang, "聯絡我們" if is_zh else "Contact Us")
-    footer = pick_content(content_rows, ["footer"], lang, "Education Beyond Admission")
     logo = brand_value(brand_rows, ["header logo", "logo"], "/assets/brand/animetro-horizontal.svg")
     contact_text = pick_content(content_rows, ["contact", "intro"], lang, "consulting@animetro.ca")
 
@@ -345,7 +414,7 @@ def page_html(lang: str, content_rows: list[dict[str, str]], brand_rows: list[di
         <p class="lead">{escape(contact_text)}</p>
       </section>
     </main>
-    <footer class="site-footer">{escape(footer)}</footer>
+{footer_html(lang)}
   </body>
 </html>
 """
