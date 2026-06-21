@@ -1,6 +1,6 @@
 no,page,section,content_type,key,english_text,traditional_chinese_text,section_id,button,link,image_file,status,notes
-1,Global,Header,Logo,header_logo,Animetro Consulting,艾美加教育顧問,navigation,,logo file link,,Approved,
-2,Global,Header,Tagline,header_tagline,Growth Beyond Admission,成長超越升學,navigation,,https://drive.google.com/file/d/1Ey2hGpPtfArTKhB9KY8Eu11tyJ9vG0Cj/view?usp=drive_link,,Approved,
+1,Global,Header,Logo,header_logo,Animetro Consulting,艾美加教育顧問,navigation,,animetro-header-logo-light-2026.png,,Approved,
+2,Global,Header,Tagline,header_tagline,Growth Beyond Admission,成長超越升學,navigation,,animetro-header-logo-light-2026.png,,Approved,
 3,Global,Header,Navigation,nav_home,Home,首頁,navigation,,,,Approved,
 4,Global,Header,Navigation,nav_services,Services,服務項目,navigation,,/services,,Approved,
 5,Global,Header,Navigation,nav_about,About,關於我們,navigation,,/about,,Approved,
