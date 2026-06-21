@@ -396,13 +396,94 @@
     "links": ""
   },
   {
+    "category": "",
+    "item": "",
+    "english_value": "",
+    "chinese_value": "",
+    "status": "",
+    "notes": "purpose",
+    "links": ""
+  },
+  {
+    "category": "LOGO-001",
+    "item": "Master Logo",
+    "english_value": "",
+    "chinese_value": "",
+    "status": "Approved",
+    "notes": "Official company logo",
+    "links": "01_Master Logo.png"
+  },
+  {
+    "category": "LOGO-002",
+    "item": "Simplified Header Logo",
+    "english_value": "",
+    "chinese_value": "",
+    "status": "Approved",
+    "notes": "Website header & navigation",
+    "links": "ANIMETRO_CrestLogo_v1.0.png"
+  },
+  {
+    "category": "LOGO-003",
+    "item": "Favicon",
+    "english_value": "",
+    "chinese_value": "",
+    "status": "Approved",
+    "notes": "Browser tab icon",
+    "links": "animetro-favicon-logo-2026.png"
+  },
+  {
+    "category": "LOGO-004",
+    "item": "App Icon",
+    "english_value": "",
+    "chinese_value": "",
+    "status": "Approved",
+    "notes": "Mobile app & PWA",
+    "links": "animetro-app-icon-logo-2026.png"
+  },
+  {
+    "category": "LOGO-005",
+    "item": "Dark Background Logo",
+    "english_value": "",
+    "chinese_value": "",
+    "status": "Approved",
+    "notes": "Footer & dark sections",
+    "links": "animetro-logo-dark-background-2026.png"
+  },
+  {
+    "category": "LOGO-006",
+    "item": "White Logo",
+    "english_value": "",
+    "chinese_value": "",
+    "status": "Approved",
+    "notes": "Dark backgrounds",
+    "links": "animetro-logo-white.png"
+  },
+  {
+    "category": "LOGO-007",
+    "item": "Gold Logo",
+    "english_value": "",
+    "chinese_value": "",
+    "status": "Approved",
+    "notes": "Premium marketing materials",
+    "links": "ANIMETRO_CrestLogo_v1.0.png"
+  },
+  {
+    "category": "LOGO-008",
+    "item": "Master Vector",
+    "english_value": "",
+    "chinese_value": "",
+    "status": "Approved",
+    "notes": "Website & print master",
+    "links": "10_Source Files"
+  },
+  {
     "category": "Logo",
     "item": "Primary Logo",
     "english_value": "Animetro Logo Horizontal",
     "chinese_value": "Animetro横版Logo",
     "status": "Approved",
-    "notes": "Main logo",
-    "links": ""
+    "notes": "",
+    "links": "01_Master Logo.png"
   },
   {
     "category": "Logo",

@@ -43,7 +43,16 @@ Visual Identity,Secondary Color,#D4AF37,金色,Approved,Secondary brand color,
 Visual Identity,Background Color,#FFFFFF,白色,Approved,Background color,
 Visual Identity,Text Color,#333333,深灰色,Approved,Body text color,
 Visual Identity,Accent Color,#4A90E2,亮蓝色,Approved,Accent color,
-Logo,Primary Logo,Animetro Logo Horizontal,Animetro横版Logo,Approved,Main logo,
+,,,,,purpose,
+LOGO-001,Master Logo,,,Approved,Official company logo,01_Master Logo.png
+LOGO-002,Simplified Header Logo,,,Approved,Website header & navigation,ANIMETRO_CrestLogo_v1.0.png
+LOGO-003,Favicon,,,Approved,Browser tab icon,animetro-favicon-logo-2026.png
+LOGO-004,App Icon,,,Approved,Mobile app & PWA,animetro-app-icon-logo-2026.png
+LOGO-005,Dark Background Logo,,,Approved,Footer & dark sections,animetro-logo-dark-background-2026.png
+LOGO-006,White Logo,,,Approved,Dark backgrounds,animetro-logo-white.png
+LOGO-007,Gold Logo,,,Approved,Premium marketing materials,ANIMETRO_CrestLogo_v1.0.png
+LOGO-008,Master Vector,,,Approved,Website & print master,10_Source Files
+Logo,Primary Logo,Animetro Logo Horizontal,Animetro横版Logo,Approved,,01_Master Logo.png
 Logo,Logo Usage,Website Header,网站页眉,Approved,Usage,
 Logo,Logo Usage,Website Footer,网站页脚,Approved,Usage,
 Logo,Logo Usage,Social Media,社交媒体,Approved,Usage,
