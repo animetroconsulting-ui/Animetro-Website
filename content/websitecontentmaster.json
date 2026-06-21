@@ -9,7 +9,7 @@
     "traditional_chinese_text": "艾美加教育顧問",
     "section_id": "navigation",
     "button": "",
-    "link": "animetro-header-logo-light-2026.png",
+    "web_link": "animetro-header-logo-light-2026.png",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -24,7 +24,7 @@
     "traditional_chinese_text": "成長超越升學",
     "section_id": "navigation",
     "button": "",
-    "link": "animetro-header-logo-light-2026.png",
+    "web_link": "animetro-header-logo-light-2026.png",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -39,7 +39,7 @@
     "traditional_chinese_text": "首頁",
     "section_id": "navigation",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -54,7 +54,7 @@
     "traditional_chinese_text": "服務項目",
     "section_id": "navigation",
     "button": "",
-    "link": "/services",
+    "web_link": "/services",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -69,7 +69,7 @@
     "traditional_chinese_text": "關於我們",
     "section_id": "navigation",
     "button": "",
-    "link": "/about",
+    "web_link": "/about",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -84,7 +84,7 @@
     "traditional_chinese_text": "學習資源",
     "section_id": "navigation",
     "button": "",
-    "link": "/events",
+    "web_link": "/events",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -99,7 +99,7 @@
     "traditional_chinese_text": "教育洞察",
     "section_id": "navigation",
     "button": "",
-    "link": "/resources",
+    "web_link": "/resources",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -114,7 +114,7 @@
     "traditional_chinese_text": "活動資訊",
     "section_id": "navigation",
     "button": "",
-    "link": "/contact",
+    "web_link": "/contact",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -129,7 +129,7 @@
     "traditional_chinese_text": "聯絡我們",
     "section_id": "navigation",
     "button": "",
-    "link": "animetro-header-logo-light-2026.png",
+    "web_link": "animetro-header-logo-light-2026.png",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -144,7 +144,7 @@
     "traditional_chinese_text": "從這裡開始",
     "section_id": "navigation",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -159,7 +159,7 @@
     "traditional_chinese_text": "艾美加教育顧問",
     "section_id": "navigation",
     "button": "",
-    "link": "https://drive.google.com/file/d/1RXIZc1_dbKdx1OJtXmIu8BvSjZ4gLqjL/view?usp=drive_link",
+    "web_link": "https://drive.google.com/file/d/1RXIZc1_dbKdx1OJtXmIu8BvSjZ4gLqjL/view?usp=drive_link",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -174,7 +174,7 @@
     "traditional_chinese_text": "成長超越升學",
     "section_id": "navigation",
     "button": "",
-    "link": "https://drive.google.com/file/d/1RXIZc1_dbKdx1OJtXmIu8BvSjZ4gLqjL/view?usp=drive_link",
+    "web_link": "https://drive.google.com/file/d/1RXIZc1_dbKdx1OJtXmIu8BvSjZ4gLqjL/view?usp=drive_link",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -189,7 +189,7 @@
     "traditional_chinese_text": "905-955-7068",
     "section_id": "navigation",
     "button": "",
-    "link": "https://www.animetro.ca",
+    "web_link": "https://www.animetro.ca",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -204,7 +204,7 @@
     "traditional_chinese_text": "consulting@animetro.ca",
     "section_id": "navigation",
     "button": "",
-    "link": "wechat-qr.jpg",
+    "web_link": "wechat-qr.jpg",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -219,7 +219,7 @@
     "traditional_chinese_text": "www.animetro.ca",
     "section_id": "navigation",
     "button": "",
-    "link": "whatsapp-qr.jpg",
+    "web_link": "whatsapp-qr.jpg",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -234,7 +234,7 @@
     "traditional_chinese_text": "微信",
     "section_id": "navigation",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -249,7 +249,7 @@
     "traditional_chinese_text": "WhatsApp",
     "section_id": "navigation",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -264,7 +264,7 @@
     "traditional_chinese_text": "掃碼添加微信",
     "section_id": "navigation",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -279,7 +279,7 @@
     "traditional_chinese_text": "掃碼聯絡 WhatsApp",
     "section_id": "navigation",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -294,7 +294,7 @@
     "traditional_chinese_text": "© 2026 艾美加教育顧問．版權所有",
     "section_id": "navigation",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -309,7 +309,7 @@
     "traditional_chinese_text": "面向未來學生的全方位戰略教育諮詢",
     "section_id": "navigation",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -324,7 +324,7 @@
     "traditional_chinese_text": "成長超越升學",
     "section_id": "navigation",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -339,7 +339,7 @@
     "traditional_chinese_text": "協助學生與家庭建立從小學到大學的個性化教育發展路徑。",
     "section_id": "navigation",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -354,7 +354,7 @@
     "traditional_chinese_text": "預約免費諮詢",
     "section_id": "navigation",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -369,145 +369,10 @@
     "traditional_chinese_text": "查看成功案例",
     "section_id": "navigation",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
-  },
-  {
-    "no": "12",
-    "page": "Home",
-    "section": "Why Animetro",
-    "content_type": "Title",
-    "key": "why_title",
-    "english_text": "Why Families Choose Animetro",
-    "traditional_chinese_text": "為什麼家庭選擇艾美加",
-    "section_id": "why-animetro",
-    "button": "",
-    "link": "",
-    "image_file": "",
-    "status": "Approved",
-    "notes": "區塊標題"
-  },
-  {
-    "no": "13",
-    "page": "Home",
-    "section": "Why Animetro",
-    "content_type": "Feature Title",
-    "key": "why_1_title",
-    "english_text": "Strategic Education Planning",
-    "traditional_chinese_text": "戰略教育規劃",
-    "section_id": "why-animetro",
-    "button": "",
-    "link": "",
-    "image_file": "",
-    "status": "Approved",
-    "notes": "特色一標題"
-  },
-  {
-    "no": "14",
-    "page": "Home",
-    "section": "Why Animetro",
-    "content_type": "Feature Description",
-    "key": "why_1_desc",
-    "english_text": "We help families plan long-term education pathways instead of making isolated school or application decisions.",
-    "traditional_chinese_text": "我們協助家庭規劃長期教育路徑，而不只是處理單一學校選擇或申請決策",
-    "section_id": "why-animetro",
-    "button": "",
-    "link": "",
-    "image_file": "",
-    "status": "Approved",
-    "notes": "特色一說明"
-  },
-  {
-    "no": "15",
-    "page": "Home",
-    "section": "Why Animetro",
-    "content_type": "Feature Title",
-    "key": "why_2_title",
-    "english_text": "Personalized Student Guidance",
-    "traditional_chinese_text": "個性化學生指導",
-    "section_id": "why-animetro",
-    "button": "",
-    "link": "",
-    "image_file": "",
-    "status": "Approved",
-    "notes": "特色二標題"
-  },
-  {
-    "no": "16",
-    "page": "Home",
-    "section": "Why Animetro",
-    "content_type": "Feature Description",
-    "key": "why_2_desc",
-    "english_text": "Every student receives a tailored strategy based on academic profile, interests, strengths, goals, and family priorities.",
-    "traditional_chinese_text": "每位學生都會依據學業背景、興趣、優勢、目標與家庭需求，制定專屬成長策略",
-    "section_id": "why-animetro",
-    "button": "",
-    "link": "",
-    "image_file": "",
-    "status": "Approved",
-    "notes": "特色二說明"
-  },
-  {
-    "no": "17",
-    "page": "Home",
-    "section": "Why Animetro",
-    "content_type": "Feature Title",
-    "key": "why_3_title",
-    "english_text": "Family-Centered Support",
-    "traditional_chinese_text": "以家庭為中心的支持",
-    "section_id": "why-animetro",
-    "button": "",
-    "link": "",
-    "image_file": "",
-    "status": "Approved",
-    "notes": "特色三標題"
-  },
-  {
-    "no": "18",
-    "page": "Home",
-    "section": "Why Animetro",
-    "content_type": "Feature Description",
-    "key": "why_3_desc",
-    "english_text": "We support both students and parents through planning, communication, decision-making, and school transitions.",
-    "traditional_chinese_text": "我們在教育規劃、溝通協調、家庭決策與學校銜接過程中，同時支持學生與家長",
-    "section_id": "why-animetro",
-    "button": "",
-    "link": "",
-    "image_file": "",
-    "status": "Approved",
-    "notes": "特色三說明"
-  },
-  {
-    "no": "19",
-    "page": "Home",
-    "section": "Why Animetro",
-    "content_type": "Feature Title",
-    "key": "why_4_title",
-    "english_text": "Global Education Perspective",
-    "traditional_chinese_text": "國際教育視野",
-    "section_id": "why-animetro",
-    "button": "",
-    "link": "",
-    "image_file": "",
-    "status": "Approved",
-    "notes": "特色四標題"
-  },
-  {
-    "no": "20",
-    "page": "Home",
-    "section": "Why Animetro",
-    "content_type": "Feature Description",
-    "key": "why_4_desc",
-    "english_text": "Our guidance connects Canadian, U.S., and international education pathways with each student’s long-term growth.",
-    "traditional_chinese_text": "我們結合加拿大、美國與國際教育路徑，協助學生建立面向長遠成長的教育規劃",
-    "section_id": "why-animetro",
-    "button": "",
-    "link": "",
-    "image_file": "",
-    "status": "Approved",
-    "notes": "特色四說明"
   },
   {
     "no": "21",
@@ -519,7 +384,7 @@
     "traditional_chinese_text": "核心服務",
     "section_id": "core-services",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -534,7 +399,7 @@
     "traditional_chinese_text": "教育策略與升學申請",
     "section_id": "core-services",
     "button": "",
-    "link": "animetro-strategy-consulting.npg",
+    "web_link": "animetro-strategy-consulting.npg",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -549,7 +414,7 @@
     "traditional_chinese_text": "教育策略規劃、私立學校申請、寄宿學校申請、大學申請、校園參訪及面試準備。",
     "section_id": "core-services",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -564,7 +429,7 @@
     "traditional_chinese_text": "學生成長與競爭力發展",
     "section_id": "core-services",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -579,7 +444,7 @@
     "traditional_chinese_text": "透過STEAM發展、研究機會、領導力培養、作品集建立及暑期項目提升學生競爭力。",
     "section_id": "core-services",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -594,7 +459,7 @@
     "traditional_chinese_text": "學生運動員發展規劃",
     "section_id": "core-services",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -609,7 +474,7 @@
     "traditional_chinese_text": "協助學生運動員進行學業與運動規劃、招募指導、NCAA升學及寄宿學校運動發展。",
     "section_id": "core-services",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -624,7 +489,7 @@
     "traditional_chinese_text": "資優與神經多樣性學生支持",
     "section_id": "core-services",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -639,7 +504,7 @@
     "traditional_chinese_text": "為資優、雙重特殊、ADHD、自閉症及學習差異學生提供個人化支持，包括學校協調、學習調整及家長指導。",
     "section_id": "core-services",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -654,7 +519,7 @@
     "traditional_chinese_text": "家庭與學生支持",
     "section_id": "core-services",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": ""
@@ -669,10 +534,145 @@
     "traditional_chinese_text": "提供監護服務、國際學生支持、學校溝通協調、轉學適應、校內表現支持及學業進度追蹤。",
     "section_id": "core-services",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": "區塊標題"
+  },
+  {
+    "no": "12",
+    "page": "Home",
+    "section": "Why Animetro",
+    "content_type": "Title",
+    "key": "why_title",
+    "english_text": "Why Families Choose Animetro",
+    "traditional_chinese_text": "為什麼家庭選擇艾美加",
+    "section_id": "why-animetro",
+    "button": "",
+    "web_link": "",
+    "image_file": "",
+    "status": "Approved",
+    "notes": "區塊標題"
+  },
+  {
+    "no": "13",
+    "page": "Home",
+    "section": "Why Animetro",
+    "content_type": "Feature Title",
+    "key": "why_1_title",
+    "english_text": "Strategic Education Planning",
+    "traditional_chinese_text": "戰略教育規劃",
+    "section_id": "why-animetro",
+    "button": "",
+    "web_link": "",
+    "image_file": "",
+    "status": "Approved",
+    "notes": "特色一標題"
+  },
+  {
+    "no": "14",
+    "page": "Home",
+    "section": "Why Animetro",
+    "content_type": "Feature Description",
+    "key": "why_1_desc",
+    "english_text": "We help families plan long-term education pathways instead of making isolated school or application decisions.",
+    "traditional_chinese_text": "我們協助家庭規劃長期教育路徑，而不只是處理單一學校選擇或申請決策",
+    "section_id": "why-animetro",
+    "button": "",
+    "web_link": "",
+    "image_file": "",
+    "status": "Approved",
+    "notes": "特色一說明"
+  },
+  {
+    "no": "15",
+    "page": "Home",
+    "section": "Why Animetro",
+    "content_type": "Feature Title",
+    "key": "why_2_title",
+    "english_text": "Personalized Student Guidance",
+    "traditional_chinese_text": "個性化學生指導",
+    "section_id": "why-animetro",
+    "button": "",
+    "web_link": "",
+    "image_file": "",
+    "status": "Approved",
+    "notes": "特色二標題"
+  },
+  {
+    "no": "16",
+    "page": "Home",
+    "section": "Why Animetro",
+    "content_type": "Feature Description",
+    "key": "why_2_desc",
+    "english_text": "Every student receives a tailored strategy based on academic profile, interests, strengths, goals, and family priorities.",
+    "traditional_chinese_text": "每位學生都會依據學業背景、興趣、優勢、目標與家庭需求，制定專屬成長策略",
+    "section_id": "why-animetro",
+    "button": "",
+    "web_link": "",
+    "image_file": "",
+    "status": "Approved",
+    "notes": "特色二說明"
+  },
+  {
+    "no": "17",
+    "page": "Home",
+    "section": "Why Animetro",
+    "content_type": "Feature Title",
+    "key": "why_3_title",
+    "english_text": "Family-Centered Support",
+    "traditional_chinese_text": "以家庭為中心的支持",
+    "section_id": "why-animetro",
+    "button": "",
+    "web_link": "",
+    "image_file": "",
+    "status": "Approved",
+    "notes": "特色三標題"
+  },
+  {
+    "no": "18",
+    "page": "Home",
+    "section": "Why Animetro",
+    "content_type": "Feature Description",
+    "key": "why_3_desc",
+    "english_text": "We support both students and parents through planning, communication, decision-making, and school transitions.",
+    "traditional_chinese_text": "我們在教育規劃、溝通協調、家庭決策與學校銜接過程中，同時支持學生與家長",
+    "section_id": "why-animetro",
+    "button": "",
+    "web_link": "",
+    "image_file": "",
+    "status": "Approved",
+    "notes": "特色三說明"
+  },
+  {
+    "no": "19",
+    "page": "Home",
+    "section": "Why Animetro",
+    "content_type": "Feature Title",
+    "key": "why_4_title",
+    "english_text": "Global Education Perspective",
+    "traditional_chinese_text": "國際教育視野",
+    "section_id": "why-animetro",
+    "button": "",
+    "web_link": "",
+    "image_file": "",
+    "status": "Approved",
+    "notes": "特色四標題"
+  },
+  {
+    "no": "20",
+    "page": "Home",
+    "section": "Why Animetro",
+    "content_type": "Feature Description",
+    "key": "why_4_desc",
+    "english_text": "Our guidance connects Canadian, U.S., and international education pathways with each student’s long-term growth.",
+    "traditional_chinese_text": "我們結合加拿大、美國與國際教育路徑，協助學生建立面向長遠成長的教育規劃",
+    "section_id": "why-animetro",
+    "button": "",
+    "web_link": "",
+    "image_file": "",
+    "status": "Approved",
+    "notes": "特色四說明"
   },
   {
     "no": "35",
@@ -684,7 +684,7 @@
     "traditional_chinese_text": "私校錄取成功案例",
     "section_id": "success-stories",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": "案例一標題"
@@ -699,7 +699,7 @@
     "traditional_chinese_text": "協助七年級學生完成選校、申請策略、面試及錄取流程，成功進入優秀私立學校。",
     "section_id": "success-stories",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": "案例一說明"
@@ -714,7 +714,7 @@
     "traditional_chinese_text": "學生運動員發展路徑",
     "section_id": "success-stories",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": "案例二標題"
@@ -729,7 +729,7 @@
     "traditional_chinese_text": "協助學生運動員平衡學業、訓練、比賽與長期教育規劃。",
     "section_id": "success-stories",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": "案例二說明"
@@ -744,7 +744,7 @@
     "traditional_chinese_text": "STEM與研究能力發展",
     "section_id": "success-stories",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": "案例三標題"
@@ -759,7 +759,7 @@
     "traditional_chinese_text": "協助學生透過研究項目、競賽、拓展課程及學術規劃建立STEM發展履歷。",
     "section_id": "success-stories",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": "案例三說明"
@@ -774,7 +774,7 @@
     "traditional_chinese_text": "神經多樣性學生成功案例",
     "section_id": "success-stories",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": "案例四標題"
@@ -789,7 +789,7 @@
     "traditional_chinese_text": "為ADHD、自閉症、資優及學習差異學生提供個人化教育發展路徑。",
     "section_id": "success-stories",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": "案例四說明"
@@ -804,7 +804,7 @@
     "traditional_chinese_text": "認識 Emily Huang",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": "區塊標題"
@@ -819,7 +819,7 @@
     "traditional_chinese_text": "創辦人兼首席教育顧問",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "Approved",
     "notes": "副標題"
@@ -834,7 +834,7 @@
     "traditional_chinese_text": "Emily Huang 擁有超過20年的教育、心理學、神經多樣性倡導、家庭支持及學生發展經驗，專注於協助學生與家庭建立清晰且有方向的教育成長路徑。",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "meet-emily",
     "notes": "Approved"
@@ -849,7 +849,7 @@
     "traditional_chinese_text": "教育策略與規劃",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "meet-emily",
     "notes": "Approved"
@@ -864,7 +864,7 @@
     "traditional_chinese_text": "私校及大學申請規劃",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "meet-emily",
     "notes": "Approved"
@@ -879,7 +879,7 @@
     "traditional_chinese_text": "神經多樣性與家庭支持",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "meet-emily",
     "notes": "Approved"
@@ -894,7 +894,7 @@
     "traditional_chinese_text": "學生成長與發展",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "meet-emily",
     "notes": "Approved"
@@ -909,7 +909,7 @@
     "traditional_chinese_text": "了解 Emily 的故事",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "meet-emily",
     "notes": "Approved"
@@ -924,7 +924,7 @@
     "traditional_chinese_text": "家長怎麼說",
     "section_id": "testimonials",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -939,7 +939,7 @@
     "traditional_chinese_text": "Animetro 幫助我們看見更長遠的方向，為孩子建立完整的教育發展規劃。",
     "section_id": "testimonials",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -954,7 +954,7 @@
     "traditional_chinese_text": "七年級學生家長",
     "section_id": "testimonials",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -969,7 +969,7 @@
     "traditional_chinese_text": "顧問服務不只是申請學校，更重視孩子整體成長與自信建立。",
     "section_id": "testimonials",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -984,7 +984,7 @@
     "traditional_chinese_text": "學生運動員家長",
     "section_id": "testimonials",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -999,7 +999,7 @@
     "traditional_chinese_text": "Emily 提供了細緻而專業的建議，協助我們做出更有信心的教育決策。",
     "section_id": "testimonials",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1014,7 +1014,7 @@
     "traditional_chinese_text": "教育規劃家庭",
     "section_id": "testimonials",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1029,7 +1029,7 @@
     "traditional_chinese_text": "準備為孩子規劃未來嗎？",
     "section_id": "consultation-cta",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1044,7 +1044,7 @@
     "traditional_chinese_text": "成長超越升學始於完善的教育規劃。讓我們一起為孩子探索最適合的成長路徑。",
     "section_id": "consultation-cta",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1059,7 +1059,7 @@
     "traditional_chinese_text": "無論您正在考慮私校申請、大學規劃、STEM發展、學生運動員發展、神經多樣性支持，或長期教育規劃，Animetro 都能根據家庭需求提供個人化專業指導。",
     "section_id": "consultation-cta",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1074,7 +1074,7 @@
     "traditional_chinese_text": "個人化教育規劃",
     "section_id": "consultation-cta",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1089,7 +1089,7 @@
     "traditional_chinese_text": "私校及大學申請指導",
     "section_id": "consultation-cta",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1104,7 +1104,7 @@
     "traditional_chinese_text": "學生成長與發展支持",
     "section_id": "consultation-cta",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1119,7 +1119,7 @@
     "traditional_chinese_text": "以家庭為中心的教育顧問服務",
     "section_id": "consultation-cta",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1134,7 +1134,7 @@
     "traditional_chinese_text": "預約免費諮詢",
     "section_id": "consultation-cta",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1149,7 +1149,7 @@
     "traditional_chinese_text": "905-955-7068",
     "section_id": "consultation-cta",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1164,7 +1164,7 @@
     "traditional_chinese_text": "consulting@animetro.ca",
     "section_id": "consultation-cta",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1179,7 +1179,7 @@
     "traditional_chinese_text": "www.animetro.ca",
     "section_id": "consultation-cta",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1194,7 +1194,7 @@
     "traditional_chinese_text": "每位學生都值得擁有符合其優勢、目標與未來潛能的成長路徑。",
     "section_id": "consultation-cta",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": "Approved"
@@ -1209,7 +1209,7 @@
     "traditional_chinese_text": "",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1224,7 +1224,7 @@
     "traditional_chinese_text": "",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1239,7 +1239,7 @@
     "traditional_chinese_text": "Traditional Chinese Text",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1254,7 +1254,7 @@
     "traditional_chinese_text": "為長遠成長而設計的戰略教育發展路徑",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1269,7 +1269,7 @@
     "traditional_chinese_text": "為學生與家庭提供從小學到大學的個人化教育規劃服務。",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1284,7 +1284,7 @@
     "traditional_chinese_text": "預約諮詢",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1299,7 +1299,7 @@
     "traditional_chinese_text": "",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1314,7 +1314,7 @@
     "traditional_chinese_text": "Traditional Chinese Text",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1329,7 +1329,7 @@
     "traditional_chinese_text": "私校申請",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1344,7 +1344,7 @@
     "traditional_chinese_text": "提供選校、申請、面試、文書及家庭決策支持。",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1359,7 +1359,7 @@
     "traditional_chinese_text": "",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1374,7 +1374,7 @@
     "traditional_chinese_text": "Traditional Chinese Text",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1389,7 +1389,7 @@
     "traditional_chinese_text": "大學申請",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1404,7 +1404,7 @@
     "traditional_chinese_text": "提供大學申請、專業選擇、個人陳述及長期學術定位規劃。",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1419,7 +1419,7 @@
     "traditional_chinese_text": "",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1434,7 +1434,7 @@
     "traditional_chinese_text": "Traditional Chinese Text",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1449,7 +1449,7 @@
     "traditional_chinese_text": "GPA管理",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1464,7 +1464,7 @@
     "traditional_chinese_text": "協助學生進行學業規劃與成績提升。",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1479,7 +1479,7 @@
     "traditional_chinese_text": "",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1494,7 +1494,7 @@
     "traditional_chinese_text": "Traditional Chinese Text",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1509,7 +1509,7 @@
     "traditional_chinese_text": "STEM發展規劃",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1524,7 +1524,7 @@
     "traditional_chinese_text": "支持研究項目、競賽、拓展課程及STEM發展履歷建立。",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1539,7 +1539,7 @@
     "traditional_chinese_text": "",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1554,7 +1554,7 @@
     "traditional_chinese_text": "Traditional Chinese Text",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1569,7 +1569,7 @@
     "traditional_chinese_text": "學生運動員規劃",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1584,7 +1584,7 @@
     "traditional_chinese_text": "協助學生平衡學業、運動發展及未來升學機會。",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1599,7 +1599,7 @@
     "traditional_chinese_text": "",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1614,7 +1614,7 @@
     "traditional_chinese_text": "Traditional Chinese Text",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1629,7 +1629,7 @@
     "traditional_chinese_text": "神經多樣性支持",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1644,7 +1644,7 @@
     "traditional_chinese_text": "為ADHD、自閉症、資優、焦慮及學習差異學生提供個人化支持。",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1659,7 +1659,7 @@
     "traditional_chinese_text": "",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1674,7 +1674,7 @@
     "traditional_chinese_text": "Traditional Chinese Text",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1689,7 +1689,7 @@
     "traditional_chinese_text": "監護與寄宿家庭服務",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1704,7 +1704,7 @@
     "traditional_chinese_text": "為國際學生提供監護、寄宿家庭安排及家庭溝通支持。",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1719,7 +1719,7 @@
     "traditional_chinese_text": "",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1734,7 +1734,7 @@
     "traditional_chinese_text": "Traditional Chinese Text",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1749,7 +1749,7 @@
     "traditional_chinese_text": "準備為孩子規劃未來嗎？",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1764,7 +1764,7 @@
     "traditional_chinese_text": "今天預約免費諮詢。",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""
@@ -1779,7 +1779,7 @@
     "traditional_chinese_text": "預約諮詢",
     "section_id": "",
     "button": "",
-    "link": "",
+    "web_link": "",
     "image_file": "",
     "status": "",
     "notes": ""

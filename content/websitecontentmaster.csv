@@ -1,4 +1,4 @@
-no,page,section,content_type,key,english_text,traditional_chinese_text,section_id,button,link,image_file,status,notes
+no,page,section,content_type,key,english_text,traditional_chinese_text,section_id,button,web_link,image_file,status,notes
 1,Global,Header,Logo,header_logo,Animetro Consulting,艾美加教育顧問,navigation,,animetro-header-logo-light-2026.png,,Approved,
 2,Global,Header,Tagline,header_tagline,Growth Beyond Admission,成長超越升學,navigation,,animetro-header-logo-light-2026.png,,Approved,
 3,Global,Header,Navigation,nav_home,Home,首頁,navigation,,,,Approved,
@@ -24,15 +24,6 @@ no,page,section,content_type,key,english_text,traditional_chinese_text,section_i
 9,Home,Hero,Description,hero_description,Helping students and families build personalized education pathways from elementary school through university.,協助學生與家庭建立從小學到大學的個性化教育發展路徑。,navigation,,,,Approved,
 10,Home,Hero,Button,hero_primary_cta,Book a Free Consultation,預約免費諮詢,navigation,,,,Approved,
 11,Home,Hero,Button,hero_secondary_cta,View Success Stories,查看成功案例,navigation,,,,Approved,
-12,Home,Why Animetro,Title,why_title,Why Families Choose Animetro,為什麼家庭選擇艾美加,why-animetro,,,,Approved,區塊標題
-13,Home,Why Animetro,Feature Title,why_1_title,Strategic Education Planning,戰略教育規劃,why-animetro,,,,Approved,特色一標題
-14,Home,Why Animetro,Feature Description,why_1_desc,We help families plan long-term education pathways instead of making isolated school or application decisions.,我們協助家庭規劃長期教育路徑，而不只是處理單一學校選擇或申請決策,why-animetro,,,,Approved,特色一說明
-15,Home,Why Animetro,Feature Title,why_2_title,Personalized Student Guidance,個性化學生指導,why-animetro,,,,Approved,特色二標題
-16,Home,Why Animetro,Feature Description,why_2_desc,"Every student receives a tailored strategy based on academic profile, interests, strengths, goals, and family priorities.",每位學生都會依據學業背景、興趣、優勢、目標與家庭需求，制定專屬成長策略,why-animetro,,,,Approved,特色二說明
-17,Home,Why Animetro,Feature Title,why_3_title,Family-Centered Support,以家庭為中心的支持,why-animetro,,,,Approved,特色三標題
-18,Home,Why Animetro,Feature Description,why_3_desc,"We support both students and parents through planning, communication, decision-making, and school transitions.",我們在教育規劃、溝通協調、家庭決策與學校銜接過程中，同時支持學生與家長,why-animetro,,,,Approved,特色三說明
-19,Home,Why Animetro,Feature Title,why_4_title,Global Education Perspective,國際教育視野,why-animetro,,,,Approved,特色四標題
-20,Home,Why Animetro,Feature Description,why_4_desc,"Our guidance connects Canadian, U.S., and international education pathways with each student’s long-term growth.",我們結合加拿大、美國與國際教育路徑，協助學生建立面向長遠成長的教育規劃,why-animetro,,,,Approved,特色四說明
 21,Home,Core Services,Title,services_title,Core Services,核心服務,core-services,,,,Approved,
 22,Home,Core Services,Service Title,service_1_title,Education Strategy & Admissions,教育策略與升學申請,core-services,,animetro-strategy-consulting.npg,,Approved,
 23,Home,Core Services,Service Description,service_1_desc,"Comprehensive educational planning including education strategy, private school admissions, boarding school admissions, university admissions, school campus visits, and interview preparation.",教育策略規劃、私立學校申請、寄宿學校申請、大學申請、校園參訪及面試準備。,core-services,,,,Approved,
@@ -44,6 +35,15 @@ no,page,section,content_type,key,english_text,traditional_chinese_text,section_i
 29,Home,Core Services,Service Description,service_4_desc,"Personalized support for gifted, twice-exceptional, ADHD, autistic, and learning-different students, including school advocacy, accommodations, executive function coaching, and parent guidance.",為資優、雙重特殊、ADHD、自閉症及學習差異學生提供個人化支持，包括學校協調、學習調整及家長指導。,core-services,,,,Approved,
 30,Home,Core Services,Service Title,service_5_title,Family & Student Support,家庭與學生支持,core-services,,,,Approved,
 31,Home,Core Services,Service Description,service_5_desc,"Supporting students and families through guardianship, international student support, school communication, school transitions, in-school performance support, and academic progress monitoring.",提供監護服務、國際學生支持、學校溝通協調、轉學適應、校內表現支持及學業進度追蹤。,core-services,,,,Approved,區塊標題
+12,Home,Why Animetro,Title,why_title,Why Families Choose Animetro,為什麼家庭選擇艾美加,why-animetro,,,,Approved,區塊標題
+13,Home,Why Animetro,Feature Title,why_1_title,Strategic Education Planning,戰略教育規劃,why-animetro,,,,Approved,特色一標題
+14,Home,Why Animetro,Feature Description,why_1_desc,We help families plan long-term education pathways instead of making isolated school or application decisions.,我們協助家庭規劃長期教育路徑，而不只是處理單一學校選擇或申請決策,why-animetro,,,,Approved,特色一說明
+15,Home,Why Animetro,Feature Title,why_2_title,Personalized Student Guidance,個性化學生指導,why-animetro,,,,Approved,特色二標題
+16,Home,Why Animetro,Feature Description,why_2_desc,"Every student receives a tailored strategy based on academic profile, interests, strengths, goals, and family priorities.",每位學生都會依據學業背景、興趣、優勢、目標與家庭需求，制定專屬成長策略,why-animetro,,,,Approved,特色二說明
+17,Home,Why Animetro,Feature Title,why_3_title,Family-Centered Support,以家庭為中心的支持,why-animetro,,,,Approved,特色三標題
+18,Home,Why Animetro,Feature Description,why_3_desc,"We support both students and parents through planning, communication, decision-making, and school transitions.",我們在教育規劃、溝通協調、家庭決策與學校銜接過程中，同時支持學生與家長,why-animetro,,,,Approved,特色三說明
+19,Home,Why Animetro,Feature Title,why_4_title,Global Education Perspective,國際教育視野,why-animetro,,,,Approved,特色四標題
+20,Home,Why Animetro,Feature Description,why_4_desc,"Our guidance connects Canadian, U.S., and international education pathways with each student’s long-term growth.",我們結合加拿大、美國與國際教育路徑，協助學生建立面向長遠成長的教育規劃,why-animetro,,,,Approved,特色四說明
 35,Home,Success Stories,Story Title,success_1_title,Private School Admission Success,私校錄取成功案例,success-stories,,,,Approved,案例一標題
 36,Home,Success Stories,Story Description,success_1_desc,"Supported a Grade 7 student through school selection, application strategy, interviews, and enrollment at a leading independent school.",協助七年級學生完成選校、申請策略、面試及錄取流程，成功進入優秀私立學校。,success-stories,,,,Approved,案例一說明
 37,Home,Success Stories,Story Title,success_2_title,Student Athlete Development Pathway,學生運動員發展路徑,success-stories,,,,Approved,案例二標題
