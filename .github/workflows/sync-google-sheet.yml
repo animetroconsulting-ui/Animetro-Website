@@ -2,11 +2,21 @@ name: Sync Google Sheet to website
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/sync-google-sheet.yml"
+      - "scripts/sync_google_sheet_site.py"
+      - "scripts/verify_static_site.py"
+      - "assets/styles.css"
+      - "assets/images/services/**"
   schedule:
     - cron: "17 * * * *"
 
 permissions:
   contents: write
+  id-token: write
 
 concurrency:
   group: google-sheet-sync
@@ -16,10 +26,19 @@ jobs:
   sync:
     name: Generate static site from Google Sheet
     runs-on: ubuntu-latest
+    env:
+      HAS_GOOGLE_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.GOOGLE_WORKLOAD_IDENTITY_PROVIDER != '' }}
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        if: env.HAS_GOOGLE_WORKLOAD_IDENTITY_PROVIDER == 'true'
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GOOGLE_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: animetro-sheet-logger@hardy-abode-499712-e7.iam.gserviceaccount.com
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -34,6 +53,9 @@ jobs:
           GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID || '1MjWHgypp0SItMQI6AHiUoTAqTzhe8pyeFVUblcnSDTg' }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: python scripts/sync_google_sheet_site.py
+
+      - name: Verify generated website files
+        run: python scripts/verify_static_site.py
 
       - name: Commit generated updates
         uses: stefanzweifel/git-auto-commit-action@v5
