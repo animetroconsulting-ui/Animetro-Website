@@ -538,11 +538,29 @@ p {
   border-radius: 8px;
   background: var(--panel);
   scroll-margin-top: 96px;
+  overflow-wrap: break-word;
 }
 
 .service-detail p {
   margin-top: 12px;
   font-size: 1rem;
+}
+
+.service-image {
+  margin: 16px 0 18px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 160, 23, 0.22);
+  border-radius: 8px;
+  background: #f7f7f7;
+}
+
+.service-image img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 26vw, 320px);
+  object-fit: contain;
+  object-position: center;
+  background: #f7f7f7;
 }
 
 .resource-category + .resource-category {
@@ -1377,6 +1395,14 @@ p {
   html[lang="en"] .hero h1 {
     font-size: clamp(1.78rem, 7vw, 2.18rem);
     line-height: 1.18;
+  }
+
+  .service-detail {
+    padding: 22px;
+  }
+
+  .service-image img {
+    height: clamp(190px, 52vw, 280px);
   }
 
   .landing-panel {

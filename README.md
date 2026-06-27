@@ -15,11 +15,14 @@ The Google Sheet named **Animetro Website Content Master** is the single source 
 
 Required tabs:
 
-- `Website-conetent-2` (the sync also accepts common `Website Content 2` spelling variants and older `websitecontentmaster` names)
+- `Global` (shared navigation and footer)
+- `Home` (homepage content)
+- `Services` (Services page content)
 - `Brand Identity`
-- `Website Images`
+- `Website Images` (general website image inventory and service image fallback)
+- `Service Images` (structured service-card image metadata)
 
-The sync workflow reads those tabs, exports them into `content/`, regenerates the static website files, commits the results to `main`, and lets Vercel auto-deploy from GitHub.
+The sync workflow reads those tabs, exports them into `content/`, regenerates the static website files, verifies the approved homepage and service-image output, commits the results to `main`, and lets Vercel auto-deploy from GitHub.
 
 Do not use Git submodules.
 
@@ -50,6 +53,8 @@ The sync script generates or updates:
 - `index.html`
 - `en/index.html`
 - `zh/index.html`
+- `en/services/index.html`
+- `zh/services/index.html`
 - `assets/`
 - `content/`
 
@@ -58,7 +63,8 @@ The sync script generates or updates:
 Add these secrets in GitHub:
 
 - `GOOGLE_SHEET_ID`: the spreadsheet ID for **Animetro Website Content Master**
-- `GOOGLE_SERVICE_ACCOUNT_JSON`: the full JSON credentials for a Google service account that can read the spreadsheet
+- `GOOGLE_SERVICE_ACCOUNT_JSON`: full service-account JSON credentials that can read the spreadsheet
+- `GOOGLE_WORKLOAD_IDENTITY_PROVIDER`: optional GitHub OIDC provider used by `google-github-actions/auth@v2`
 
 This repository is already configured to use this spreadsheet by default:
 
@@ -93,7 +99,7 @@ To test the sync locally, export credentials and run:
 
 ```bash
 export GOOGLE_SHEET_ID="your-sheet-id"
-export GOOGLE_SERVICE_ACCOUNT_JSON='{"type":"service_account",...}'
+export GOOGLE_APPLICATION_CREDENTIALS="/path/to/google-credentials.json"
 python scripts/sync_google_sheet_site.py
 ```
 

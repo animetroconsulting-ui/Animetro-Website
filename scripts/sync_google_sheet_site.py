@@ -2,9 +2,12 @@
 """Sync Animetro static website files from Google Sheets.
 
 The Google Sheet is the source of truth. This script reads:
-- Website-content-2 / Website-conetent-2
+- Global
+- Home
+- Services
 - Brand Identity
 - Website Images
+- Service Images
 
 It writes raw tab exports to content/ and regenerates static files.
 """
@@ -20,6 +23,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+import google.auth
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
@@ -29,22 +33,13 @@ CONTENT_DIR = ROOT / "content"
 EN_DIR = ROOT / "en"
 ZH_DIR = ROOT / "zh"
 
-CONTENT_TAB = "websitecontentmaster"
 REQUIRED_TABS = {
-    CONTENT_TAB: [
-        "Website-conetent-2",
-        "0Website-content-2",
-        "Website-content-2",
-        "Website Content 2",
-        "website-content 2",
-        "websitecontent2",
-        "website-content-1",
-        "websitecontentmaster",
-        "websitecontentmaster01",
-        "Website Content Master",
-    ],
+    "Global": ["Global"],
+    "Home": ["Home"],
+    "Services": ["Services"],
     "Brand Identity": ["Brand Identity", "brand identity", "    Brand Identity"],
     "Website Images": ["Website Images", "website images"],
+    "Service Images": ["Service Images", "service images"],
 }
 SHEETS_SCOPE = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 NAV_KEYS = ["home", "services", "about", "resources", "insights", "events", "contact"]
@@ -52,6 +47,32 @@ HEADER_LOGO_SRC = "/assets/brand/exports/animetro-header-logo-light-2026.png"
 FOOTER_LOGO_SRC = "/assets/brand/exports/animetro-header-logo-dark-2026.png"
 FAVICON_SRC = "/assets/brand/exports/animetro-favicon-logo-2026.png"
 APP_ICON_SRC = "/assets/brand/exports/animetro-app-icon-logo-2026.png"
+SERVICE_PLACEHOLDER_IMAGE = (
+    "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20720'%3E"
+    "%3Crect%20width='1200'%20height='720'%20fill='%23f6f0e6'/%3E"
+    "%3Crect%20x='60'%20y='60'%20width='1080'%20height='600'%20rx='24'%20fill='%23fffdf8'%20stroke='%23e7ddcf'%20stroke-width='4'/%3E"
+    "%3Ctext%20x='600'%20y='360'%20text-anchor='middle'%20font-family='Arial,sans-serif'%20font-size='42'%20fill='%235d6674'%3EService%20image%20pending%3C/text%3E"
+    "%3C/svg%3E"
+)
+
+SERVICE_IMAGE_SECTION_IDS = {
+    "education strategy & admissions": "education-admissions",
+    "education strategy": "education-admissions",
+    "prep school admissions": "education-admissions",
+    "university admissions": "education-admissions",
+    "gpa management / academic skills": "education-admissions",
+    "gpa management": "education-admissions",
+    "steam pathway / enrichment": "student-development",
+    "student development": "student-development",
+    "student athlete planning": "student-athlete",
+    "student-athlete development": "student-athlete",
+    "neurodiversity support": "gifted-neurodiverse",
+    "gifted support": "gifted-neurodiverse",
+    "gifted & neurodiverse learner support": "gifted-neurodiverse",
+    "family & student support": "family-support",
+    "mental health support": "family-support",
+    "guardianship / student care": "family-support",
+}
 
 
 @dataclass
@@ -69,6 +90,10 @@ def env_required(name: str) -> str:
 
 
 def credentials():
+    if os.environ.get("GOOGLE_APPLICATION_CREDENTIALS") or os.environ.get("CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE"):
+        creds, _ = google.auth.default(scopes=SHEETS_SCOPE)
+        return creds
+
     raw_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "")
     trimmed_json = raw_json.strip()
     diagnostic = f"GOOGLE_SERVICE_ACCOUNT_JSON length: {len(raw_json)}"
@@ -195,11 +220,7 @@ def first(row: dict[str, str], names: list[str], default: str = "") -> str:
 
 
 def normalize_brand_text(value: str) -> str:
-    return (
-        value.replace("Growth Beyong Admission", "Growth Beyond Admission")
-        .replace("Growth Beyond Admissions", "Growth Beyond Admission")
-        .replace("Education Beyond Admission", "Growth Beyond Admission")
-    )
+    return value
 
 
 def row_key(row: dict[str, str]) -> str:
@@ -256,6 +277,94 @@ def image_value(index: dict[str, dict[str, str]], key: str, default: str = "") -
 
 def section_id(index: dict[str, dict[str, str]], key: str, default: str = "") -> str:
     return first(index.get(clean_key(key), {}), ["section ID", "section_id", "section id"], default)
+
+
+def local_service_image(file_name: str) -> tuple[str, bool]:
+    if not file_name:
+        return SERVICE_PLACEHOLDER_IMAGE, True
+    image_url = f"/assets/images/services/{file_name}"
+    return image_url, not (ROOT / image_url.lstrip("/")).exists()
+
+
+def service_image_row_id(row: dict[str, str]) -> str:
+    raw_id = first(row, ["Service ID", "service_id"])
+    if raw_id:
+        aliases = {
+            "service_education_strategy": "education-admissions",
+            "service_student_development": "student-development",
+            "service_student_athlete": "student-athlete",
+            "service_neurodiverse": "gifted-neurodiverse",
+            "service_family_support": "family-support",
+        }
+        return aliases.get(clean_key(raw_id), clean_key(raw_id))
+    service_name = first(row, ["Service Name", "service_name", "Website Section", "website_section", "section"])
+    return SERVICE_IMAGE_SECTION_IDS.get(service_name.strip().lower(), clean_key(service_name))
+
+
+def service_image_index(service_rows: list[dict[str, str]], website_rows: list[dict[str, str]]) -> dict[str, dict[str, str]]:
+    images: dict[str, dict[str, str]] = {}
+    for row in website_rows:
+        page = first(row, ["No", "Page", "page", "no"])
+        if clean_key(page) != "services":
+            continue
+        section = first(row, ["Website Section", "website_section", "section"])
+        service_id = SERVICE_IMAGE_SECTION_IDS.get(section.strip().lower())
+        if not service_id:
+            continue
+        file_name = first(row, ["image_file_name", "Image File Name", "file_name"])
+        image_url, placeholder = local_service_image(file_name)
+        if placeholder:
+            image_url = SERVICE_PLACEHOLDER_IMAGE
+        images[service_id] = {
+            "image_url": image_url,
+            "image_alt": first(row, ["alt_text", "Alt Text"], section),
+            "image_file_name": file_name or "service-image-pending.svg",
+            "image_purpose": first(row, ["purpose"], f"Service page visual for {section}"),
+            "image_status": first(row, ["status"], "In Progress") or "In Progress",
+            "drive_link": first(row, ["google_drive_link", "Google Drive Link"]),
+            "recommended_use": first(row, ["recommended_use", "Recommended Use"]),
+            "source_section": section,
+            "is_placeholder": "true" if placeholder else "false",
+        }
+    for row in service_rows:
+        service_id = service_image_row_id(row)
+        if not service_id:
+            continue
+        file_name = first(row, ["image_file_name", "Image File Name", "file_name"])
+        image_url, placeholder = local_service_image(file_name)
+        if placeholder:
+            existing = images.get(service_id, {})
+            image_url = existing.get("image_url", SERVICE_PLACEHOLDER_IMAGE)
+            placeholder = image_url == SERVICE_PLACEHOLDER_IMAGE
+        service_name = first(row, ["Service Name", "service_name"], service_id)
+        images[service_id] = {
+            "image_url": image_url,
+            "image_alt": first(row, ["alt_text", "Alt Text"], service_name),
+            "image_file_name": file_name or images.get(service_id, {}).get("image_file_name", "service-image-pending.svg"),
+            "image_purpose": first(row, ["image_purpose", "Image Type", "Recommended Image Concept"], f"Service page visual for {service_name}"),
+            "image_status": first(row, ["status"], "In Progress") or "In Progress",
+            "drive_link": first(row, ["image_url_google_drive_link", "Image URL / Google Drive Link", "google_drive_link", "Google Drive Link"]),
+            "recommended_use": first(row, ["website_placement", "Website Placement", "recommended_use", "Recommended Use"]),
+            "source_section": service_name,
+            "is_placeholder": "true" if placeholder else "false",
+        }
+    return images
+
+
+def service_image_figure(service_id: str, title: str, image: dict[str, str] | None) -> str:
+    image = image or {
+        "image_url": SERVICE_PLACEHOLDER_IMAGE,
+        "image_alt": title,
+        "image_file_name": "service-image-pending.svg",
+        "image_purpose": f"Service page visual for {service_id}",
+        "image_status": "In Progress",
+        "drive_link": "",
+        "recommended_use": "",
+        "is_placeholder": "true",
+    }
+    return f'''            <figure class="service-image" data-image-file-name="{escape(image.get("image_file_name", ""))}" data-image-url="{escape(image.get("image_url", ""))}" data-image-alt="{escape(image.get("image_alt", title))}" data-image-purpose="{escape(image.get("image_purpose", ""))}" data-image-status="{escape(image.get("image_status", "In Progress"))}" data-drive-link="{escape(image.get("drive_link", ""))}" data-recommended-use="{escape(image.get("recommended_use", ""))}" data-placeholder="{escape(image.get("is_placeholder", "false"))}">
+              <img src="{escape(image.get("image_url", SERVICE_PLACEHOLDER_IMAGE))}" alt="{escape(image.get("image_alt", title))}">
+            </figure>'''
 
 
 def escape(value: str) -> str:
@@ -505,9 +614,9 @@ def homepage_html(index: dict[str, dict[str, str]], lang: str) -> str:
     body = f'''    <main>
       <section class="hero hero-with-media">
         <div>
-          {f'<p class="eyebrow">{escape(hero_subtitle)}</p>' if hero_subtitle else ''}
           <h1>{escape(hero_title)}</h1>
-          {f'<p class="lead">{escape(hero_description)}</p>' if hero_description else ''}
+          {f'<p class="lead">{escape(hero_subtitle)}</p>' if hero_subtitle else ''}
+          {f'<p>{escape(hero_description)}</p>' if hero_description else ''}
           <div class="actions">
             <a class="button" href="/{lang}/contact/">{escape(primary_cta)}</a>
             <a class="button secondary" href="/{lang}/services/">{escape(secondary_cta)}</a>
@@ -575,45 +684,71 @@ def homepage_html(index: dict[str, dict[str, str]], lang: str) -> str:
     return page_shell(index, lang, "home", "", 1, body, hero_description)
 
 
-def services_for_sheet(index: dict[str, dict[str, str]], lang: str) -> list[tuple[str, str, str]]:
-    specs = [
-        ("ps", "elite-private-school"),
-        ("uni", "university-application"),
-        ("gpa", "gpa-management"),
-        ("stem", "steam-pathway"),
-        ("athlete", "student-athlete"),
-        ("neuro", "gifted-diverse-learning"),
-        ("guardian", "short-term-guardianship"),
+def services_for_sheet(
+    rows: list[dict[str, str]],
+    lang: str,
+    images: dict[str, dict[str, str]],
+) -> list[dict[str, str | list[str] | dict[str, str]]]:
+    categories: dict[str, dict[str, str | list[str] | dict[str, str]]] = {}
+    for row in approved_content_rows(rows):
+        content_type = clean_key(first(row, ["Content Type", "content_type"]))
+        key = clean_key(row_key(row))
+        sid = first(row, ["section ID", "section_id", "section id"], clean_key(first(row, ["Section"], key)))
+        if not sid:
+            continue
+        category = categories.setdefault(
+            sid,
+            {"id": sid, "title": "", "desc": "", "items": [], "image": images.get(sid, {})},
+        )
+        if content_type == "category_title" or key.endswith("_title"):
+            category["title"] = lang_value(row, lang)
+        elif content_type == "category_description" or key.endswith("_desc"):
+            category["desc"] = lang_value(row, lang)
+        elif content_type == "subservice" or "_item_" in key:
+            items = category["items"]
+            if isinstance(items, list):
+                items.append(lang_value(row, lang))
+    items = [
+        category
+        for category in categories.values()
+        if str(category.get("title", "")).strip()
     ]
-    items = []
-    for prefix, sid in specs:
-        title = text(index, f"{prefix}_title", lang)
-        desc = text(index, f"{prefix}_desc", lang)
-        if title:
-            items.append((sid, title, desc))
-    if not items:
-        for number in range(1, 16):
-            title = text(index, f"service_{number}_title", lang)
-            desc = text(index, f"service_{number}_desc", lang)
-            sid = section_id(index, f"service_{number}_title", f"service-{number}")
-            if title:
-                items.append((sid, title, desc))
+    for service_id, image in images.items():
+        if any(item.get("id") == service_id for item in items):
+            continue
+        if image.get("source_section"):
+            items.append({"id": service_id, "title": image["source_section"], "desc": "", "items": [], "image": image})
     return items
 
 
-def services_page_html(index: dict[str, dict[str, str]], lang: str) -> str:
+def services_page_html(
+    index: dict[str, dict[str, str]],
+    services_rows: list[dict[str, str]],
+    service_image_rows: list[dict[str, str]],
+    website_image_rows: list[dict[str, str]],
+    lang: str,
+) -> str:
     is_zh = lang == "zh"
-    hero_title = text(index, "services_hero_title", lang, "服務" if is_zh else "Services")
-    hero_subtitle = text(index, "services_hero_subtitle", lang, "")
+    images = service_image_index(service_image_rows, website_image_rows)
+    hero_title = text(index, "services_title", lang, "服務" if is_zh else "Services")
+    hero_subtitle = text(index, "services_intro", lang, "")
     hero_cta = text(index, "services_hero_cta", lang, "預約諮詢" if is_zh else "Book a Consultation")
     cta_title = text(index, "services_cta_title", lang, text(index, "cta_title", lang))
     cta_subtitle = text(index, "services_cta_subtitle", lang, text(index, "cta_subtitle", lang))
     cta_button = text(index, "services_cta_button", lang, text(index, "cta_button", lang, hero_cta))
     service_articles = []
-    for sid, title, desc in services_for_sheet(index, lang):
+    for service in services_for_sheet(services_rows, lang, images):
+        sid = str(service["id"])
+        title = str(service["title"])
+        desc = str(service["desc"])
+        image = service["image"] if isinstance(service["image"], dict) else {}
+        subitems = service["items"] if isinstance(service["items"], list) else []
+        subitems_html = "".join(f"<li>{escape(str(item))}</li>" for item in subitems if item)
         service_articles.append(f'''          <article class="service-detail" id="{escape(sid)}">
             <h2>{escape(title)}</h2>
+{service_image_figure(sid, title, image)}
             {f'<p>{escape(desc)}</p>' if desc else ''}
+            {f'<ul class="check-list">{subitems_html}</ul>' if subitems_html else ''}
           </article>''')
     body = f'''    <main>
       <section class="page-hero">
@@ -624,7 +759,7 @@ def services_page_html(index: dict[str, dict[str, str]], lang: str) -> str:
       </section>
 
       <section class="section">
-        <div class="service-list">
+        <div class="service-list" data-content-source="Google Sheet: Services + Service Images + Website Images">
 {chr(10).join(service_articles)}
         </div>
       </section>
@@ -639,16 +774,27 @@ def services_page_html(index: dict[str, dict[str, str]], lang: str) -> str:
 
 
 def write_site(tables: dict[str, SheetTable]) -> None:
-    content_rows = tables[CONTENT_TAB].rows
-    index = build_key_index(content_rows)
+    home_rows = tables["Global"].rows + tables["Home"].rows
+    services_rows = tables["Services"].rows
+    service_page_rows = tables["Global"].rows + services_rows
+    website_image_rows = tables["Website Images"].rows
+    service_image_rows = tables["Service Images"].rows
+    home_index = build_key_index(home_rows)
+    services_index = build_key_index(service_page_rows)
     EN_DIR.mkdir(parents=True, exist_ok=True)
     ZH_DIR.mkdir(parents=True, exist_ok=True)
     (EN_DIR / "services").mkdir(parents=True, exist_ok=True)
     (ZH_DIR / "services").mkdir(parents=True, exist_ok=True)
-    (EN_DIR / "index.html").write_text(homepage_html(index, "en"), encoding="utf-8")
-    (ZH_DIR / "index.html").write_text(homepage_html(index, "zh"), encoding="utf-8")
-    (EN_DIR / "services" / "index.html").write_text(services_page_html(index, "en"), encoding="utf-8")
-    (ZH_DIR / "services" / "index.html").write_text(services_page_html(index, "zh"), encoding="utf-8")
+    (EN_DIR / "index.html").write_text(homepage_html(home_index, "en"), encoding="utf-8")
+    (ZH_DIR / "index.html").write_text(homepage_html(home_index, "zh"), encoding="utf-8")
+    (EN_DIR / "services" / "index.html").write_text(
+        services_page_html(services_index, services_rows, service_image_rows, website_image_rows, "en"),
+        encoding="utf-8",
+    )
+    (ZH_DIR / "services" / "index.html").write_text(
+        services_page_html(services_index, services_rows, service_image_rows, website_image_rows, "zh"),
+        encoding="utf-8",
+    )
     (ROOT / "index.html").write_text(
         '''<!doctype html>
 <html lang="en">
