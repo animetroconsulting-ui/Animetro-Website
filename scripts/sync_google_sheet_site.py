@@ -322,6 +322,8 @@ def service_image_index(service_rows: list[dict[str, str]], website_rows: list[d
         image_url, placeholder = local_service_image(file_name)
         if placeholder:
             image_url = SERVICE_PLACEHOLDER_IMAGE
+        if service_id in images:
+            continue
         images[service_id] = {
             "image_url": image_url,
             "image_alt": first(row, ["alt_text", "Alt Text"], section),
@@ -707,9 +709,9 @@ def services_for_sheet(
             sid,
             {"id": sid, "title": "", "desc": "", "items": [], "image": images.get(sid, {})},
         )
-        if content_type == "category_title" or key.endswith("_title"):
+        if content_type == "category_title":
             category["title"] = lang_value(row, lang)
-        elif content_type == "category_description" or key.endswith("_desc"):
+        elif content_type == "category_description":
             category["desc"] = lang_value(row, lang)
         elif content_type == "subservice" or "_item_" in key:
             items = category["items"]
