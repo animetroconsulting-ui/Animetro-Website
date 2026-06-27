@@ -1,0 +1,67 @@
+[
+  {
+    "service_id": "service_education_strategy",
+    "service_name": "Education Strategy & Admissions",
+    "page_section": "Services / Education Strategy",
+    "image_type": "Service Hero Image",
+    "recommended_image_concept": "Parent and student reviewing education pathway, school planning, admissions strategy, calm professional consulting setting",
+    "image_file_name": "animetro-service-education-strategy.jpg",
+    "image_url_google_drive_link": "animetro-education-strategy-consulting.png",
+    "alt_text": "President and student reviewing personalized education and admissions strategy",
+    "website_placement": "Service page hero / service card",
+    "status": "Done",
+    "notes": "Use warm, professional, trustworthy image"
+  },
+  {
+    "service_id": "service_student_development",
+    "service_name": "Student Development",
+    "page_section": "Services / Student Development",
+    "image_type": "Service Hero Image",
+    "recommended_image_concept": "Confident student working on academic goals, leadership, learning skills, and personal growth",
+    "image_file_name": "animetro-service-student-development.jpg",
+    "image_url_google_drive_link": "",
+    "alt_text": "Student developing academic confidence, leadership, and personal growth skills",
+    "website_placement": "Service page hero / service card",
+    "status": "To Do",
+    "notes": "Should feel positive, bright, and future-focused"
+  },
+  {
+    "service_id": "service_student_athlete",
+    "service_name": "Student-Athlete Development",
+    "page_section": "Services / Student-Athlete Development",
+    "image_type": "Service Hero Image",
+    "recommended_image_concept": "Student athlete balancing school, training, teamwork, and future planning",
+    "image_file_name": "animetro-service-student-athlete-development.jpg",
+    "image_url_google_drive_link": "",
+    "alt_text": "Student athlete balancing academic planning, sports development, and future goals",
+    "website_placement": "Service page hero / service card",
+    "status": "To Do",
+    "notes": "Should show both education and sports, not only athletic action"
+  },
+  {
+    "service_id": "service_neurodiverse",
+    "service_name": "Gifted & Neurodiverse Learner Support",
+    "page_section": "Services / Gifted & Neurodiverse Learner Support",
+    "image_type": "Service Hero Image",
+    "recommended_image_concept": "Supportive learning environment for gifted, neurodiverse, ADHD, autistic, anxious, or emotionally sensitive learners",
+    "image_file_name": "animetro-service-neurodiverse-support.jpg",
+    "image_url_google_drive_link": "",
+    "alt_text": "Supportive education planning for gifted and neurodiverse learners",
+    "website_placement": "Service page hero / service card",
+    "status": "To Do",
+    "notes": "Should feel respectful, calm, inclusive, and not clinical"
+  },
+  {
+    "service_id": "service_family_support",
+    "service_name": "Family & Student Support",
+    "page_section": "Services / Family & Student Support",
+    "image_type": "Service Hero Image",
+    "recommended_image_concept": "Family consultation, parent guidance, student support, emotional and educational planning",
+    "image_file_name": "animetro-service-family-support.jpg",
+    "image_url_google_drive_link": "",
+    "alt_text": "Family and student receiving supportive education consulting and planning",
+    "website_placement": "Service page hero / service card",
+    "status": "To Do",
+    "notes": "Should show trust, care, communication, and family-centered support"
+  }
+]

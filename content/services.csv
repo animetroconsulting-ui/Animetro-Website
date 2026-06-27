@@ -1,0 +1,36 @@
+page,section,content_type,key,english_text,traditional_chinese_text,section_id,status,notes
+Services,Services Hero,Title,services_title,Education Planning with a Clear Strategy,教育規劃，始於清晰的策略,services-hero,Approved,Page title
+Services,Services Hero,Description,services_intro,"Helping students and families make informed educational decisions through personalized planning, admissions guidance, student development, and long-term success strategies.",透過個性化規劃、升學申請指導、學生發展支持及長期教育策略，協助學生與家庭做出明智的教育決策。,services-hero,Approved,Page intro
+Services,Education Strategy & Admissions,Category Title,service_cat_1_title,Education Strategy & Admissions,教育策略與升學申請,education-admissions,Approved,Category 1
+Services,Education Strategy & Admissions,Category Description,service_cat_1_desc,"We help students and families develop a clear educational pathway from elementary school through university, combining long-term planning, school selection, admissions strategy, and personalized guidance.",我們協助學生與家庭建立從小學到大學的完整教育發展路徑，結合長期規劃、選校策略、升學申請及個人化指導。,education-admissions,Approved,Category 1 description
+Services,Education Strategy & Admissions,Subservice,service_cat_1_item_1,Education Strategy,教育策略規劃,education-admissions,Approved,Subservice
+Services,Education Strategy & Admissions,Subservice,service_cat_1_item_2,Private School Admissions,私立學校申請,education-admissions,Approved,Subservice
+Services,Education Strategy & Admissions,Subservice,service_cat_1_item_3,Boarding School Admissions,寄宿學校申請,education-admissions,Approved,Subservice
+Services,Education Strategy & Admissions,Subservice,service_cat_1_item_4,University Admissions,大學申請,education-admissions,Approved,Subservice
+Services,Education Strategy & Admissions,Subservice,service_cat_1_item_5,School Selection,選校規劃,education-admissions,Approved,Subservice
+Services,Education Strategy & Admissions,Subservice,service_cat_1_item_6,School Campus Visits,校園參訪規劃,education-admissions,Approved,Subservice
+Services,Education Strategy & Admissions,Subservice,service_cat_1_item_7,Interview Preparation,面試準備與輔導,education-admissions,Approved,Subservice
+Services,Education Strategy & Admissions,Subservice,service_cat_1_item_8,Application Essays,申請文書指導,education-admissions,Approved,Subservice
+Services,Education Strategy & Admissions,Subservice,service_cat_1_item_9,Educational Roadmap Planning,教育路徑規劃,education-admissions,Approved,Subservice
+Services,Student Development,Category Title,service_cat_2_title,Student Development,學生成長與競爭力發展,student-development,Approved,Category 2
+Services,Student Development,Category Description,service_cat_2_desc,"Helping students build meaningful experiences, leadership skills, academic enrichment, and personal achievements that support long-term success.",協助學生建立有意義的學習經歷、領導力、學術拓展及個人成就，培養長遠競爭力。,student-development,Approved,Category 2 description
+Services,Student Development,Subservice,service_cat_2_item_1,STEAM Pathway Planning,STEAM發展規劃,student-development,Approved,Subservice
+Services,Student Development,Subservice,service_cat_2_item_2,Research Opportunities,學術研究機會規劃,student-development,Approved,Subservice
+Services,Student Development,Subservice,service_cat_2_item_3,Leadership Development,領導力發展,student-development,Approved,Subservice
+Services,Student Development,Subservice,service_cat_2_item_4,Art Portfolio Development,藝術作品集規劃,student-development,Approved,Subservice
+Services,Student Development,Subservice,service_cat_2_item_5,Personal Multimedia Portfolio,個人多媒體作品集,student-development,Approved,Subservice
+Services,Student Development,Subservice,service_cat_2_item_6,Summer Enrichment Programs,暑期拓展與精英培訓項目,student-development,Approved,Subservice
+Services,Student Development,Subservice,service_cat_2_item_7,Community Service Planning,社區服務規劃,student-development,Approved,Subservice
+Services,Student Development,Subservice,service_cat_2_item_8,Competition Planning,競賽規劃,student-development,Approved,Subservice
+Services,Student Development,Subservice,service_cat_2_item_9,Personal Branding & Profile Building,個人品牌與背景塑造,student-development,Approved,Subservice
+Services,Student-Athlete Development,Category Title,service_cat_3_title,Student-Athlete Development,學生運動員發展規劃,student-athlete,Approved,Category 3
+Services,Student-Athlete Development,Category Description,service_cat_3_desc,"We help student-athletes balance academic achievement, athletic development, school placement, recruitment opportunities, and long-term athletic pathways.",我們協助學生運動員平衡學業成就、競技發展、學校選擇、招募機會及長期運動員發展路徑。,student-athlete,Approved,Category 3 description
+Services,Student-Athlete Development,Subservice,service_cat_3_item_1,Athletic-Academic Planning,學業與運動整合規劃,student-athlete,Approved,Subservice
+Services,Student-Athlete Development,Subservice,service_cat_3_item_2,Recruiting Guidance,運動員招募指導,student-athlete,Approved,Subservice
+Services,Student-Athlete Development,Subservice,service_cat_3_item_3,NCAA Pathways,NCAA升學路徑規劃,student-athlete,Approved,Subservice
+Services,Student-Athlete Development,Subservice,service_cat_3_item_4,U SPORTS Pathways,加拿大U SPORTS升學路徑規劃,student-athlete,Approved,Subservice
+Services,Student-Athlete Development,Subservice,service_cat_3_item_5,Boarding School Sports Placement,寄宿學校運動項目匹配,student-athlete,Approved,Subservice
+Services,Student-Athlete Development,Subservice,service_cat_3_item_6,Athletic Resume Development,運動履歷建立,student-athlete,Approved,Subservice
+Services,Student-Athlete Development,Subservice,service_cat_3_item_7,Competition Planning,比賽規劃,student-athlete,Approved,Subservice
+Services,Student-Athlete Development,Subservice,service_cat_3_item_8,Seasonal Development Planning,賽季發展規劃,student-athlete,Approved,Subservice
+Services,Student-Athlete Development,Subservice,service_cat_3_item_9,Student-Athlete Time Management,學生運動員時間管理,student-athlete,Approved,Sub
