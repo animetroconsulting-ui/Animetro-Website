@@ -210,7 +210,10 @@ html[lang="zh-Hant"] .button {
   inset: 0;
   opacity: 0;
   transform: scale(1.02);
-  animation: heroFade 12s infinite, heroZoom 12s infinite;
+  animation:
+    heroFade 12s infinite ease-in-out,
+    heroZoom 12s infinite linear;
+  will-change: opacity, transform;
 }
 
 .hero-slideshow img:first-child {
@@ -230,13 +233,12 @@ html[lang="zh-Hant"] .button {
 }
 
 @keyframes heroFade {
-  0%,
-  8% {
+  0% {
     opacity: 0;
   }
 
-  12%,
-  30% {
+  6.5%,
+  27.5% {
     opacity: 1;
   }
 
@@ -251,12 +253,12 @@ html[lang="zh-Hant"] .button {
     transform: scale(1.02);
   }
 
-  30% {
-    transform: scale(1.075);
+  34% {
+    transform: scale(1.04);
   }
 
   100% {
-    transform: scale(1.075);
+    transform: scale(1.04);
   }
 }
 
