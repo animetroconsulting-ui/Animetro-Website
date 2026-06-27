@@ -7,6 +7,16 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+FORBIDDEN_REFERENCES = [
+    "/assets/brand/",
+    "animetro-header-logo",
+    "animetro-favicon-logo",
+    "animetro-app-icon-logo",
+    "animetrowebherobanner0617",
+    "hero-consulting-2",
+    "hero-consulting-3",
+    "animetro-philosophy",
+]
 
 EXPECTED = {
     "en": {
@@ -78,6 +88,13 @@ def parse(path: Path) -> Parser:
     return parser
 
 
+def verify_no_fake_logo_references(path: Path) -> None:
+    text = path.read_text(encoding="utf-8")
+    for forbidden in FORBIDDEN_REFERENCES:
+        if forbidden in text:
+            fail(f"{path.relative_to(ROOT)} still references unauthorized generated logo asset: {forbidden}")
+
+
 def verify_home(lang: str) -> None:
     parser = parse(ROOT / lang / "index.html")
     expected = EXPECTED[lang]
@@ -115,6 +132,7 @@ def main() -> None:
     ]:
         if not path.exists():
             fail(f"Missing generated file: {path.relative_to(ROOT)}")
+        verify_no_fake_logo_references(path)
     verify_home("en")
     verify_home("zh")
     verify_services("en")

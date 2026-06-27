@@ -58,26 +58,19 @@ a {
   align-items: center;
   min-width: 0;
   color: var(--navy);
-  font-size: 1.02rem;
-  font-weight: 700;
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  font-weight: 800;
   letter-spacing: 0;
   border: 0;
   background: transparent;
   box-shadow: none;
   outline: 0;
+  white-space: nowrap;
 }
 
 .brand:focus-visible {
   border-radius: 8px;
   box-shadow: 0 0 0 3px rgba(181, 138, 68, 0.26);
-}
-
-.brand-logo {
-  display: block;
-  width: auto;
-  max-width: min(520px, 42vw);
-  height: 112px;
-  object-fit: contain;
 }
 
 .brand small {
@@ -870,12 +863,6 @@ p {
   line-height: 1.35;
 }
 
-.footer-logo {
-  width: min(300px, 100%);
-  height: auto;
-  flex: 0 0 auto;
-}
-
 .footer-column-title {
   width: 100%;
   margin: 0 0 2px;
@@ -1331,11 +1318,6 @@ p {
     max-width: 100%;
     font-size: 0.94rem;
     line-height: 1.35;
-  }
-
-  .brand-logo {
-    height: 76px;
-    max-width: min(360px, 88vw);
   }
 
   .footer-inner {

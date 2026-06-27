@@ -43,10 +43,10 @@ REQUIRED_TABS = {
 }
 SHEETS_SCOPE = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 NAV_KEYS = ["home", "services", "about", "resources", "insights", "events", "contact"]
-HEADER_LOGO_SRC = "/assets/brand/exports/animetro-header-logo-light-2026.png"
-FOOTER_LOGO_SRC = "/assets/brand/exports/animetro-header-logo-dark-2026.png"
-FAVICON_SRC = "/assets/brand/exports/animetro-favicon-logo-2026.png"
-APP_ICON_SRC = "/assets/brand/exports/animetro-app-icon-logo-2026.png"
+HEADER_LOGO_SRC = ""
+FOOTER_LOGO_SRC = ""
+FAVICON_SRC = ""
+APP_ICON_SRC = ""
 SERVICE_PLACEHOLDER_IMAGE = (
     "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20720'%3E"
     "%3Crect%20width='1200'%20height='720'%20fill='%23f6f0e6'/%3E"
@@ -394,6 +394,7 @@ def nav_html(index: dict[str, dict[str, str]], lang: str, active: str, depth: in
     other = "/en/" if lang == "zh" else "/zh/"
     other_label = "English" if lang == "zh" else "中文"
     logo_alt = text(index, "header_logo", lang, "艾美加教育顧問" if lang == "zh" else "Animetro Consulting")
+    brand_label = "艾美加教育顧問" if lang == "zh" else "Animetro Consulting"
     links = []
     for nav_key in NAV_KEYS:
         label = text(index, f"nav_{nav_key}", lang, nav_key.title())
@@ -405,7 +406,7 @@ def nav_html(index: dict[str, dict[str, str]], lang: str, active: str, depth: in
     nav_links_html = "\n          ".join(links)
     return f'''    <header class="site-header">
       <nav class="nav" aria-label="Main navigation">
-        <a class="brand" href="{home}" aria-label="{escape(logo_alt)} home"><img class="brand-logo" src="{HEADER_LOGO_SRC}" alt="{escape(logo_alt)}"></a>
+        <a class="brand brand-text" href="{home}" aria-label="{escape(logo_alt)} home">{escape(brand_label)}</a>
         <div class="nav-links">
           {nav_links_html}
         </div>
@@ -420,12 +421,12 @@ def sheet_asset_path(value: str, fallback: str) -> str:
     if asset.startswith("/") or asset.startswith("http://") or asset.startswith("https://"):
         return asset
     aliases = {
-        "finallogo0617.png": "/assets/brand/exports/animetro-primary-transparent.png",
-        "animetrowebsite_header0617.png": HEADER_LOGO_SRC,
-        "animetro-header-logo-light-2026.png": HEADER_LOGO_SRC,
-        "animetro-header-logo-dark-2026.png": FOOTER_LOGO_SRC,
-        "animetro-favicon-logo-2026.png": FAVICON_SRC,
-        "animetro-app-icon-logo-2026.png": APP_ICON_SRC,
+        "finallogo0617.png": "",
+        "animetrowebsite_header0617.png": "",
+        "animetro-header-logo-light-2026.png": "",
+        "animetro-header-logo-dark-2026.png": "",
+        "animetro-favicon-logo-2026.png": "",
+        "animetro-app-icon-logo-2026.png": "",
         "wechat-qr.jpg": "/assets/images/contact/wechat-qr.jpeg",
         "wechat-qr.jpeg": "/assets/images/contact/wechat-qr.jpeg",
         "whatsapp-qr.jpg": "/assets/images/contact/whatsapp-qr.jpeg",
@@ -437,14 +438,10 @@ def sheet_asset_path(value: str, fallback: str) -> str:
 def hero_slideshow_html(lang: str) -> str:
     if lang == "zh":
         return '''<aside class="hero-media hero-slideshow" aria-label="私人教育諮詢">
-          <img src="/assets/images/hero-consulting-1.jpg" alt="家庭與教育顧問諮詢">
-          <img src="/assets/images/hero-consulting-2.png" alt="學生與家庭教育規劃諮詢">
-          <img src="/assets/images/animetrowebherobanner0617.png" alt="Animetro Consulting 成長超越升學品牌圖">
+          <img src="/assets/images/hero-consulting-1.jpg" alt="校園教育環境">
         </aside>'''
     return '''<aside class="hero-media hero-slideshow" aria-label="Private education consultation">
-          <img src="/assets/images/hero-consulting-1.jpg" alt="Family meeting with an education consultant">
-          <img src="/assets/images/hero-consulting-2.png" alt="Student and family consultation with an advisor">
-          <img src="/assets/images/animetrowebherobanner0617.png" alt="Animetro Consulting growth beyond admission banner">
+          <img src="/assets/images/hero-consulting-1.jpg" alt="Campus education environment">
         </aside>'''
 
 
@@ -463,10 +460,6 @@ def footer_html(index: dict[str, dict[str, str]], lang: str) -> str:
     get_started = "Start Here"
     qr_wechat = text(index, "footer_wechat_label", lang, "掃碼添加微信" if is_zh else "Scan to connect on WeChat")
     qr_whatsapp = text(index, "footer_whatsapp_label", lang, "掃碼聯絡 WhatsApp" if is_zh else "Scan to connect on WhatsApp")
-    footer_logo_src = sheet_asset_path(
-        link_value(index, "footer_logo") or image_value(index, "footer_logo"),
-        FOOTER_LOGO_SRC,
-    )
     whatsapp_src = sheet_asset_path(
         link_value(index, "footer_whatsapp_qr") or image_value(index, "footer_whatsapp_qr"),
         "/assets/images/contact/whatsapp-qr.jpeg",
@@ -484,7 +477,7 @@ def footer_html(index: dict[str, dict[str, str]], lang: str) -> str:
     nav_links_html = "\n          ".join(nav_links)
     return f'''    <footer class="site-footer">
       <div class="footer-inner">
-        <div class="footer-brand"><img class="footer-logo" src="{escape(footer_logo_src)}" alt="{escape(logo_alt)}"><span>{escape(logo_alt)}<small>{escape(tagline)}</small></span></div>
+        <div class="footer-brand"><span>{escape(logo_alt)}<small>{escape(tagline)}</small></span></div>
         <div class="footer-contact" aria-label="{escape(contact_label)}">
           <p class="footer-column-title">{escape(contact_label)}</p>
           <a href="tel:+19059557068">{escape(phone)}</a>
@@ -516,8 +509,6 @@ def page_shell(index: dict[str, dict[str, str]], lang: str, active: str, title_s
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{FAVICON_SRC}" type="image/png">
-    <link rel="apple-touch-icon" href="{APP_ICON_SRC}">
     <title>{escape(page_title(lang, title_suffix))}</title>{desc}
     <link rel="stylesheet" href="{rel_css(depth)}">
   </head>
@@ -812,8 +803,6 @@ def write_site(tables: dict[str, SheetTable]) -> None:
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="refresh" content="0; url=/en/">
     <link rel="canonical" href="/en/">
-    <link rel="icon" href="/assets/brand/exports/animetro-favicon-logo-2026.png" type="image/png">
-    <link rel="apple-touch-icon" href="/assets/brand/exports/animetro-app-icon-logo-2026.png">
     <title>Animetro Consulting</title>
   </head>
   <body>
