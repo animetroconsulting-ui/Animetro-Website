@@ -19,6 +19,7 @@ import html
 import json
 import os
 import re
+from urllib.parse import urlparse
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -436,13 +437,50 @@ def sheet_asset_path(value: str, fallback: str) -> str:
     return aliases.get(asset.lower(), f"/assets/images/{asset}")
 
 
-def hero_slideshow_html(lang: str) -> str:
-    if lang == "zh":
-        return '''<aside class="hero-media hero-slideshow" aria-label="私人教育諮詢">
-          <img src="/assets/images/hero-consulting-1.jpg" alt="校園教育環境">
-        </aside>'''
-    return '''<aside class="hero-media hero-slideshow" aria-label="Private education consultation">
-          <img src="/assets/images/hero-consulting-1.jpg" alt="Campus education environment">
+def is_approved_status(value: str) -> bool:
+    return clean_key(value) == "approved"
+
+
+def is_usable_image_url(value: str) -> bool:
+    parsed = urlparse(value.strip())
+    return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
+
+
+def local_home_image_url(file_name: str) -> str:
+    asset = file_name.strip()
+    if not asset:
+        return ""
+    if asset.startswith("/"):
+        return asset if (ROOT / asset.lstrip("/")).exists() else ""
+    image_url = f"/assets/images/{asset}"
+    return image_url if (ROOT / image_url.lstrip("/")).exists() else ""
+
+
+def approved_home_hero_image(website_rows: list[dict[str, str]], lang: str) -> dict[str, str] | None:
+    for row in website_rows:
+        section = first(row, ["website_section", "Website Section", "section"])
+        category = first(row, ["image_category", "Image Category"])
+        if "home hero" not in section.lower() and "hero" not in category.lower():
+            continue
+        if not is_approved_status(first(row, ["status", "Status"])):
+            continue
+        raw_url = first(row, ["google_drive_link", "Google Drive Link", "image_url", "Image URL"])
+        file_name = first(row, ["image_file_name", "Image File Name", "file_name"])
+        image_url = raw_url if is_usable_image_url(raw_url) else local_home_image_url(raw_url or file_name)
+        if not image_url:
+            continue
+        alt = first(row, ["alt_text", "Alt Text"], "校園教育環境" if lang == "zh" else "Campus education environment")
+        return {"src": image_url, "alt": alt, "file_name": file_name or raw_url}
+    return None
+
+
+def hero_media_html(website_rows: list[dict[str, str]], lang: str) -> str:
+    image = approved_home_hero_image(website_rows, lang)
+    if not image:
+        return ""
+    label = "首頁主視覺圖片" if lang == "zh" else "Homepage hero image"
+    return f'''        <aside class="hero-media" aria-label="{escape(label)}" data-image-file-name="{escape(image["file_name"])}">
+          <img src="{escape(image["src"])}" alt="{escape(image["alt"])}">
         </aside>'''
 
 
@@ -574,7 +612,7 @@ def service_link_items(index: dict[str, dict[str, str]], lang: str, footer: bool
     return "\n          ".join(f'<a href="{escape(link)}">{escape(title)}</a>' for title, link in labels[:limit])
 
 
-def homepage_html(index: dict[str, dict[str, str]], lang: str) -> str:
+def homepage_html(index: dict[str, dict[str, str]], website_image_rows: list[dict[str, str]], lang: str) -> str:
     is_zh = lang == "zh"
     hero_title = text(index, "hero_title", lang, "")
     hero_subtitle = text(index, "hero_subtitle", lang, "")
@@ -611,9 +649,11 @@ def homepage_html(index: dict[str, dict[str, str]], lang: str) -> str:
             testimonials.append((quote, name, ""))
     benefits = [text(index, f"cta_benefit_{i}", lang) for i in range(1, 8)]
     benefits = [item for item in benefits if item]
+    hero_media = hero_media_html(website_image_rows, lang)
+    hero_class = "hero hero-with-media" if hero_media else "hero hero-simple"
 
     body = f'''    <main>
-      <section class="hero hero-with-media">
+      <section class="{hero_class}">
         <div>
           <h1>{escape(hero_title)}</h1>
           {f'<p class="lead">{escape(hero_subtitle)}</p>' if hero_subtitle else ''}
@@ -623,7 +663,7 @@ def homepage_html(index: dict[str, dict[str, str]], lang: str) -> str:
             <a class="button secondary" href="/{lang}/services/">{escape(secondary_cta)}</a>
           </div>
         </div>
-        {hero_slideshow_html(lang)}
+{hero_media}
       </section>
 
       <section class="band" id="why-animetro">
@@ -786,8 +826,8 @@ def write_site(tables: dict[str, SheetTable]) -> None:
     ZH_DIR.mkdir(parents=True, exist_ok=True)
     (EN_DIR / "services").mkdir(parents=True, exist_ok=True)
     (ZH_DIR / "services").mkdir(parents=True, exist_ok=True)
-    (EN_DIR / "index.html").write_text(homepage_html(home_index, "en"), encoding="utf-8")
-    (ZH_DIR / "index.html").write_text(homepage_html(home_index, "zh"), encoding="utf-8")
+    (EN_DIR / "index.html").write_text(homepage_html(home_index, website_image_rows, "en"), encoding="utf-8")
+    (ZH_DIR / "index.html").write_text(homepage_html(home_index, website_image_rows, "zh"), encoding="utf-8")
     (EN_DIR / "services" / "index.html").write_text(
         services_page_html(services_index, services_rows, service_image_rows, website_image_rows, "en"),
         encoding="utf-8",

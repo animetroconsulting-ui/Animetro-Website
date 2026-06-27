@@ -6,6 +6,7 @@ import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT_DIR = ROOT / "content"
@@ -43,9 +44,11 @@ class Parser(HTMLParser):
         self.leads: list[str] = []
         self.service_source = False
         self.service_figures: list[dict[str, str]] = []
+        self.hero_media: list[dict[str, str]] = []
         self._capture: str | None = None
         self._buffer: list[str] = []
         self._figure: dict[str, str] | None = None
+        self._hero_media: dict[str, str] | None = None
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attr = {key: value or "" for key, value in attrs}
@@ -59,9 +62,14 @@ class Parser(HTMLParser):
             self.service_source = "Google Sheet" in attr.get("data-content-source", "")
         elif tag == "figure" and "service-image" in attr.get("class", "").split():
             self._figure = attr
+        elif tag == "aside" and "hero-media" in attr.get("class", "").split():
+            self._hero_media = attr
         elif tag == "img" and self._figure is not None:
             self._figure["img_src"] = attr.get("src", "")
             self._figure["img_alt"] = attr.get("alt", "")
+        elif tag == "img" and self._hero_media is not None:
+            self._hero_media["img_src"] = attr.get("src", "")
+            self._hero_media["img_alt"] = attr.get("alt", "")
 
     def handle_endtag(self, tag: str) -> None:
         if tag == "h1" and self._capture == "h1":
@@ -73,6 +81,9 @@ class Parser(HTMLParser):
         elif tag == "figure" and self._figure is not None:
             self.service_figures.append(self._figure)
             self._figure = None
+        elif tag == "aside" and self._hero_media is not None:
+            self.hero_media.append(self._hero_media)
+            self._hero_media = None
 
     def handle_data(self, data: str) -> None:
         if self._capture:
@@ -140,6 +151,33 @@ def approved_logo_filenames() -> set[str]:
     return approved
 
 
+def is_usable_remote_url(value: str) -> bool:
+    parsed = urlparse(value.strip())
+    return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
+
+
+def approved_home_hero_sources() -> set[str]:
+    approved: set[str] = set()
+    for row in load_rows("website_images.json"):
+        status = clean_key(first(row, ["Status"]))
+        section = first(row, ["Website Section", "website_section", "section"])
+        category = first(row, ["Image Category", "image_category"])
+        if status != "approved":
+            continue
+        if "home hero" not in section.lower() and "hero" not in category.lower():
+            continue
+        raw_url = first(row, ["Google Drive Link", "google_drive_link", "Image URL", "image_url"])
+        file_name = first(row, ["Image File Name", "image_file_name", "file_name"])
+        if raw_url and is_usable_remote_url(raw_url):
+            approved.add(raw_url)
+        for value in [raw_url, file_name]:
+            if value and not is_usable_remote_url(value):
+                candidate = f"/assets/images/{value.strip().lstrip('/')}"
+                if (ROOT / candidate.lstrip("/")).exists():
+                    approved.add(candidate)
+    return approved
+
+
 def referenced_asset_filenames(text: str) -> set[str]:
     values = set(re.findall(r'''(?:src|href|data-image-url)=["']([^"']+)["']''', text))
     return {Path(value).name for value in values if not value.startswith("data:")}
@@ -167,6 +205,15 @@ def verify_home(lang: str) -> None:
         fail(f"{lang}/index.html hero title is not approved Sheet text: {parser.h1[:1]}")
     if not parser.leads or parser.leads[0] != expected["lead"]:
         fail(f"{lang}/index.html hero lead is not approved Sheet text: {parser.leads[:1]}")
+    approved_hero_sources = approved_home_hero_sources()
+    if not approved_hero_sources and parser.hero_media:
+        fail(f"{lang}/index.html renders hero media without an approved Website Images Home Hero source")
+    for media in parser.hero_media:
+        src = media.get("img_src", "")
+        if src not in approved_hero_sources:
+            fail(f"{lang}/index.html hero media source is not approved in Website Images: {src}")
+        if not media.get("img_alt"):
+            fail(f"{lang}/index.html hero media is missing alt text")
 
 
 def verify_services(lang: str) -> None:
