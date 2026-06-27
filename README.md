@@ -18,11 +18,26 @@ Required tabs:
 - `Global` (shared navigation and footer)
 - `Home` (homepage content)
 - `Services` (Services page content)
+- `Logo Package` (approved logo filenames and usage)
 - `Brand Identity`
 - `Website Images` (general website image inventory and service image fallback)
 - `Service Images` (structured service-card image metadata)
 
 The sync workflow reads those tabs, exports them into `content/`, regenerates the static website files, verifies the approved homepage and service-image output, commits the results to `main`, and lets Vercel auto-deploy from GitHub.
+
+## Logo And Brand Asset Rules
+
+Do not add, display, generate, redraw, approximate, or restore an Animetro logo unless the exact file name is approved in the Google Sheet source of truth.
+
+Before using any logo or branded visual, verify the file in these Sheet tabs:
+
+- `Logo Package`
+- `Brand Identity`
+- `Website Images`
+
+This applies to the header, footer, favicon, app icon, hero images, service images, business card previews, mockups, and any image that contains Animetro branding.
+
+If the approved logo file cannot be confirmed in the Sheet and present in the repo, leave the website text-only and ask before making a logo change.
 
 Do not use Git submodules.
 

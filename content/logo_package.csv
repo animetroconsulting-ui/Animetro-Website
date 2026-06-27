@@ -1,0 +1,9 @@
+logo_id,asset_name,file_name,purpose,background,format,status,link
+LOGO-001,Master Logo,finallogo0617.png,Official company logo,Light,PNG,Approved,01_Master Logo.png
+LOGO-002,Simplified Header Logo,animetro-header-logo.png,Website header & navigation,Light,PNG/SVG,Approved,ANIMETRO_CrestLogo_v1.0.png
+LOGO-003,Favicon,animetro-favicon.png,Browser tab icon,Any,PNG,Approved,animetro-favicon-logo-2026.png
+LOGO-004,App Icon,animetro-app-icon.png,Mobile app & PWA,Any,PNG,Approved,animetro-app-icon-logo-2026.png
+LOGO-005,Dark Background Logo,animetro-logo-dark.png,Footer & dark sections,Dark,PNG,Approved,animetro-logo-dark-background-2026.png
+LOGO-006,White Logo,animetro-logo-white.png,Dark backgrounds,Dark,PNG,Approved,animetro-logo-white.png
+LOGO-007,Gold Logo,animetro-logo-gold.png,Premium marketing materials,Light,PNG,Approved,ANIMETRO_CrestLogo_v1.0.png
+LOGO-008,Master Vector,animetro-master.svg,Website & print master,Any,SVG,Approved,10_Source Files

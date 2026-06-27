@@ -37,6 +37,7 @@ REQUIRED_TABS = {
     "Global": ["Global"],
     "Home": ["Home"],
     "Services": ["Services"],
+    "Logo Package": ["Logo Package", "logo package"],
     "Brand Identity": ["Brand Identity", "brand identity", "    Brand Identity"],
     "Website Images": ["Website Images", "website images"],
     "Service Images": ["Service Images", "service images"],

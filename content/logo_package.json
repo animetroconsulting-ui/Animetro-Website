@@ -1,0 +1,82 @@
+[
+  {
+    "logo_id": "LOGO-001",
+    "asset_name": "Master Logo",
+    "file_name": "finallogo0617.png",
+    "purpose": "Official company logo",
+    "background": "Light",
+    "format": "PNG",
+    "status": "Approved",
+    "link": "01_Master Logo.png"
+  },
+  {
+    "logo_id": "LOGO-002",
+    "asset_name": "Simplified Header Logo",
+    "file_name": "animetro-header-logo.png",
+    "purpose": "Website header & navigation",
+    "background": "Light",
+    "format": "PNG/SVG",
+    "status": "Approved",
+    "link": "ANIMETRO_CrestLogo_v1.0.png"
+  },
+  {
+    "logo_id": "LOGO-003",
+    "asset_name": "Favicon",
+    "file_name": "animetro-favicon.png",
+    "purpose": "Browser tab icon",
+    "background": "Any",
+    "format": "PNG",
+    "status": "Approved",
+    "link": "animetro-favicon-logo-2026.png"
+  },
+  {
+    "logo_id": "LOGO-004",
+    "asset_name": "App Icon",
+    "file_name": "animetro-app-icon.png",
+    "purpose": "Mobile app & PWA",
+    "background": "Any",
+    "format": "PNG",
+    "status": "Approved",
+    "link": "animetro-app-icon-logo-2026.png"
+  },
+  {
+    "logo_id": "LOGO-005",
+    "asset_name": "Dark Background Logo",
+    "file_name": "animetro-logo-dark.png",
+    "purpose": "Footer & dark sections",
+    "background": "Dark",
+    "format": "PNG",
+    "status": "Approved",
+    "link": "animetro-logo-dark-background-2026.png"
+  },
+  {
+    "logo_id": "LOGO-006",
+    "asset_name": "White Logo",
+    "file_name": "animetro-logo-white.png",
+    "purpose": "Dark backgrounds",
+    "background": "Dark",
+    "format": "PNG",
+    "status": "Approved",
+    "link": "animetro-logo-white.png"
+  },
+  {
+    "logo_id": "LOGO-007",
+    "asset_name": "Gold Logo",
+    "file_name": "animetro-logo-gold.png",
+    "purpose": "Premium marketing materials",
+    "background": "Light",
+    "format": "PNG",
+    "status": "Approved",
+    "link": "ANIMETRO_CrestLogo_v1.0.png"
+  },
+  {
+    "logo_id": "LOGO-008",
+    "asset_name": "Master Vector",
+    "file_name": "animetro-master.svg",
+    "purpose": "Website & print master",
+    "background": "Any",
+    "format": "SVG",
+    "status": "Approved",
+    "link": "10_Source Files"
+  }
+]

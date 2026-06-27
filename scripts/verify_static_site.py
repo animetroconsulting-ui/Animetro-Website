@@ -1,22 +1,28 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import json
 import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+CONTENT_DIR = ROOT / "content"
 FORBIDDEN_REFERENCES = [
-    "/assets/brand/",
-    "animetro-header-logo",
-    "animetro-favicon-logo",
-    "animetro-app-icon-logo",
     "animetrowebherobanner0617",
     "hero-consulting-2",
     "hero-consulting-3",
     "animetro-philosophy",
 ]
+BRAND_REFERENCE_HINTS = (
+    "logo",
+    "favicon",
+    "app-icon",
+    "brand",
+    "business-card",
+    "mockup",
+)
 
 EXPECTED = {
     "en": {
@@ -88,11 +94,70 @@ def parse(path: Path) -> Parser:
     return parser
 
 
+def clean_key(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", value.strip().lower()).strip("_")
+
+
+def first(row: dict[str, str], names: list[str], default: str = "") -> str:
+    for name in names:
+        value = row.get(clean_key(name), "").strip()
+        if value:
+            return value
+    return default
+
+
+def load_rows(name: str) -> list[dict[str, str]]:
+    path = CONTENT_DIR / name
+    if not path.exists():
+        return []
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def approved_logo_filenames() -> set[str]:
+    approved: set[str] = set()
+    for row in load_rows("logo_package.json"):
+        status = clean_key(first(row, ["Status"]))
+        if status == "approved":
+            for field in ["File Name", "Link"]:
+                value = first(row, [field])
+                if value and "." in Path(value).name:
+                    approved.add(Path(value).name)
+    for row in load_rows("brand_identity.json"):
+        status = clean_key(first(row, ["Status"]))
+        category = clean_key(first(row, ["Category", "Logo ID"]))
+        if status == "approved" and ("logo" in category or first(row, ["links"])):
+            for field in ["links", "filename"]:
+                value = first(row, [field])
+                if value and "." in Path(value).name:
+                    approved.add(Path(value).name)
+    for row in load_rows("website_images.json"):
+        category = clean_key(first(row, ["Image Category", "Website Section", "Purpose"]))
+        if "logo" in category or "favicon" in category or "brand" in category:
+            for field in ["Image File Name", "Google Drive Link"]:
+                value = first(row, [field])
+                if value and "." in Path(value).name:
+                    approved.add(Path(value).name)
+    return approved
+
+
+def referenced_asset_filenames(text: str) -> set[str]:
+    values = set(re.findall(r'''(?:src|href|data-image-url)=["']([^"']+)["']''', text))
+    return {Path(value).name for value in values if not value.startswith("data:")}
+
+
 def verify_no_fake_logo_references(path: Path) -> None:
     text = path.read_text(encoding="utf-8")
     for forbidden in FORBIDDEN_REFERENCES:
         if forbidden in text:
             fail(f"{path.relative_to(ROOT)} still references unauthorized generated logo asset: {forbidden}")
+    approved = approved_logo_filenames()
+    for filename in referenced_asset_filenames(text):
+        lower = filename.lower()
+        if any(hint in lower for hint in BRAND_REFERENCE_HINTS) and filename not in approved:
+            fail(
+                f"{path.relative_to(ROOT)} references brand asset {filename}, "
+                "but it is not approved in Logo Package / Brand Identity / Website Images exports"
+            )
 
 
 def verify_home(lang: str) -> None:
