@@ -188,9 +188,16 @@ def fetch_table(service: Any, spreadsheet_id: str, tab_name: str, canonical_name
     if not values:
         return SheetTable(canonical_name or tab_name, [], [])
 
-    headers = normalize_headers([str(cell).strip() for cell in values[0]])
+    header_index = 0
+    for index, candidate in enumerate(values):
+        normalized_candidate = {clean_key(str(cell)) for cell in candidate}
+        if normalized_candidate & {"key", "english_text", "traditional_chinese_text", "service_id", "image_file_name"}:
+            header_index = index
+            break
+
+    headers = normalize_headers([str(cell).strip() for cell in values[header_index]])
     rows: list[dict[str, str]] = []
-    for raw_row in values[1:]:
+    for raw_row in values[header_index + 1:]:
         row = {header: "" for header in headers}
         for index, cell in enumerate(raw_row[: len(headers)]):
             row[headers[index]] = str(cell).strip()
