@@ -555,7 +555,11 @@ def approved_logo_asset(index: dict[str, dict[str, str]], placement: str) -> str
     if placement == "header":
         candidates = [link_value(index, "header_logo"), image_value(index, "header_logo"), HEADER_LOGO_SRC]
     elif placement == "footer":
-        candidates = [link_value(index, "footer_logo"), image_value(index, "footer_logo"), FOOTER_LOGO_SRC]
+        sheet_candidates = [link_value(index, "footer_logo"), image_value(index, "footer_logo")]
+        if any(sheet_candidates):
+            candidates = sheet_candidates
+        else:
+            candidates = [FOOTER_LOGO_SRC]
     else:
         candidates = []
     for candidate in candidates:
@@ -634,7 +638,7 @@ def hero_media_html(website_rows: list[dict[str, str]], lang: str) -> str:
 
 def footer_html(index: dict[str, dict[str, str]], lang: str) -> str:
     is_zh = lang == "zh"
-    logo_alt = "Animetro Consulting"
+    logo_alt = text(index, "footer_logo", lang, "艾美加教育顧問" if is_zh else "Animetro Consulting")
     tagline = text(index, "footer_tagline", lang, "成長超越升學" if is_zh else "Growth Beyond Admission")
     phone = text(index, "footer_phone", lang, "905-955-7068")
     email = text(index, "footer_email", lang, "consulting@animetro.ca")

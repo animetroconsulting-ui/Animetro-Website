@@ -191,11 +191,29 @@ def verify_logo(path: Path, index: dict[str, dict[str, str]]) -> None:
     page = text(path)
     header_logo = expected_asset_path(sheet_link(index, "header_logo"))
     footer_logo = expected_asset_path(sheet_link(index, "footer_logo"))
-    for label, src in [("header", header_logo), ("footer", footer_logo)]:
-        if not src or src not in page:
-            fail(f"{path.relative_to(ROOT)} does not render Website-conetent-2 {label} logo: {src}")
+    if not header_logo or header_logo not in page:
+        fail(f"{path.relative_to(ROOT)} does not render Website-conetent-2 header logo: {header_logo}")
+    if not (ROOT / header_logo.lstrip("/")).exists():
+        fail(f"{path.relative_to(ROOT)} header logo file is missing: {header_logo}")
+    footer_logo_path = ROOT / footer_logo.lstrip("/")
+    if footer_logo_path.exists():
+        if footer_logo not in page:
+            fail(f"{path.relative_to(ROOT)} does not render Website-conetent-2 footer logo: {footer_logo}")
+    elif footer_logo in page:
+        fail(f"{path.relative_to(ROOT)} renders missing Website-conetent-2 footer logo: {footer_logo}")
+
+
+def verify_footer_qr_mapping(path: Path, index: dict[str, dict[str, str]]) -> None:
+    page = text(path)
+    wechat_src = expected_asset_path(sheet_link(index, "footer_wechat_qr"))
+    whatsapp_src = expected_asset_path(sheet_link(index, "footer_whatsapp_qr"))
+    if wechat_src == whatsapp_src:
+        fail("Website-conetent-2 maps WeChat and WhatsApp QR codes to the same file")
+    for label, src in [("WeChat", wechat_src), ("WhatsApp", whatsapp_src)]:
+        if src not in page:
+            fail(f"{path.relative_to(ROOT)} missing {label} QR image from Website-conetent-2: {src}")
         if not (ROOT / src.lstrip("/")).exists():
-            fail(f"{path.relative_to(ROOT)} {label} logo file is missing: {src}")
+            fail(f"{path.relative_to(ROOT)} {label} QR file is missing: {src}")
 
 
 def verify_home(lang: str, index: dict[str, dict[str, str]]) -> None:
@@ -259,6 +277,7 @@ def main() -> None:
         verify_referenced_images(path)
         if path.name == "index.html" and path.parent.name in {"en", "zh"} or path.parent.name == "services":
             verify_logo(path, index)
+            verify_footer_qr_mapping(path, index)
     verify_home("en", index)
     verify_home("zh", index)
     verify_services("en", index)
