@@ -79,42 +79,62 @@ no,page,section,content_type,key,english_text,traditional_chinese_text,section_i
 67,Home,Consultation CTA,Contact,cta_email,consulting@animetro.ca,consulting@animetro.ca,consultation-cta,,,,,Approved
 68,Home,Consultation CTA,Contact,cta_website,www.animetro.ca,www.animetro.ca,consultation-cta,,,,,Approved
 69,Home,Consultation CTA,Closing Statement,cta_closing,"Every student deserves a pathway designed for their strengths, goals, and future potential.",每位學生都值得擁有符合其優勢、目標與未來潛能的成長路徑。,consultation-cta,,,,,Approved
-Service page,,,,,,,,,,,,
-Section 1 — Services Hero,,,,,,,,,,,,
-No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
-1,Services,Hero,Title,services_hero_title,Strategetic Educational Pathways Designed for Long-Term Growth,為長遠成長而設計的戰略教育發展路徑,,,,,,
-2,Services,Hero,Subtitle,services_hero_subtitle,Personalized consulting services supporting students and families from elementary school through university.,為學生與家庭提供從小學到大學的個人化教育規劃服務。,,,,,,
-3,Services,Hero,Button,services_hero_cta,Book a Consultation,預約諮詢,,,,,,
-Section 2 — Private School Admissions,,,,,,,,,,,,
-No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
-4,Services,Private School Admissions,Title,ps_title,Private School Admissions,私校申請,,,,,,
-5,Services,Private School Admissions,Description,ps_desc,"Guidance for school selection, applications, interviews, personal statements, and family decision-making.",提供選校、申請、面試、文書及家庭決策支持。,,,,,,
-Section 3 — University Admissions,,,,,,,,,,,,
-No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
-6,Services,University Admissions,Title,uni_title,University Admissions,大學申請,,,,,,
-7,Services,University Admissions,Description,uni_desc,"Strategic planning for university applications, program selection, personal statements, and long-term academic positioning.",提供大學申請、專業選擇、個人陳述及長期學術定位規劃。,,,,,,
-Section 4 — GPA Management,,,,,,,,,,,,
-No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
-8,Services,GPA Management,Title,gpa_title,GPA Management,GPA管理,,,,,,
-9,Services,GPA Management,Description,gpa_desc,Academic monitoring and planning to strengthen student performance and competitiveness.,協助學生進行學業規劃與成績提升。,,,,,,
-Section 5 — STEM Pathway Planning,,,,,,,,,,,,
-No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
-10,Services,STEM Planning,Title,stem_title,STEM Pathway Planning,STEM發展規劃,,,,,,
-11,Services,STEM Planning,Description,stem_desc,"Research projects, competitions, enrichment programs, and long-term STEM portfolio development.",支持研究項目、競賽、拓展課程及STEM發展履歷建立。,,,,,,
-Section 6 — Student-Athlete Planning,,,,,,,,,,,,
-No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
-12,Services,Student Athlete,Title,athlete_title,Student-Athlete Planning,學生運動員規劃,,,,,,
-13,Services,Student Athlete,Description,athlete_desc,"Integrated planning for academic achievement, athletic development, and future opportunities.",協助學生平衡學業、運動發展及未來升學機會。,,,,,,
-Section 7 — Neurodiversity Support,,,,,,,,,,,,
-No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
-14,Services,Neurodiversity Support,Title,neuro_title,Neurodiversity Support,神經多樣性支持,,,,,,
-15,Services,Neurodiversity Support,Description,neuro_desc,"Personalized support for students with ADHD, autism, giftedness, anxiety, and learning differences.",為ADHD、自閉症、資優、焦慮及學習差異學生提供個人化支持。,,,,,,
-Section 8 — Guardianship & Homestay Support,,,,,,,,,,,,
-No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
-16,Services,Guardianship,Title,guardian_title,Guardianship & Homestay Support,監護與寄宿家庭服務,,,,,,
-17,Services,Guardianship,Description,guardian_desc,"Comprehensive support for international students including guardianship, homestay placement, and family communication.",為國際學生提供監護、寄宿家庭安排及家庭溝通支持。,,,,,,
-Section 9 — Consultation CTA,,,,,,,,,,,,
-No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
-18,Services,CTA,Title,services_cta_title,Ready to Build Your Child's Future?,準備為孩子規劃未來嗎？,,,,,,
-19,Services,CTA,Subtitle,services_cta_subtitle,Book a complimentary consultation today.,今天預約免費諮詢。,,,,,,
-20,Services,CTA,Button,services_cta_button,Schedule Consultation,預約諮詢,,,,,,
+,,Insights,Main,insights_page_title,Insights,教育洞察,,,,,,Approved
+,,Insights,Main,insights_page_desc,"Research-based articles, curated recommendations, and practical guides for families exploring North American education pathways, student growth, and long-term planning.",为关注北美教育路径、学生成长与长期规划的家庭提供研究型文章、精选推荐与实用指南。,,,,,,Approved
+,,Insights,Category,insights_school_pathways_title,School Pathways,私校与升学路径,,,,,,Approved
+,,Insights,Category,insights_school_pathways_desc,"Articles and guides about prep schools, boarding schools, private school fit, school visits, interviews, and long-term pathway planning.",关于私校、寄宿学校、学校匹配、访校面试与长期升学路径规划的文章与指南。,,,,,,Approved
+,,Insights,Category,insights_university_admissions_title,University Admissions,大学申请洞察,,,,,,Approved
+,,Insights,Category,insights_university_admissions_desc,"Insights on U.S. and Canadian university applications, application platforms, essays, activities, financial aid, and strategic planning.",关于美国与加拿大大学申请、申请平台、文书、活动、助学金与战略规划的洞察。,,,,,,Approved
+,,Insights,Category,insights_student_growth_title,Student Growth,学生成长与学习方法,,,,,,Approved
+,,Insights,Category,insights_student_growth_desc,"Recommended ideas and resources for confidence, habits, time management, study skills, leadership, resilience, and independent learning.",关于自信、习惯、时间管理、学习方法、领导力、韧性与自主学习的推荐理念与资源。,,,,,,Approved
+,,Insights,Category,insights_gifted_neurodivergent_title,Gifted & Neurodivergent Learners,天赋、2E 与神经多元学生,,,,,,Approved
+,,Insights,Category,insights_gifted_neurodivergent_desc,"Articles and resources for gifted, twice-exceptional, ADHD, autistic, and neurodivergent students and their families.",面向天赋、双重特殊、ADHD、自闭症与神经多元学生及家庭的文章与资源。,,,,,,Approved
+,,Insights,Category,insights_our_picks_title,Our Picks,我们推荐,,,,,,Approved
+,,Insights,Category,insights_our_picks_desc,"Curated books, articles, tools, programs, and resources we recommend for parents, teens, and students building long-term growth pathways.",我们为家长、青少年与学生精选推荐的书籍、文章、工具、项目与长期成长资源。,,,,,,Approved
+,,Insights,Article,文章 key,英文标题,中文标题,,,,,,
+,,Insights,Article,文章 desc key,英文说明,中文说明,,,,,,
+,,Insights,Article,文章 slug key,english-url-slug,中文路径,,,,,,
+,,Insights,Article,insight_us_prep_school_list_title,Top U.S. Prep & Boarding School Research List,美国顶尖私校与寄宿高中研究清单,,,,,,Approved
+,,Insights,Article,insight_us_prep_school_list_desc,"A curated research guide for families exploring highly selective U.S. prep, boarding, and college preparatory schools.",为希望了解美国高选择性私校、寄宿高中与大学预备学校的家庭整理的研究型指南。,,,,,,Approved
+,,Insights,Article,insight_us_prep_school_list_category,School Pathways,私校与升学路径,,,,,,Approved
+,,Insights,Article,insight_us_prep_school_list_slug,top-us-prep-boarding-school-research-list,top-us-prep-boarding-school-research-list,,,,,,Approved
+,,Insights,Article,insight_us_prep_school_list_title,Top U.S. Prep & Boarding School Research List,美国顶尖私校与寄宿高中研究清单,,,,,,Approved
+,,Insights,Article,insight_us_prep_school_list_desc,"A curated research guide for families exploring highly selective U.S. prep, boarding, and college preparatory schools.",为希望了解美国高选择性私校、寄宿高中与大学预备学校的家庭整理的研究型指南。,,,,,,Approved
+,,Insights,Article,insight_us_prep_school_list_category,School Pathways,私校与升学路径,,,,,,Approved
+,,Insights,Article,insight_us_prep_school_list_slug,top-us-prep-boarding-school-research-list,top-us-prep-boarding-school-research-list,,,,,,Approved
+,,Insights,Article,insight_prep_vs_canadian_private_title,U.S. Prep Schools vs. Canadian Private Schools: How Families Should Compare,美国私校与加拿大私校：家庭如何比较选择,,,,,,Approved
+,,Insights,Article,insight_prep_vs_canadian_private_desc,"A practical guide for families comparing U.S. prep schools, Canadian private schools, boarding options, academic fit, student life, and long-term university pathways.",为正在比较美国私校、加拿大私校、寄宿选择、学术匹配、校园生活与长期大学路径的家庭提供实用指南。,,,,,,Approved
+,,Insights,Article,insight_prep_vs_canadian_private_category,School Pathways,私校与升学路径,,,,,,Approved
+,,Insights,Article,insight_prep_vs_canadian_private_slug,us-prep-schools-vs-canadian-private-schools,us-prep-schools-vs-canadian-private-schools,,,,,,Approved
+,,Insights,Article,insight_application_platforms_title,"Common App, UC Application, Cialfo and ApplyTexas Explained",Common App、UC Application、Cialfo 与 ApplyTexas 说明,,,,,,Approved
+,,Insights,Article,insight_application_platforms_desc,"A clear explanation of major university application and planning systems, including what each platform is used for and how families should manage them strategically.",清楚说明主要大学申请与规划系统的用途，包括每个平台的功能，以及家庭如何进行战略性管理。,,,,,,Approved
+,,Insights,Article,insight_application_platforms_category,University Admissions,大学申请洞察,,,,,,Approved
+,,Insights,Article,insight_application_platforms_slug,common-app-uc-cialfo-applytexas-explained,common-app-uc-cialfo-applytexas-explained,,,,,,Approved
+,,Insights,Article,insight_stem_application_profile_title,How STEM Students Can Build a Strong U.S. University Application Profile,STEM 学生如何建立有竞争力的美国大学申请背景,,,,,,Approved
+,,Insights,Article,insight_stem_application_profile_desc,"A strategy guide for students with robotics, engineering, coding, research, or competition experience who want to turn STEM evidence into a stronger university application profile.",为有机器人、工程、编程、研究或竞赛经历的学生提供策略指南，帮助他们将 STEM 证据转化为更有竞争力的大学申请背景。,,,,,,Approved
+,,Insights,Article,insight_stem_application_profile_category,University Admissions,大学申请洞察,,,,,,Approved
+,,Insights,Article,insight_stem_application_profile_slug,stem-student-university-application-profile,stem-student-university-application-profile,,,,,,Approved
+,,Insights,Article,insight_teen_time_management_title,"Time Management for Busy Teens: School, Sports, Projects and Applications",忙碌青少年的时间管理：学业、运动、项目与申请,,,,,,Approved
+,,Insights,Article,insight_teen_time_management_desc,"A practical guide for teens balancing schoolwork, sports, extracurricular projects, standardized tests, and long-term application planning.",为需要平衡学业、运动、课外项目、标准化考试与长期申请规划的青少年提供实用指南。,,,,,,Approved
+,,Insights,Article,insight_teen_time_management_category,Student Growth,学生成长与学习方法,,,,,,Approved
+,,Insights,Article,insight_teen_time_management_slug,time-management-for-busy-teens,time-management-for-busy-teens,,,,,,Approved
+,,Insights,Article,insight_student_confidence_habits_title,"Building Student Confidence Through Habits, Structure and Small Wins",通过习惯、结构与小胜利建立学生自信,,,,,,Approved
+,,Insights,Article,insight_student_confidence_habits_desc,"A parent-friendly article on how consistent routines, study structure, emotional support, and small achievements can help students rebuild confidence.",一篇面向家长的文章，说明稳定习惯、学习结构、情绪支持与小成就如何帮助学生重建自信。,,,,,,Approved
+,,Insights,Article,insight_student_confidence_habits_category,Student Growth,学生成长与学习方法,,,,,,Approved
+,,Insights,Article,insight_student_confidence_habits_slug,building-student-confidence-through-habits,building-student-confidence-through-habits,,,,,,Approved
+,,Insights,Article,insight_gifted_2e_neurodivergent_title,"Understanding Gifted, 2E and Neurodivergent Learners",理解天赋、双重特殊与神经多元学生,,,,,,Approved
+,,Insights,Article,insight_gifted_2e_neurodivergent_desc,"An introductory guide for families supporting gifted, twice-exceptional, ADHD, autistic, and neurodivergent students with strengths-based planning.",为支持天赋、双重特殊、ADHD、自闭症与神经多元学生的家庭提供优势导向规划入门指南。,,,,,,Approved
+,,Insights,Article,insight_gifted_2e_neurodivergent_category,Gifted & Neurodivergent Learners,天赋、2E 与神经多元学生,,,,,,Approved
+,,Insights,Article,insight_gifted_2e_neurodivergent_slug,understanding-gifted-2e-neurodivergent-learners,understanding-gifted-2e-neurodivergent-learners,,,,,,Approved
+,,Insights,Article,insight_autism_adhd_school_support_title,School Support for ADHD and Autism Spectrum Students,ADHD 与自闭症谱系学生的学校支持,,,,,,Approved
+,,Insights,Article,insight_autism_adhd_school_support_desc,"A family guide to understanding school communication, accommodations, executive function support, social-emotional needs, and advocacy for ADHD and autistic students.",一篇家庭指南，帮助理解 ADHD 与自闭症谱系学生的学校沟通、住宿支持、执行功能支持、社交情绪需求与倡导。,,,,,,Approved
+,,Insights,Article,insight_autism_adhd_school_support_category,Gifted & Neurodivergent Learners,天赋、2E 与神经多元学生,,,,,,Approved
+,,Insights,Article,insight_autism_adhd_school_support_slug,school-support-for-adhd-autism-spectrum-students,school-support-for-adhd-autism-spectrum-students,,,,,,Approved
+,,Insights,Article,insight_parent_teen_books_title,Books We Recommend for Parents and Teens,我们推荐的家长与青少年阅读书单,,,,,,Approved
+,,Insights,Article,insight_parent_teen_books_desc,"A curated reading list for parent mindset, teen growth, habits, resilience, executive function, giftedness, neurodiversity, and long-term student development.",一份精选阅读清单，涵盖家长心态、青少年成长、习惯、韧性、执行功能、天赋、神经多元与学生长期发展。,,,,,,Approved
+,,Insights,Article,insight_parent_teen_books_category,Our Picks,我们推荐,,,,,,Approved
+,,Insights,Article,insight_parent_teen_books_slug,books-we-recommend-for-parents-and-teens,books-we-recommend-for-parents-and-teens,,,,,,Approved
+,,Insights,Article,insight_summer_programs_picks_title,"Selected Summer Programs for Math, STEM, Art and Leadership",数学、STEM、艺术与领导力暑期项目精选,,,,,,Approved
+,,Insights,Article,insight_summer_programs_picks_desc,"A curated guide to selected summer and online learning programs for students exploring math, STEM, engineering, art, design, business, leadership, and advanced learning.",一份精选指南，介绍适合探索数学、STEM、工程、艺术、设计、商业、领导力与高阶学习的暑期及线上项目。,,,,,,Approved
+,,Insights,Article,insight_summer_programs_picks_category,Our Picks,我们推荐,,,,,,Approved
+,,Insights,Article,insight_summer_programs_picks_slug,selected-summer-programs-math-stem-art-leadership,selected-summer-programs-math-stem-art-leadership,,,,,,Approved
