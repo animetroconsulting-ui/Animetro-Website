@@ -1,0 +1,120 @@
+no,page,section,content_type,key,english_text,traditional_chinese_text,section_id,button,web_link,image_file,status,notes
+1,Global,Header,Logo,header_logo,Animetro Consulting,艾美加教育顧問,navigation,,animetro-header-logo-light-2026.png,,Approved,
+2,Global,Header,Tagline,header_tagline,Growth Beyond Admission,成長超越升學,navigation,,animetro-header-logo-light-2026.png,,Approved,
+3,Global,Header,Navigation,nav_home,Home,首頁,navigation,,,,Approved,
+4,Global,Header,Navigation,nav_services,Services,服務項目,navigation,,/services,,Approved,
+5,Global,Header,Navigation,nav_about,About,關於我們,navigation,,/about,,Approved,
+6,Global,Header,Navigation,nav_resources,Resources,學習資源,navigation,,/events,,Approved,
+7,Global,Header,Navigation,nav_insights,Insights,教育洞察,navigation,,/resources,,Approved,
+8,Global,Header,Navigation,nav_events,Events,活動資訊,navigation,,/contact,,Approved,
+9,Global,Header,Navigation,nav_contact,Contact,聯絡我們,navigation,,animetro-header-logo-light-2026.png,,Approved,
+10,Global,Header,CTA Button,nav_start_here,Start Here,從這裡開始,navigation,,,,Approved,
+11,Global,Footer,Logo,footer_logo,Animetro Consulting,艾美加教育顧問,navigation,,animetro-header-logo-dark-2026.png,,Approved,
+12,Global,Footer,Tagline,footer_tagline,Growth Beyond Admission,成長超越升學,navigation,,animetro-header-logo-dark-2026.png,,Approved,
+13,Global,Footer,Contact,footer_phone,905-955-7068,905-955-7068,navigation,,https://www.animetro.ca,,Approved,
+14,Global,Footer,Contact,footer_email,consulting@animetro.ca,consulting@animetro.ca,navigation,,wechat-qr.jpg,,Approved,
+15,Global,Footer,Contact,footer_website,www.animetro.ca,www.animetro.ca,navigation,,whatsapp-qr.jpg,,Approved,
+16,Global,Footer,QR Code,footer_wechat_qr,WeChat,微信,navigation,,wechat-qr.jpg,,Approved,
+17,Global,Footer,QR Code,footer_whatsapp_qr,WhatsApp,WhatsApp,navigation,,wechat-qr.jpg,,Approved,
+18,Global,Footer,QR Label,footer_wechat_label,Connect on WeChat,掃碼添加微信,navigation,,,,Approved,
+,Global,Footer,QR Label,footer_whatsapp_label,Connect on WhatsApp,掃碼聯絡 WhatsApp,navigation,,,,Approved,
+19,Global,Footer,Copyright,footer_copyright,© 2026 Animetro Consulting. All Rights Reserved.,© 2026 艾美加教育顧問．版權所有,navigation,,,,Approved,
+7,Home,Hero,Title,hero_title,Strategic Education Consulting for Future-Ready Students,面向未來學生的全方位戰略教育諮詢,navigation,,,,Approved,
+8,Home,Hero,Subtitle,hero_subtitle,Growth Beyond Admission,成長超越升學,navigation,,,,Approved,
+9,Home,Hero,Description,hero_description,Helping students and families build personalized education pathways from elementary school through university.,協助學生與家庭建立從小學到大學的個性化教育發展路徑。,navigation,,,,Approved,
+10,Home,Hero,Button,hero_primary_cta,Book a Free Consultation,預約免費諮詢,navigation,,,,Approved,
+11,Home,Hero,Button,hero_secondary_cta,View Success Stories,查看成功案例,navigation,,,,Approved,
+21,Home,Core Services,Title,services_title,Core Services,核心服務,core-services,,,,Approved,
+22,Home,Core Services,Service Title,service_1_title,Education Strategy & Admissions,教育策略與升學申請,core-services,,animetro-strategy-consulting.npg,,Approved,
+23,Home,Core Services,Service Description,service_1_desc,"Comprehensive educational planning including education strategy, private school admissions, boarding school admissions, university admissions, school campus visits, and interview preparation.",教育策略規劃、私立學校申請、寄宿學校申請、大學申請、校園參訪及面試準備。,core-services,,,,Approved,
+24,Home,Core Services,Service Title,service_2_title,Student Development,學生成長與競爭力發展,core-services,,,,Approved,
+25,Home,Core Services,Service Description,service_2_desc,"Helping students build competitive academic and personal profiles through STEAM pathways, research opportunities, leadership development, portfolio building, and summer enrichment programs.",透過STEAM發展、研究機會、領導力培養、作品集建立及暑期項目提升學生競爭力。,core-services,,,,Approved,
+26,Home,Core Services,Service Title,service_3_title,Student-Athlete Development,學生運動員發展規劃,core-services,,,,Approved,
+27,Home,Core Services,Service Description,service_3_desc,"Supporting student-athletes through academic-athletic planning, recruiting guidance, NCAA pathways, boarding school sports placement, and long-term athletic development.",協助學生運動員進行學業與運動規劃、招募指導、NCAA升學及寄宿學校運動發展。,core-services,,,,Approved,
+28,Home,Core Services,Service Title,service_4_title,Gifted & Neurodiverse Learner Support,資優與神經多樣性學生支持,core-services,,,,Approved,
+29,Home,Core Services,Service Description,service_4_desc,"Personalized support for gifted, twice-exceptional, ADHD, autistic, and learning-different students, including school advocacy, accommodations, executive function coaching, and parent guidance.",為資優、雙重特殊、ADHD、自閉症及學習差異學生提供個人化支持，包括學校協調、學習調整及家長指導。,core-services,,,,Approved,
+30,Home,Core Services,Service Title,service_5_title,Family & Student Support,家庭與學生支持,core-services,,,,Approved,
+31,Home,Core Services,Service Description,service_5_desc,"Supporting students and families through guardianship, international student support, school communication, school transitions, in-school performance support, and academic progress monitoring.",提供監護服務、國際學生支持、學校溝通協調、轉學適應、校內表現支持及學業進度追蹤。,core-services,,,,Approved,區塊標題
+12,Home,Why Animetro,Title,why_title,Why Families Choose Animetro,為什麼家庭選擇艾美加,why-animetro,,,,Approved,區塊標題
+13,Home,Why Animetro,Feature Title,why_1_title,Strategic Education Planning,戰略教育規劃,why-animetro,,,,Approved,特色一標題
+14,Home,Why Animetro,Feature Description,why_1_desc,We help families plan long-term education pathways instead of making isolated school or application decisions.,我們協助家庭規劃長期教育路徑，而不只是處理單一學校選擇或申請決策,why-animetro,,,,Approved,特色一說明
+15,Home,Why Animetro,Feature Title,why_2_title,Personalized Student Guidance,個性化學生指導,why-animetro,,,,Approved,特色二標題
+16,Home,Why Animetro,Feature Description,why_2_desc,"Every student receives a tailored strategy based on academic profile, interests, strengths, goals, and family priorities.",每位學生都會依據學業背景、興趣、優勢、目標與家庭需求，制定專屬成長策略,why-animetro,,,,Approved,特色二說明
+17,Home,Why Animetro,Feature Title,why_3_title,Family-Centered Support,以家庭為中心的支持,why-animetro,,,,Approved,特色三標題
+18,Home,Why Animetro,Feature Description,why_3_desc,"We support both students and parents through planning, communication, decision-making, and school transitions.",我們在教育規劃、溝通協調、家庭決策與學校銜接過程中，同時支持學生與家長,why-animetro,,,,Approved,特色三說明
+19,Home,Why Animetro,Feature Title,why_4_title,Global Education Perspective,國際教育視野,why-animetro,,,,Approved,特色四標題
+20,Home,Why Animetro,Feature Description,why_4_desc,"Our guidance connects Canadian, U.S., and international education pathways with each student’s long-term growth.",我們結合加拿大、美國與國際教育路徑，協助學生建立面向長遠成長的教育規劃,why-animetro,,,,Approved,特色四說明
+35,Home,Success Stories,Story Title,success_1_title,Private School Admission Success,私校錄取成功案例,success-stories,,,,Approved,案例一標題
+36,Home,Success Stories,Story Description,success_1_desc,"Supported a Grade 7 student through school selection, application strategy, interviews, and enrollment at a leading independent school.",協助七年級學生完成選校、申請策略、面試及錄取流程，成功進入優秀私立學校。,success-stories,,,,Approved,案例一說明
+37,Home,Success Stories,Story Title,success_2_title,Student Athlete Development Pathway,學生運動員發展路徑,success-stories,,,,Approved,案例二標題
+38,Home,Success Stories,Story Description,success_2_desc,"Guided student-athletes in balancing academics, training, competition schedules, and long-term educational planning.",協助學生運動員平衡學業、訓練、比賽與長期教育規劃。,success-stories,,,,Approved,案例二說明
+39,Home,Success Stories,Story Title,success_3_title,STEM & Research Development,STEM與研究能力發展,success-stories,,,,Approved,案例三標題
+40,Home,Success Stories,Story Description,success_3_desc,"Helped students build STEM portfolios through research projects, competitions, enrichment programs, and academic planning.",協助學生透過研究項目、競賽、拓展課程及學術規劃建立STEM發展履歷。,success-stories,,,,Approved,案例三說明
+41,Home,Success Stories,Story Title,success_4_title,Neurodiversity Student Success,神經多樣性學生成功案例,success-stories,,,,Approved,案例四標題
+42,Home,Success Stories,Story Description,success_4_desc,"Supported students with ADHD, autism, giftedness, and learning differences through personalized educational pathways.",為ADHD、自閉症、資優及學習差異學生提供個人化教育發展路徑。,success-stories,,,,Approved,案例四說明
+43,Home,Meet Emily,Title,founder_title,Meet Emily Huang,認識 Emily Huang,,,,,Approved,區塊標題
+44,Home,Meet Emily,Subtitle,founder_subtitle,Founder & Principal Consultant,創辦人兼首席教育顧問,,,,,Approved,副標題
+45,Home,Meet Emily,Bio,founder_bio,"Emily Huang brings more than 20 years of experience in education, psychology, neurodiversity advocacy, family support, and student development. She specializes in helping students and families navigate educational pathways with confidence and purpose.",Emily Huang 擁有超過20年的教育、心理學、神經多樣性倡導、家庭支持及學生發展經驗，專注於協助學生與家庭建立清晰且有方向的教育成長路徑。,,,,,meet-emily,Approved
+46,Home,Meet Emily,Highlight,founder_highlight_1,Educational Strategy & Planning,教育策略與規劃,,,,,meet-emily,Approved
+47,Home,Meet Emily,Highlight,founder_highlight_2,Private School & University Admissions,私校及大學申請規劃,,,,,meet-emily,Approved
+48,Home,Meet Emily,Highlight,founder_highlight_3,Neurodiversity & Family Support,神經多樣性與家庭支持,,,,,meet-emily,Approved
+49,Home,Meet Emily,Highlight,founder_highlight_4,Student Growth & Development,學生成長與發展,,,,,meet-emily,Approved
+50,Home,Meet Emily,CTA,founder_cta,Learn More About Emily,了解 Emily 的故事,,,,,meet-emily,Approved
+51,Home,Testimonials,Title,testimonials_title,What Families Say,家長怎麼說,testimonials,,,,,Approved
+52,Home,Testimonials,Testimonial,testimonial_1,Animetro helped us see the bigger picture and create a long-term educational plan for our child.,Animetro 幫助我們看見更長遠的方向，為孩子建立完整的教育發展規劃。,testimonials,,,,,Approved
+53,Home,Testimonials,Attribution,testimonial_1_name,Parent of Grade 7 Student,七年級學生家長,testimonials,,,,,Approved
+54,Home,Testimonials,Testimonial,testimonial_2,The guidance went far beyond school applications and focused on our child’s overall growth and confidence.,顧問服務不只是申請學校，更重視孩子整體成長與自信建立。,testimonials,,,,,Approved
+55,Home,Testimonials,Attribution,testimonial_2_name,Parent of Student Athlete,學生運動員家長,testimonials,,,,,Approved
+56,Home,Testimonials,Testimonial,testimonial_3,Emily provided thoughtful advice and helped our family make informed educational decisions.,Emily 提供了細緻而專業的建議，協助我們做出更有信心的教育決策。,testimonials,,,,,Approved
+57,Home,Testimonials,Attribution,testimonial_3_name,Family Education Client,教育規劃家庭,testimonials,,,,,Approved
+58,Home,Consultation CTA,Title,cta_title,Ready to Build Your Child's Future?,準備為孩子規劃未來嗎？,consultation-cta,,,,,Approved
+59,Home,Consultation CTA,Subtitle,cta_subtitle,Growth Beyond Admission starts with a thoughtful educational plan. Let's explore the right pathway for your child together.,成長超越升學始於完善的教育規劃。讓我們一起為孩子探索最適合的成長路徑。,consultation-cta,,,,,Approved
+60,Home,Consultation CTA,Description,cta_description,"Whether you are considering private schools, university pathways, STEM development, student-athlete opportunities, neurodiversity support, or long-term educational planning, Animetro provides personalized guidance tailored to your family's goals.",無論您正在考慮私校申請、大學規劃、STEM發展、學生運動員發展、神經多樣性支持，或長期教育規劃，Animetro 都能根據家庭需求提供個人化專業指導。,consultation-cta,,,,,Approved
+61,Home,Consultation CTA,Benefit,cta_benefit_1,Personalized Educational Planning,個人化教育規劃,consultation-cta,,,,,Approved
+62,Home,Consultation CTA,Benefit,cta_benefit_2,Private School & University Guidance,私校及大學申請指導,consultation-cta,,,,,Approved
+63,Home,Consultation CTA,Benefit,cta_benefit_3,Student Growth & Development Support,學生成長與發展支持,consultation-cta,,,,,Approved
+64,Home,Consultation CTA,Benefit,cta_benefit_4,Family-Centered Consulting,以家庭為中心的教育顧問服務,consultation-cta,,,,,Approved
+65,Home,Consultation CTA,Button,cta_button,Book a Free Consultation,預約免費諮詢,consultation-cta,,,,,Approved
+66,Home,Consultation CTA,Contact,cta_phone,905-955-7068,905-955-7068,consultation-cta,,,,,Approved
+67,Home,Consultation CTA,Contact,cta_email,consulting@animetro.ca,consulting@animetro.ca,consultation-cta,,,,,Approved
+68,Home,Consultation CTA,Contact,cta_website,www.animetro.ca,www.animetro.ca,consultation-cta,,,,,Approved
+69,Home,Consultation CTA,Closing Statement,cta_closing,"Every student deserves a pathway designed for their strengths, goals, and future potential.",每位學生都值得擁有符合其優勢、目標與未來潛能的成長路徑。,consultation-cta,,,,,Approved
+Service page,,,,,,,,,,,,
+Section 1 — Services Hero,,,,,,,,,,,,
+No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
+1,Services,Hero,Title,services_hero_title,Strategetic Educational Pathways Designed for Long-Term Growth,為長遠成長而設計的戰略教育發展路徑,,,,,,
+2,Services,Hero,Subtitle,services_hero_subtitle,Personalized consulting services supporting students and families from elementary school through university.,為學生與家庭提供從小學到大學的個人化教育規劃服務。,,,,,,
+3,Services,Hero,Button,services_hero_cta,Book a Consultation,預約諮詢,,,,,,
+Section 2 — Private School Admissions,,,,,,,,,,,,
+No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
+4,Services,Private School Admissions,Title,ps_title,Private School Admissions,私校申請,,,,,,
+5,Services,Private School Admissions,Description,ps_desc,"Guidance for school selection, applications, interviews, personal statements, and family decision-making.",提供選校、申請、面試、文書及家庭決策支持。,,,,,,
+Section 3 — University Admissions,,,,,,,,,,,,
+No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
+6,Services,University Admissions,Title,uni_title,University Admissions,大學申請,,,,,,
+7,Services,University Admissions,Description,uni_desc,"Strategic planning for university applications, program selection, personal statements, and long-term academic positioning.",提供大學申請、專業選擇、個人陳述及長期學術定位規劃。,,,,,,
+Section 4 — GPA Management,,,,,,,,,,,,
+No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
+8,Services,GPA Management,Title,gpa_title,GPA Management,GPA管理,,,,,,
+9,Services,GPA Management,Description,gpa_desc,Academic monitoring and planning to strengthen student performance and competitiveness.,協助學生進行學業規劃與成績提升。,,,,,,
+Section 5 — STEM Pathway Planning,,,,,,,,,,,,
+No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
+10,Services,STEM Planning,Title,stem_title,STEM Pathway Planning,STEM發展規劃,,,,,,
+11,Services,STEM Planning,Description,stem_desc,"Research projects, competitions, enrichment programs, and long-term STEM portfolio development.",支持研究項目、競賽、拓展課程及STEM發展履歷建立。,,,,,,
+Section 6 — Student-Athlete Planning,,,,,,,,,,,,
+No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
+12,Services,Student Athlete,Title,athlete_title,Student-Athlete Planning,學生運動員規劃,,,,,,
+13,Services,Student Athlete,Description,athlete_desc,"Integrated planning for academic achievement, athletic development, and future opportunities.",協助學生平衡學業、運動發展及未來升學機會。,,,,,,
+Section 7 — Neurodiversity Support,,,,,,,,,,,,
+No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
+14,Services,Neurodiversity Support,Title,neuro_title,Neurodiversity Support,神經多樣性支持,,,,,,
+15,Services,Neurodiversity Support,Description,neuro_desc,"Personalized support for students with ADHD, autism, giftedness, anxiety, and learning differences.",為ADHD、自閉症、資優、焦慮及學習差異學生提供個人化支持。,,,,,,
+Section 8 — Guardianship & Homestay Support,,,,,,,,,,,,
+No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
+16,Services,Guardianship,Title,guardian_title,Guardianship & Homestay Support,監護與寄宿家庭服務,,,,,,
+17,Services,Guardianship,Description,guardian_desc,"Comprehensive support for international students including guardianship, homestay placement, and family communication.",為國際學生提供監護、寄宿家庭安排及家庭溝通支持。,,,,,,
+Section 9 — Consultation CTA,,,,,,,,,,,,
+No,Page,Section,Content Type,Key,English Text,Traditional Chinese Text,,,,,,
+18,Services,CTA,Title,services_cta_title,Ready to Build Your Child's Future?,準備為孩子規劃未來嗎？,,,,,,
+19,Services,CTA,Subtitle,services_cta_subtitle,Book a complimentary consultation today.,今天預約免費諮詢。,,,,,,
+20,Services,CTA,Button,services_cta_button,Schedule Consultation,預約諮詢,,,,,,
