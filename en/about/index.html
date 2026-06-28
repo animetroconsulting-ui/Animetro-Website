@@ -10,7 +10,13 @@
     <header class="site-header">
       <nav class="nav" aria-label="Main navigation">
         <a class="brand brand-text" href="/en/" aria-label="Animetro Consulting home">Animetro Consulting</a>
-        <div class="nav-links">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="sr-only">Menu</span>
+        </button>
+        <div class="nav-links" id="primary-navigation">
           <a href="/en/">Home</a>
 <a href="/en/services/">Services</a>
 <a class="active" href="/en/about/">About</a>
@@ -253,5 +259,6 @@
       </div>
       <p class="footer-copyright">© 2026 Animetro Consulting. All Rights Reserved.</p>
     </footer>
+    <script src="/assets/navigation.js"></script>
   </body>
 </html>

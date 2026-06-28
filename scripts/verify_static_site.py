@@ -162,9 +162,16 @@ def approved_home_hero_sources() -> set[str]:
         status = clean_key(first(row, ["Status"]))
         section = first(row, ["Website Section", "website_section", "section"])
         category = first(row, ["Image Category", "image_category"])
+        recommended = first(row, ["Recommended Use", "recommended_use"])
         if status != "approved":
             continue
-        if "home hero" not in section.lower() and "hero" not in category.lower():
+        home_candidate = (
+            "home hero" in section.lower()
+            or "hero" in category.lower()
+            or section.lower().startswith("home /")
+            or recommended.lower().startswith("home page")
+        )
+        if not home_candidate:
             continue
         raw_url = first(row, ["Google Drive Link", "google_drive_link", "Image URL", "image_url"])
         file_name = first(row, ["Image File Name", "image_file_name", "file_name"])

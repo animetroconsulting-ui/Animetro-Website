@@ -406,10 +406,17 @@ def nav_html(index: dict[str, dict[str, str]], lang: str, active: str, depth: in
     links.append(f'<a class="lang-link" href="{other}" lang="zh-Hant">{escape(other_label)}</a>')
     links.append('<a class="nav-cta" href="/start-here">Start Here</a>')
     nav_links_html = "\n          ".join(links)
+    brand_html = brand_mark_html(index, lang, "header")
     return f'''    <header class="site-header">
       <nav class="nav" aria-label="Main navigation">
-        <a class="brand brand-text" href="{home}" aria-label="{escape(logo_alt)} home">{escape(brand_label)}</a>
-        <div class="nav-links">
+        <a class="brand brand-text" href="{home}" aria-label="{escape(logo_alt)} home">{brand_html or escape(brand_label)}</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="sr-only">Menu</span>
+        </button>
+        <div class="nav-links" id="primary-navigation">
           {nav_links_html}
         </div>
       </nav>
@@ -437,6 +444,73 @@ def sheet_asset_path(value: str, fallback: str) -> str:
     return aliases.get(asset.lower(), f"/assets/images/{asset}")
 
 
+def asset_exists_or_remote(src: str) -> bool:
+    if src.startswith("https://") or src.startswith("http://"):
+        return True
+    return bool(src.startswith("/") and (ROOT / src.lstrip("/")).exists())
+
+
+def first_existing_asset(candidates: list[str]) -> str:
+    for candidate in candidates:
+        src = sheet_asset_path(candidate, "")
+        if src and asset_exists_or_remote(src):
+            return src
+    return ""
+
+
+def configure_approved_brand_assets(logo_rows: list[dict[str, str]]) -> None:
+    global HEADER_LOGO_SRC, FOOTER_LOGO_SRC, FAVICON_SRC, APP_ICON_SRC
+    header_candidates: list[str] = []
+    footer_candidates: list[str] = []
+    favicon_candidates: list[str] = []
+    app_candidates: list[str] = []
+    fallback_candidates: list[str] = []
+
+    for row in logo_rows:
+        if not is_approved_status(first(row, ["status", "Status"])):
+            continue
+        purpose = first(row, ["purpose", "Purpose"]).lower()
+        asset_name = first(row, ["asset_name", "Asset Name"]).lower()
+        values = [first(row, ["link", "Link"]), first(row, ["file_name", "File Name"])]
+        if "header" in purpose or "header" in asset_name:
+            header_candidates.extend(values)
+        if "footer" in purpose or "dark" in asset_name:
+            footer_candidates.extend(values)
+        if "favicon" in purpose or "favicon" in asset_name:
+            favicon_candidates.extend(values)
+        if "app" in purpose or "app" in asset_name:
+            app_candidates.extend(values)
+        if "official company logo" in purpose or "master logo" in asset_name:
+            fallback_candidates.extend(values)
+
+    HEADER_LOGO_SRC = first_existing_asset(header_candidates + fallback_candidates)
+    FOOTER_LOGO_SRC = first_existing_asset(footer_candidates + fallback_candidates)
+    FAVICON_SRC = first_existing_asset(favicon_candidates)
+    APP_ICON_SRC = first_existing_asset(app_candidates)
+
+
+def approved_logo_asset(index: dict[str, dict[str, str]], placement: str) -> str:
+    if placement == "header":
+        candidates = [HEADER_LOGO_SRC, link_value(index, "header_logo"), image_value(index, "header_logo")]
+    elif placement == "footer":
+        candidates = [FOOTER_LOGO_SRC, link_value(index, "footer_logo"), image_value(index, "footer_logo")]
+    else:
+        candidates = []
+    for candidate in candidates:
+        src = sheet_asset_path(candidate, "")
+        if src and asset_exists_or_remote(src):
+            return src
+    return ""
+
+
+def brand_mark_html(index: dict[str, dict[str, str]], lang: str, placement: str) -> str:
+    src = approved_logo_asset(index, placement)
+    if not src:
+        return ""
+    alt = text(index, f"{placement}_logo", lang, "艾美加教育顧問" if lang == "zh" else "Animetro Consulting")
+    return f'<img class="brand-logo" src="{escape(src)}" alt="{escape(alt)}">'
+
+
 def is_approved_status(value: str) -> bool:
     return clean_key(value) == "approved"
 
@@ -460,7 +534,14 @@ def approved_home_hero_image(website_rows: list[dict[str, str]], lang: str) -> d
     for row in website_rows:
         section = first(row, ["website_section", "Website Section", "section"])
         category = first(row, ["image_category", "Image Category"])
-        if "home hero" not in section.lower() and "hero" not in category.lower():
+        recommended = first(row, ["recommended_use", "Recommended Use"])
+        home_candidate = (
+            "home hero" in section.lower()
+            or "hero" in category.lower()
+            or section.lower().startswith("home /")
+            or recommended.lower().startswith("home page")
+        )
+        if not home_candidate:
             continue
         if not is_approved_status(first(row, ["status", "Status"])):
             continue
@@ -543,12 +624,15 @@ def footer_html(index: dict[str, dict[str, str]], lang: str) -> str:
 def page_shell(index: dict[str, dict[str, str]], lang: str, active: str, title_suffix: str, depth: int, body: str, description: str = "") -> str:
     html_lang = "zh-Hant" if lang == "zh" else "en"
     desc = f'\n    <meta name="description" content="{escape(description)}">' if description else ""
+    favicon = f'\n    <link rel="icon" href="{escape(FAVICON_SRC)}">' if FAVICON_SRC else ""
+    app_icon = f'\n    <link rel="apple-touch-icon" href="{escape(APP_ICON_SRC)}">' if APP_ICON_SRC else ""
+    head_assets = f"{favicon}{app_icon}"
     return f'''<!doctype html>
 <html lang="{html_lang}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{escape(page_title(lang, title_suffix))}</title>{desc}
+    <title>{escape(page_title(lang, title_suffix))}</title>{desc}{head_assets}
     <link rel="stylesheet" href="{rel_css(depth)}">
   </head>
   <body>
@@ -557,6 +641,7 @@ def page_shell(index: dict[str, dict[str, str]], lang: str, active: str, title_s
 {body}
 
 {footer_html(index, lang)}
+    <script src="/assets/navigation.js"></script>
   </body>
 </html>
 '''
@@ -815,6 +900,7 @@ def services_page_html(
 
 
 def write_site(tables: dict[str, SheetTable]) -> None:
+    configure_approved_brand_assets(tables["Logo Package"].rows)
     home_rows = tables["Global"].rows + tables["Home"].rows
     services_rows = tables["Services"].rows
     service_page_rows = tables["Global"].rows + services_rows
