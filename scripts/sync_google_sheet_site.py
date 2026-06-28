@@ -2,9 +2,7 @@
 """Sync Animetro static website files from Google Sheets.
 
 The Google Sheet is the source of truth. This script reads:
-- Global
-- Home
-- Services
+- Website-conetent-2
 - Brand Identity
 - Website Images
 - Service Images
@@ -35,9 +33,7 @@ EN_DIR = ROOT / "en"
 ZH_DIR = ROOT / "zh"
 
 REQUIRED_TABS = {
-    "Global": ["Global"],
-    "Home": ["Home"],
-    "Services": ["Services"],
+    "Website-conetent-2": ["Website-conetent-2"],
     "Logo Package": ["Logo Package", "logo package"],
     "Brand Identity": ["Brand Identity", "brand identity", "    Brand Identity"],
     "Website Images": ["Website Images", "website images"],
@@ -75,6 +71,14 @@ SERVICE_IMAGE_SECTION_IDS = {
     "mental health support": "family-support",
     "guardianship / student care": "family-support",
 }
+
+CORE_SERVICE_IDS = [
+    "education-admissions",
+    "student-development",
+    "student-athlete",
+    "gifted-neurodiverse",
+    "family-support",
+]
 
 
 @dataclass
@@ -277,7 +281,7 @@ def text(index: dict[str, dict[str, str]], key: str, lang: str, default: str = "
 
 
 def link_value(index: dict[str, dict[str, str]], key: str, default: str = "") -> str:
-    return first(index.get(clean_key(key), {}), ["Link", "url", "href"], default)
+    return first(index.get(clean_key(key), {}), ["Web Link", "Link", "url", "href"], default)
 
 
 def image_value(index: dict[str, dict[str, str]], key: str, default: str = "") -> str:
@@ -308,6 +312,12 @@ def service_image_row_id(row: dict[str, str]) -> str:
         return aliases.get(clean_key(raw_id), clean_key(raw_id))
     service_name = first(row, ["Service Name", "service_name", "Website Section", "website_section", "section"])
     return SERVICE_IMAGE_SECTION_IDS.get(service_name.strip().lower(), clean_key(service_name))
+
+
+def service_id_for_number(number: int) -> str:
+    if 1 <= number <= len(CORE_SERVICE_IDS):
+        return CORE_SERVICE_IDS[number - 1]
+    return f"service-{number}"
 
 
 def service_image_index(service_rows: list[dict[str, str]], website_rows: list[dict[str, str]]) -> dict[str, dict[str, str]]:
@@ -425,8 +435,8 @@ def sheet_asset_path(value: str, fallback: str) -> str:
     aliases = {
         "finallogo0617.png": "",
         "animetrowebsite_header0617.png": "",
-        "animetro-header-logo-light-2026.png": "",
-        "animetro-header-logo-dark-2026.png": "",
+        "animetro-header-logo-light-2026.png": "/assets/images/brand/animetro-header-logo-light-2026.png",
+        "animetro-header-logo-dark-2026.png": "/assets/images/brand/animetro-header-logo-dark-2026.png",
         "animetro-favicon-logo-2026.png": "",
         "animetro-app-icon-logo-2026.png": "",
         "wechat-qr.jpg": "/assets/images/contact/wechat-qr.jpeg",
@@ -593,9 +603,11 @@ def footer_html(index: dict[str, dict[str, str]], lang: str) -> str:
         href = base + "/" if nav_key == "home" else f"{base}/{nav_key}/"
         nav_links.append(f'<a href="{href}">{escape(label)}</a>')
     nav_links_html = "\n          ".join(nav_links)
+    footer_brand = brand_mark_html(index, lang, "footer")
+    footer_brand_html = footer_brand or f'<span>{escape(logo_alt)}<small>{escape(tagline)}</small></span>'
     return f'''    <footer class="site-footer">
       <div class="footer-inner">
-        <div class="footer-brand"><span>{escape(logo_alt)}<small>{escape(tagline)}</small></span></div>
+        <div class="footer-brand">{footer_brand_html}</div>
         <div class="footer-contact" aria-label="{escape(contact_label)}">
           <p class="footer-column-title">{escape(contact_label)}</p>
           <a href="tel:+19059557068">{escape(phone)}</a>
@@ -668,7 +680,7 @@ def numbered_pairs(index: dict[str, dict[str, str]], lang: str, prefix: str, tit
         desc = text(index, desc_key, lang)
         link = ""
         if links:
-            sid = section_id(index, title_key)
+            sid = section_id(index, title_key, service_id_for_number(number) if prefix == "service" else "")
             link = f"/{lang}/services/#{sid}" if sid else f"/{lang}/services/"
         items.append((title, desc, link))
     return items
@@ -813,6 +825,16 @@ def services_for_sheet(
     lang: str,
     images: dict[str, dict[str, str]],
 ) -> list[dict[str, str | list[str] | dict[str, str]]]:
+    index = build_key_index(rows)
+    core_services: list[dict[str, str | list[str] | dict[str, str]]] = []
+    for number, sid in enumerate(CORE_SERVICE_IDS, start=1):
+        title = text(index, f"service_{number}_title", lang)
+        desc = text(index, f"service_{number}_desc", lang)
+        if title:
+            core_services.append({"id": sid, "title": title, "desc": desc, "items": [], "image": images.get(sid, {})})
+    if core_services:
+        return core_services
+
     categories: dict[str, dict[str, str | list[str] | dict[str, str]]] = {}
     for row in approved_content_rows(rows):
         content_type = clean_key(first(row, ["Content Type", "content_type"]))
@@ -854,8 +876,8 @@ def services_page_html(
 ) -> str:
     is_zh = lang == "zh"
     images = service_image_index(service_image_rows, website_image_rows)
-    hero_title = text(index, "services_title", lang, "服務" if is_zh else "Services")
-    hero_subtitle = text(index, "services_intro", lang, "")
+    hero_title = text(index, "services_hero_title", lang, text(index, "services_title", lang, "服務" if is_zh else "Services"))
+    hero_subtitle = text(index, "services_hero_subtitle", lang, text(index, "services_intro", lang, ""))
     hero_cta = text(index, "services_hero_cta", lang, "預約諮詢" if is_zh else "Book a Consultation")
     cta_title = text(index, "services_cta_title", lang, text(index, "cta_title", lang))
     cta_subtitle = text(index, "services_cta_subtitle", lang, text(index, "cta_subtitle", lang))
@@ -899,9 +921,10 @@ def services_page_html(
 
 def write_site(tables: dict[str, SheetTable]) -> None:
     configure_approved_brand_assets(tables["Logo Package"].rows)
-    home_rows = tables["Global"].rows + tables["Home"].rows
-    services_rows = tables["Services"].rows
-    service_page_rows = tables["Global"].rows + services_rows
+    content_rows = tables["Website-conetent-2"].rows
+    home_rows = content_rows
+    services_rows = content_rows
+    service_page_rows = content_rows
     website_image_rows = tables["Website Images"].rows
     service_image_rows = tables["Service Images"].rows
     home_index = build_key_index(home_rows)

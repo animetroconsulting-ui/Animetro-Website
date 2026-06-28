@@ -126,6 +126,15 @@ def load_rows(name: str) -> list[dict[str, str]]:
 
 def approved_logo_filenames() -> set[str]:
     approved: set[str] = set()
+    for row in load_rows("websitecontentmaster.json"):
+        status = clean_key(first(row, ["Status"]))
+        content_type = clean_key(first(row, ["Content Type"]))
+        key = clean_key(first(row, ["Key"]))
+        if status == "approved" and content_type == "logo" and key in {"header_logo", "footer_logo"}:
+            for field in ["Web Link", "Link", "Image File"]:
+                value = first(row, [field])
+                if value and "." in Path(value).name:
+                    approved.add(Path(value).name)
     for row in load_rows("logo_package.json"):
         status = clean_key(first(row, ["Status"]))
         if status == "approved":
