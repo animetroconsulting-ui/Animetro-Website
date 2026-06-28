@@ -45,7 +45,7 @@ a {
 
 .nav {
   width: min(1240px, calc(100% - 32px));
-  min-height: clamp(64px, 12vh, 128px);
+  min-height: clamp(96px, 12vh, 140px);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -84,12 +84,10 @@ a {
 
 .brand-logo {
   display: block;
-  height: 64px;
   width: auto;
-  max-width: min(340px, 50vw);
-  max-height: 96px;
+  max-width: min(360px, 48vw);
+  max-height: 110px;
   object-fit: contain;
-  aspect-ratio: 4 / 1;
 }
 
 .nav-toggle {
@@ -909,6 +907,15 @@ p {
   line-height: 1.35;
 }
 
+.footer-logo,
+.footer-brand img {
+  display: block;
+  width: min(280px, 72vw);
+  max-width: 280px;
+  height: auto;
+  object-fit: contain;
+}
+
 .footer-column-title {
   width: 100%;
   margin: 0 0 2px;
@@ -1529,14 +1536,20 @@ p {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .nav {
-    min-height: 72px;
+    min-height: 86px;
     padding: 0 0.75rem;
   }
 
   .brand-logo {
-    height: 48px;
-    max-width: 72vw;
+    max-width: min(260px, 70vw);
+    max-height: 78px;
+  }
+
+  .footer-logo,
+  .footer-brand img {
+    width: min(230px, 80vw);
+    max-width: 230px;
   }
 }
