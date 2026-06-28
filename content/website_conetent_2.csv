@@ -138,3 +138,27 @@ no,page,section,content_type,key,english_text,traditional_chinese_text,section_i
 ,,Insights,Article,insight_summer_programs_picks_desc,"A curated guide to selected summer and online learning programs for students exploring math, STEM, engineering, art, design, business, leadership, and advanced learning.",一份精选指南，介绍适合探索数学、STEM、工程、艺术、设计、商业、领导力与高阶学习的暑期及线上项目。,,,,,,Approved
 ,,Insights,Article,insight_summer_programs_picks_category,Our Picks,我们推荐,,,,,,Approved
 ,,Insights,Article,insight_summer_programs_picks_slug,selected-summer-programs-math-stem-art-leadership,selected-summer-programs-math-stem-art-leadership,,,,,,Approved
+,Insights,Hero,Title,insights_title,Education Insights,教育洞察,insights,,/insights,,,Approved
+,Insights,Hero,Subtitle,insights_subtitle,"Practical education guidance for families planning school, university, and long-term student growth.",為家庭提供有關學校選擇、大學申請與學生長期成長的實用教育觀點。,insights,,/insights,,,Approved
+,Insights,Hero,Description,insights_description,"Animetro shares practical perspectives on admissions, academic planning, student development, and future-ready education pathways.",艾美加分享有關升學申請、學術規劃、學生發展與面向未來教育路徑的實用觀點。,insights,,/insights,,,Approved
+,Insights,Category,Category,insights_school_pathways,School Pathways,學校路徑,insights-categories,,/insights#school-pathways,,,Approved
+,Insights,Category,Category,insights_university,University Admissions,大學申請,insights-categories,,/insights#university-admissions,,,Approved
+,Insights,Category,Category,insights_student_growth,Student Growth,學生成長,insights-categories,,/insights#student-growth,,,Approved
+,Insights,Category,Category,insights_neurodiversity,Gifted & Neurodivergent Learners,資優與神經多樣性學生,insights-categories,,/insights#neurodiversity,,,Approved
+,Insights,Category,Category,insights_student_athlete,Student-Athlete Planning,學生運動員規劃,insights-categories,,/insights#student-athlete,,,Approved
+,Insights,Category,Category,insights_parent_strategy,Parent Strategy,家長教育策略,insights-categories,,/insights#parent-strategy,,,Approved
+,Insights,Article,Title,insight_1_title,"How to Choose Between Private School, Public School, and Boarding School",如何在私校、公校與寄宿學校之間做選擇,school-pathways,,/insights/how-to-choose-school-pathways,,,Approved
+,Insights,Article,Summary,insight_1_summary,"The right school is not always the most famous one. Families should compare academic fit, student personality, support systems, extracurricular depth, and long-term goals.",最合適的學校不一定是最有名的學校。家庭應從學術匹配度、孩子性格、支持系統、課外資源與長期目標綜合判斷。,school-pathways,,/insights/how-to-choose-school-pathways,,,Approved
+,Insights,Article,Title,insight_2_title,What Competitive Universities Really Look For,頂尖大學真正看重什麼,university-admissions,,/insights/what-universities-look-for,,,Approved
+,Insights,Article,Summary,insight_2_summary,"Strong grades matter, but selective universities also look for intellectual direction, initiative, contribution, resilience, and a clear pattern of growth.",優秀成績很重要，但高競爭力大學同時重視學術方向、主動性、貢獻力、抗壓能力與清晰的成長軌跡。,university-admissions,,/insights/what-universities-look-for,,,Approved
+,Insights,Article,Title,insight_3_title,Why Student Growth Should Come Before Admissions,為什麼學生發展應先於升學結果,student-growth,,/insights/growth-before-admissions,,,Approved
+,Insights,Article,Summary,insight_3_summary,"Admissions success is strongest when it grows naturally from a student’s habits, interests, confidence, and ability to take ownership of learning.",真正有競爭力的申請，往往來自學生長期形成的習慣、興趣、自信，以及對學習的主動掌控。,student-growth,,/insights/growth-before-admissions,,,Approved
+,Insights,Article,Title,insight_4_title,Supporting Gifted and Neurodivergent Students,如何支持資優與神經多樣性學生,neurodiversity,,/insights/supporting-neurodivergent-students,,,Approved
+,Insights,Article,Summary,insight_4_summary,"Gifted and neurodivergent students often need both challenge and structure. The best plan balances strengths, emotional regulation, executive function, and school fit.",資優與神經多樣性學生通常同時需要挑戰與結構。理想規劃應平衡優勢發展、情緒調節、執行功能與學校匹配度。,neurodiversity,,/insights/supporting-neurodivergent-students,,,Approved
+,Insights,Article,Title,insight_5_title,Planning for Student-Athletes,學生運動員如何做長期規劃,student-athlete,,/insights/student-athlete-planning,,,Approved
+,Insights,Article,Summary,insight_5_summary,"Student-athletes need a realistic plan that protects academics, training, recovery, leadership development, and future application positioning.",學生運動員需要一個務實的長期計劃，兼顧學業、訓練、恢復、領導力發展與未來申請定位。,student-athlete,,/insights/student-athlete-planning,,,Approved
+,Insights,Article,Title,insight_6_title,How Parents Can Support Without Over-Managing,家長如何支持孩子而不過度管理,parent-strategy,,/insights/parent-support-without-overmanaging,,,Approved
+,Insights,Article,Summary,insight_6_summary,"The most effective parents create structure, ask better questions, and help children build ownership instead of controlling every decision.",最有效的家長不是控制每個決定，而是建立結構、提出好問題，並幫助孩子逐步建立自主能力。,parent-strategy,,/insights/parent-support-without-overmanaging,,,Approved
+,Insights,CTA,Title,insights_cta_title,Need a personalized education strategy?,需要個性化教育規劃嗎？,insights-cta,,/contact,,,Approved
+,Insights,CTA,Description,insights_cta_description,"Book a consultation to discuss your child’s school pathway, academic plan, and long-term growth strategy.",預約諮詢，討論孩子的學校路徑、學術規劃與長期成長策略。,insights-cta,,/contact,,,Approved
+,Insights,CTA,Button,insights_cta_button,Book a Free Consultation,預約免費諮詢,insights-cta,Book a Free Consultation,/contact,,,Approved

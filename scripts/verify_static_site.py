@@ -22,10 +22,13 @@ FORBIDDEN_REFERENCES = [
 
 PAGES = [
     ROOT / "index.html",
+    ROOT / "insights" / "index.html",
     ROOT / "en" / "index.html",
     ROOT / "zh" / "index.html",
     ROOT / "en" / "services" / "index.html",
     ROOT / "zh" / "services" / "index.html",
+    ROOT / "en" / "insights" / "index.html",
+    ROOT / "zh" / "insights" / "index.html",
 ]
 
 EXPECTED_SERVICE_KEYS = [
@@ -254,6 +257,55 @@ def verify_services(lang: str, index: dict[str, dict[str, str]]) -> None:
             fail(f"{lang}/services/index.html missing service from Website-conetent-2: {title}")
 
 
+def verify_nav_insights(lang: str, index: dict[str, dict[str, str]]) -> None:
+    expected_label = sheet_text(index, "nav_insights", lang)
+    expected_href = f'/{lang}/insights/'
+    for slug in ["", "services", "about", "resources", "insights", "events", "contact"]:
+        path = ROOT / lang / slug / "index.html" if slug else ROOT / lang / "index.html"
+        if not path.exists():
+            continue
+        page = text(path)
+        if expected_label and expected_label not in normalize(page):
+            fail(f"{path.relative_to(ROOT)} missing Website-conetent-2 nav_insights label: {expected_label}")
+        if f'href="{expected_href}"' not in page:
+            fail(f"{path.relative_to(ROOT)} nav_insights does not point to {expected_href}")
+
+
+def verify_insights(lang: str, index: dict[str, dict[str, str]]) -> None:
+    path = ROOT / lang / "insights" / "index.html"
+    parser = parse(path)
+    page = normalize(text(path))
+    expected_title = sheet_text(index, "insights_title", lang)
+    expected_subtitle = sheet_text(index, "insights_subtitle", lang)
+    expected_description = sheet_text(index, "insights_description", lang)
+    if not parser.h1 or parser.h1[0] != expected_title:
+        fail(f"{lang}/insights/index.html title does not match Website-conetent-2")
+    if expected_subtitle not in parser.leads:
+        fail(f"{lang}/insights/index.html subtitle does not match Website-conetent-2")
+    if expected_description not in page:
+        fail(f"{lang}/insights/index.html description does not match Website-conetent-2")
+    for key in [
+        "insights_school_pathways",
+        "insights_university",
+        "insights_student_growth",
+        "insights_neurodiversity",
+        "insights_student_athlete",
+        "insights_parent_strategy",
+        "insights_cta_title",
+        "insights_cta_description",
+        "insights_cta_button",
+    ]:
+        value = sheet_text(index, key, lang)
+        if value and value not in page:
+            fail(f"{lang}/insights/index.html missing Website-conetent-2 {key}: {value}")
+    for number in range(1, 7):
+        for suffix in ["title", "summary"]:
+            key = f"insight_{number}_{suffix}"
+            value = sheet_text(index, key, lang)
+            if value and value not in page:
+                fail(f"{lang}/insights/index.html missing Website-conetent-2 {key}: {value}")
+
+
 def verify_sheet_image_rows(index: dict[str, dict[str, str]]) -> None:
     for key in EXPECTED_SERVICE_KEYS:
         raw = sheet_link(index, key)
@@ -282,6 +334,10 @@ def main() -> None:
     verify_home("zh", index)
     verify_services("en", index)
     verify_services("zh", index)
+    verify_insights("en", index)
+    verify_insights("zh", index)
+    verify_nav_insights("en", index)
+    verify_nav_insights("zh", index)
     verify_sheet_image_rows(index)
     print("Static site verification passed.")
 

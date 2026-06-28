@@ -443,7 +443,7 @@ def nav_html(index: dict[str, dict[str, str]], lang: str, active: str, depth: in
     brand_label = "艾美加教育顧問" if lang == "zh" else "Animetro Consulting"
     def href_for(nav_key: str) -> str:
         default = home if nav_key == "home" else f"{home}{nav_key}/"
-        raw = link_value(index, f"nav_{nav_key}")
+        raw = link_value(index, "insights_title") if nav_key == "insights" else link_value(index, f"nav_{nav_key}")
         if raw.startswith("http://") or raw.startswith("https://"):
             return raw
         if raw.startswith("/") and not Path(raw).suffix:
@@ -743,6 +743,125 @@ def numbered_pairs(index: dict[str, dict[str, str]], lang: str, prefix: str, tit
     return items
 
 
+def localized_sheet_link(index: dict[str, dict[str, str]], key: str, lang: str, default: str = "") -> str:
+    raw = link_value(index, key, default)
+    if not raw:
+        return ""
+    if raw.startswith("http://") or raw.startswith("https://"):
+        return raw
+    if raw.startswith("#"):
+        return raw
+    if raw.startswith("/") and not Path(raw).suffix:
+        return f"/{lang}{raw.rstrip('/')}/"
+    return raw
+
+
+def insight_category_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    return [
+        row
+        for row in approved_content_rows(rows)
+        if clean_key(first(row, ["Page"])) == "insights"
+        and clean_key(first(row, ["Section"])) == "category"
+    ]
+
+
+def insight_article_pairs(index: dict[str, dict[str, str]], lang: str) -> list[dict[str, str]]:
+    articles: list[dict[str, str]] = []
+    for number in range(1, 50):
+        title_key = f"insight_{number}_title"
+        summary_key = f"insight_{number}_summary"
+        title = text(index, title_key, lang)
+        summary = text(index, summary_key, lang)
+        if not title:
+            continue
+        articles.append(
+            {
+                "title": title,
+                "summary": summary,
+                "section_id": section_id(index, title_key, f"insight-{number}"),
+                "link": localized_sheet_link(index, title_key, lang),
+            }
+        )
+    return articles
+
+
+def insights_page_html(index: dict[str, dict[str, str]], rows: list[dict[str, str]], lang: str) -> str:
+    is_zh = lang == "zh"
+    title = text(index, "insights_title", lang, "教育洞察" if is_zh else "Education Insights")
+    subtitle = text(index, "insights_subtitle", lang)
+    description = text(index, "insights_description", lang)
+    categories = insight_category_rows(rows)
+    category_by_id: dict[str, str] = {}
+    category_cards = []
+    for row in categories:
+        key = row_key(row)
+        label = lang_value(row, lang)
+        raw_link = first(row, ["Web Link", "Link"])
+        target_id = raw_link.rsplit("#", 1)[1] if "#" in raw_link else section_id(index, key, clean_key(label))
+        if not label or not target_id:
+            continue
+        category_by_id[target_id] = label
+        category_cards.append(
+            f'''            <article class="card">
+              <h3><a href="#{escape(target_id)}">{escape(label)}</a></h3>
+            </article>'''
+        )
+
+    article_groups: dict[str, list[dict[str, str]]] = {}
+    for article in insight_article_pairs(index, lang):
+        article_groups.setdefault(article["section_id"], []).append(article)
+
+    article_sections = []
+    for section_key, articles in article_groups.items():
+        heading = category_by_id.get(section_key, section_key.replace("-", " ").title())
+        cards = []
+        for article in articles:
+            cards.append(f'''            <article class="card">
+              <h3>{escape(article["title"])}</h3>
+              {f'<p>{escape(article["summary"])}</p>' if article["summary"] else ''}
+            </article>''')
+        article_sections.append(f'''      <section class="band" id="{escape(section_key)}">
+        <div class="section">
+          <div class="section-header"><h2>{escape(heading)}</h2></div>
+          <div class="grid">
+{chr(10).join(cards)}
+          </div>
+        </div>
+      </section>''')
+
+    cta_title = text(index, "insights_cta_title", lang)
+    cta_description = text(index, "insights_cta_description", lang)
+    cta_button = text(index, "insights_cta_button", lang)
+    cta_link = localized_sheet_link(index, "insights_cta_button", lang, "/contact")
+    cta_section = ""
+    if cta_title or cta_description or cta_button:
+        cta_section = f'''      <section class="section panel" id="insights-cta">
+        {f'<h2>{escape(cta_title)}</h2>' if cta_title else ''}
+        {f'<p class="lead">{escape(cta_description)}</p>' if cta_description else ''}
+        {f'<div class="actions"><a class="button" href="{escape(cta_link)}">{escape(cta_button)}</a></div>' if cta_button else ''}
+      </section>'''
+
+    body = f'''    <main>
+      <section class="page-hero" id="insights">
+        <p class="eyebrow">{escape(text(index, 'nav_insights', lang, '教育洞察' if is_zh else 'Insights'))}</p>
+        <h1>{escape(title)}</h1>
+        {f'<p class="lead">{escape(subtitle)}</p>' if subtitle else ''}
+        {f'<p>{escape(description)}</p>' if description else ''}
+      </section>
+
+      <section class="section" id="insights-categories">
+        <div class="grid">
+{chr(10).join(category_cards)}
+        </div>
+      </section>
+
+{chr(10).join(article_sections)}
+
+{cta_section}
+    </main>'''
+    return page_shell(index, lang, "insights", title, 2, body, description)
+
+
 def service_link_items(index: dict[str, dict[str, str]], lang: str, footer: bool = False) -> str:
     labels = []
     for number in range(1, 16):
@@ -998,6 +1117,9 @@ def write_site(tables: dict[str, SheetTable]) -> None:
     ZH_DIR.mkdir(parents=True, exist_ok=True)
     (EN_DIR / "services").mkdir(parents=True, exist_ok=True)
     (ZH_DIR / "services").mkdir(parents=True, exist_ok=True)
+    (EN_DIR / "insights").mkdir(parents=True, exist_ok=True)
+    (ZH_DIR / "insights").mkdir(parents=True, exist_ok=True)
+    (ROOT / "insights").mkdir(parents=True, exist_ok=True)
     (EN_DIR / "index.html").write_text(homepage_html(home_index, website_image_rows, "en"), encoding="utf-8")
     (ZH_DIR / "index.html").write_text(homepage_html(home_index, website_image_rows, "zh"), encoding="utf-8")
     (EN_DIR / "services" / "index.html").write_text(
@@ -1006,6 +1128,14 @@ def write_site(tables: dict[str, SheetTable]) -> None:
     )
     (ZH_DIR / "services" / "index.html").write_text(
         services_page_html(services_index, services_rows, service_image_rows, website_image_rows, "zh"),
+        encoding="utf-8",
+    )
+    (EN_DIR / "insights" / "index.html").write_text(
+        insights_page_html(home_index, content_rows, "en"),
+        encoding="utf-8",
+    )
+    (ZH_DIR / "insights" / "index.html").write_text(
+        insights_page_html(home_index, content_rows, "zh"),
         encoding="utf-8",
     )
     (ROOT / "index.html").write_text(
@@ -1020,6 +1150,23 @@ def write_site(tables: dict[str, SheetTable]) -> None:
   </head>
   <body>
     <p><a href="/en/">Continue to Animetro Consulting</a></p>
+  </body>
+</html>
+''',
+        encoding="utf-8",
+    )
+    (ROOT / "insights" / "index.html").write_text(
+        '''<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="0; url=/en/insights/">
+    <link rel="canonical" href="/en/insights/">
+    <title>Education Insights | Animetro Consulting</title>
+  </head>
+  <body>
+    <p><a href="/en/insights/">Continue to Education Insights</a></p>
   </body>
 </html>
 ''',
