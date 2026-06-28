@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import html
 import json
 import re
 import sys
@@ -10,80 +11,64 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT_DIR = ROOT / "content"
+CONTENT_EXPORT = CONTENT_DIR / "websitecontentmaster.json"
+
 FORBIDDEN_REFERENCES = [
     "animetrowebherobanner0617",
     "hero-consulting-2",
     "hero-consulting-3",
     "animetro-philosophy",
 ]
-BRAND_REFERENCE_HINTS = (
-    "logo",
-    "favicon",
-    "app-icon",
-    "brand",
-    "business-card",
-    "mockup",
-)
 
-EXPECTED = {
-    "en": {
-        "title": "Growth Beyond Admissions",
-        "lead": "Personalized education pathway planning for students and families — from school admissions and university applications to academic strategy, STEAM development, student-athlete planning, and support for gifted, high-potential, and neurodiverse learners.",
-    },
-    "zh": {
-        "title": "成長超越升學",
-        "lead": "為學生與家庭提供個性化教育路徑規劃，涵蓋學校申請、大學申請、學術策略、STEAM 發展、學生運動員規劃，以及高智商、高潛能與多元神經譜系學生支持。",
-    },
-}
+PAGES = [
+    ROOT / "index.html",
+    ROOT / "en" / "index.html",
+    ROOT / "zh" / "index.html",
+    ROOT / "en" / "services" / "index.html",
+    ROOT / "zh" / "services" / "index.html",
+]
+
+EXPECTED_SERVICE_KEYS = [
+    "service_1_title",
+    "service_2_title",
+    "service_3_title",
+    "service_4_title",
+    "service_5_title",
+]
 
 
 class Parser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.h1: list[str] = []
+        self.h2: list[str] = []
+        self.h3: list[str] = []
         self.leads: list[str] = []
-        self.service_source = False
-        self.service_figures: list[dict[str, str]] = []
-        self.hero_media: list[dict[str, str]] = []
+        self.images: list[dict[str, str]] = []
+        self.service_source = ""
         self._capture: str | None = None
         self._buffer: list[str] = []
-        self._figure: dict[str, str] | None = None
-        self._hero_media: dict[str, str] | None = None
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attr = {key: value or "" for key, value in attrs}
-        if tag == "h1":
-            self._capture = "h1"
+        if tag in {"h1", "h2", "h3"}:
+            self._capture = tag
             self._buffer = []
         elif tag == "p" and "lead" in attr.get("class", "").split():
             self._capture = "lead"
             self._buffer = []
+        elif tag == "img":
+            self.images.append(attr)
         elif tag == "div" and "service-list" in attr.get("class", "").split():
-            self.service_source = "Google Sheet" in attr.get("data-content-source", "")
-        elif tag == "figure" and "service-image" in attr.get("class", "").split():
-            self._figure = attr
-        elif tag == "aside" and "hero-media" in attr.get("class", "").split():
-            self._hero_media = attr
-        elif tag == "img" and self._figure is not None:
-            self._figure["img_src"] = attr.get("src", "")
-            self._figure["img_alt"] = attr.get("alt", "")
-        elif tag == "img" and self._hero_media is not None:
-            self._hero_media["img_src"] = attr.get("src", "")
-            self._hero_media["img_alt"] = attr.get("alt", "")
+            self.service_source = attr.get("data-content-source", "")
 
     def handle_endtag(self, tag: str) -> None:
-        if tag == "h1" and self._capture == "h1":
-            self.h1.append(normalize("".join(self._buffer)))
+        if self._capture == tag:
+            getattr(self, tag).append(normalize("".join(self._buffer)))
             self._capture = None
         elif tag == "p" and self._capture == "lead":
             self.leads.append(normalize("".join(self._buffer)))
             self._capture = None
-        elif tag == "figure" and self._figure is not None:
-            self.service_figures.append(self._figure)
-            self._figure = None
-        elif tag == "aside" and self._hero_media is not None:
-            self.hero_media.append(self._hero_media)
-            self._hero_media = None
 
     def handle_data(self, data: str) -> None:
         if self._capture:
@@ -91,18 +76,12 @@ class Parser(HTMLParser):
 
 
 def normalize(value: str) -> str:
-    return re.sub(r"\s+", " ", value).strip()
+    return re.sub(r"\s+", " ", html.unescape(value)).strip()
 
 
 def fail(message: str) -> None:
     print(f"FAIL: {message}", file=sys.stderr)
     raise SystemExit(1)
-
-
-def parse(path: Path) -> Parser:
-    parser = Parser()
-    parser.feed(path.read_text(encoding="utf-8"))
-    return parser
 
 
 def clean_key(value: str) -> str:
@@ -117,180 +96,174 @@ def first(row: dict[str, str], names: list[str], default: str = "") -> str:
     return default
 
 
-def load_rows(name: str) -> list[dict[str, str]]:
-    path = CONTENT_DIR / name
-    if not path.exists():
-        return []
-    return json.loads(path.read_text(encoding="utf-8"))
+def rows() -> list[dict[str, str]]:
+    if not CONTENT_EXPORT.exists():
+        fail("Missing Website-conetent-2 export: content/websitecontentmaster.json")
+    return json.loads(CONTENT_EXPORT.read_text(encoding="utf-8"))
 
 
-def approved_logo_filenames() -> set[str]:
-    approved: set[str] = set()
-    for row in load_rows("websitecontentmaster.json"):
+def approved_rows() -> list[dict[str, str]]:
+    output: list[dict[str, str]] = []
+    for row in rows():
+        key = first(row, ["Key"])
+        if not key:
+            continue
         status = clean_key(first(row, ["Status"]))
-        content_type = clean_key(first(row, ["Content Type"]))
-        key = clean_key(first(row, ["Key"]))
-        if status == "approved" and content_type == "logo" and key in {"header_logo", "footer_logo"}:
-            for field in ["Web Link", "Link", "Image File"]:
-                value = first(row, [field])
-                if value and "." in Path(value).name:
-                    approved.add(Path(value).name)
-    for row in load_rows("logo_package.json"):
-        status = clean_key(first(row, ["Status"]))
-        if status == "approved":
-            for field in ["File Name", "Link"]:
-                value = first(row, [field])
-                if value and "." in Path(value).name:
-                    approved.add(Path(value).name)
-    for row in load_rows("brand_identity.json"):
-        status = clean_key(first(row, ["Status"]))
-        category = clean_key(first(row, ["Category", "Logo ID"]))
-        if status == "approved" and ("logo" in category or first(row, ["links"])):
-            for field in ["links", "filename"]:
-                value = first(row, [field])
-                if value and "." in Path(value).name:
-                    approved.add(Path(value).name)
-    for row in load_rows("website_images.json"):
-        category = clean_key(first(row, ["Image Category", "Website Section", "Purpose"]))
-        if "logo" in category or "favicon" in category or "brand" in category:
-            for field in ["Image File Name", "Google Drive Link"]:
-                value = first(row, [field])
-                if value and "." in Path(value).name:
-                    approved.add(Path(value).name)
-    return approved
+        if status and status not in {"approved", "confirmed", "approve"}:
+            continue
+        output.append(row)
+    return output
 
 
-def website_content_logo_filenames() -> set[str]:
-    approved: set[str] = set()
-    for row in load_rows("websitecontentmaster.json"):
-        status = clean_key(first(row, ["Status"]))
-        content_type = clean_key(first(row, ["Content Type"]))
-        key = clean_key(first(row, ["Key"]))
-        if status == "approved" and content_type == "logo" and key in {"header_logo", "footer_logo"}:
-            for field in ["Web Link", "Link", "Image File"]:
-                value = first(row, [field])
-                if value and "." in Path(value).name:
-                    approved.add(Path(value).name)
-    return approved
+def key_index() -> dict[str, dict[str, str]]:
+    return {clean_key(first(row, ["Key"])): row for row in approved_rows()}
 
 
-def is_usable_remote_url(value: str) -> bool:
+def sheet_text(index: dict[str, dict[str, str]], key: str, lang: str) -> str:
+    row = index.get(clean_key(key), {})
+    if lang == "zh":
+        return first(row, ["Traditional Chinese Text", "Chinese Text", "zh"])
+    return first(row, ["English Text", "English", "en"])
+
+
+def sheet_link(index: dict[str, dict[str, str]], key: str) -> str:
+    return first(index.get(clean_key(key), {}), ["Web Link", "Link", "Image File"])
+
+
+def parse(path: Path) -> Parser:
+    parser = Parser()
+    parser.feed(path.read_text(encoding="utf-8"))
+    return parser
+
+
+def text(path: Path) -> str:
+    return path.read_text(encoding="utf-8")
+
+
+def expected_asset_path(file_name: str) -> str:
+    aliases = {
+        "animetro-header-logo-light-2026.png": "/assets/images/brand/animetro-header-logo-light-2026.png",
+        "animetro-header-logo-dark-2026.png": "/assets/images/brand/animetro-header-logo-dark-2026.png",
+        "wechat-qr.jpg": "/assets/images/contact/wechat-qr.jpeg",
+        "whatsapp-qr.jpg": "/assets/images/contact/whatsapp-qr.jpeg",
+    }
+    return aliases.get(file_name, f"/assets/images/{file_name}")
+
+
+def is_remote(value: str) -> bool:
     parsed = urlparse(value.strip())
     return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
 
 
-def approved_home_hero_sources() -> set[str]:
-    approved: set[str] = set()
-    local_aliases = {
-        "animetro-education-strategy-consulting.png": "/assets/images/services/educationstratgyconsulting.jpeg",
-    }
-    for row in load_rows("website_images.json"):
-        status = clean_key(first(row, ["Status"]))
-        section = first(row, ["Website Section", "website_section", "section"])
-        category = first(row, ["Image Category", "image_category"])
-        recommended = first(row, ["Recommended Use", "recommended_use"])
-        if status != "approved":
+def verify_referenced_images(path: Path) -> None:
+    parser = parse(path)
+    for image in parser.images:
+        src = image.get("src", "")
+        if not src:
+            fail(f"{path.relative_to(ROOT)} has an image without src")
+        if src.startswith("data:") or is_remote(src):
             continue
-        home_candidate = (
-            "home hero" in section.lower()
-            or "hero" in category.lower()
-            or section.lower().startswith("home /")
-            or recommended.lower().startswith("home page")
-        )
-        if not home_candidate:
-            continue
-        raw_url = first(row, ["Google Drive Link", "google_drive_link", "Image URL", "image_url"])
-        file_name = first(row, ["Image File Name", "image_file_name", "file_name"])
-        if raw_url and is_usable_remote_url(raw_url):
-            approved.add(raw_url)
-        for value in [raw_url, file_name]:
-            if value and not is_usable_remote_url(value):
-                alias = local_aliases.get(value.strip().lower(), "")
-                if alias and (ROOT / alias.lstrip("/")).exists():
-                    approved.add(alias)
-                candidate = f"/assets/images/{value.strip().lstrip('/')}"
-                if (ROOT / candidate.lstrip("/")).exists():
-                    approved.add(candidate)
-    return approved
+        if not (ROOT / src.lstrip("/")).exists():
+            fail(f"{path.relative_to(ROOT)} references missing image file: {src}")
+        if not image.get("alt"):
+            fail(f"{path.relative_to(ROOT)} image is missing alt text: {src}")
 
 
-def referenced_asset_filenames(text: str) -> set[str]:
-    values = set(re.findall(r'''(?:src|href|data-image-url)=["']([^"']+)["']''', text))
-    return {Path(value).name for value in values if not value.startswith("data:")}
+def verify_no_empty_content(path: Path) -> None:
+    page = text(path)
+    for pattern, label in [
+        (r"<h[1-6][^>]*>\s*</h[1-6]>", "empty heading"),
+        (r"<p[^>]*>\s*</p>", "empty paragraph"),
+        (r"<section[^>]*>\s*</section>", "blank section"),
+    ]:
+        if re.search(pattern, page):
+            fail(f"{path.relative_to(ROOT)} contains {label}")
 
 
-def verify_no_fake_logo_references(path: Path) -> None:
-    text = path.read_text(encoding="utf-8")
+def verify_no_forbidden_references(path: Path) -> None:
+    page = text(path)
     for forbidden in FORBIDDEN_REFERENCES:
-        if forbidden in text:
-            fail(f"{path.relative_to(ROOT)} still references unauthorized generated logo asset: {forbidden}")
-    approved = approved_logo_filenames()
-    website_content_logos = website_content_logo_filenames()
-    for filename in referenced_asset_filenames(text):
-        lower = filename.lower()
-        if "header-logo" in lower and website_content_logos and filename not in website_content_logos:
-            fail(
-                f"{path.relative_to(ROOT)} references header/footer logo asset {filename}, "
-                "but Website-conetent-2 names a different approved logo file"
-            )
-        if any(hint in lower for hint in BRAND_REFERENCE_HINTS) and filename not in approved:
-            fail(
-                f"{path.relative_to(ROOT)} references brand asset {filename}, "
-                "but it is not approved in Website-conetent-2 or approved fallback image exports"
-            )
+        if forbidden in page:
+            fail(f"{path.relative_to(ROOT)} references forbidden generated asset: {forbidden}")
 
 
-def verify_home(lang: str) -> None:
-    parser = parse(ROOT / lang / "index.html")
-    expected = EXPECTED[lang]
-    if not parser.h1 or parser.h1[0] != expected["title"]:
-        fail(f"{lang}/index.html hero title is not approved Sheet text: {parser.h1[:1]}")
-    if not parser.leads or parser.leads[0] != expected["lead"]:
-        fail(f"{lang}/index.html hero lead is not approved Sheet text: {parser.leads[:1]}")
-    approved_hero_sources = approved_home_hero_sources()
-    if not approved_hero_sources and parser.hero_media:
-        fail(f"{lang}/index.html renders hero media without an approved Website Images Home Hero source")
-    for media in parser.hero_media:
-        src = media.get("img_src", "")
-        if src not in approved_hero_sources:
-            fail(f"{lang}/index.html hero media source is not approved in Website Images: {src}")
-        if not media.get("img_alt"):
-            fail(f"{lang}/index.html hero media is missing alt text")
+def verify_logo(path: Path, index: dict[str, dict[str, str]]) -> None:
+    page = text(path)
+    header_logo = expected_asset_path(sheet_link(index, "header_logo"))
+    footer_logo = expected_asset_path(sheet_link(index, "footer_logo"))
+    for label, src in [("header", header_logo), ("footer", footer_logo)]:
+        if not src or src not in page:
+            fail(f"{path.relative_to(ROOT)} does not render Website-conetent-2 {label} logo: {src}")
+        if not (ROOT / src.lstrip("/")).exists():
+            fail(f"{path.relative_to(ROOT)} {label} logo file is missing: {src}")
 
 
-def verify_services(lang: str) -> None:
-    parser = parse(ROOT / lang / "services" / "index.html")
-    if not parser.service_source:
-        fail(f"{lang}/services/index.html is not marked as Google Sheet generated")
-    if len(parser.service_figures) < 5:
-        fail(f"{lang}/services/index.html has too few rendered service images")
-    for figure in parser.service_figures:
-        for field in ["data-image-file-name", "data-image-url", "data-image-alt", "data-image-purpose", "data-image-status"]:
-            if not figure.get(field):
-                fail(f"{lang}/services/index.html service image missing {field}")
-        if figure.get("data-image-status") == "Implemented":
-            fail(f"{lang}/services/index.html must not mark Service Images as Implemented")
-        if figure.get("img_src") != figure.get("data-image-url"):
-            fail(f"{lang}/services/index.html image src does not match data-image-url")
-        if not figure.get("img_alt"):
-            fail(f"{lang}/services/index.html rendered service image is missing alt text")
+def verify_home(lang: str, index: dict[str, dict[str, str]]) -> None:
+    path = ROOT / lang / "index.html"
+    parser = parse(path)
+    page = text(path)
+    expected_title = sheet_text(index, "hero_title", lang)
+    expected_subtitle = sheet_text(index, "hero_subtitle", lang)
+    expected_description = sheet_text(index, "hero_description", lang)
+    if not parser.h1 or parser.h1[0] != expected_title:
+        fail(f"{lang}/index.html hero title does not match Website-conetent-2")
+    if expected_subtitle not in parser.leads:
+        fail(f"{lang}/index.html hero subtitle does not match Website-conetent-2")
+    if expected_description not in normalize(page):
+        fail(f"{lang}/index.html hero description does not match Website-conetent-2")
+    for key in ["hero_primary_cta", "hero_secondary_cta"]:
+        value = sheet_text(index, key, lang)
+        if value and value not in normalize(page):
+            fail(f"{lang}/index.html missing Website-conetent-2 {key}: {value}")
+    service_titles = [sheet_text(index, key, lang) for key in EXPECTED_SERVICE_KEYS]
+    h3_text = set(parser.h3)
+    for title in service_titles:
+        if title not in h3_text:
+            fail(f"{lang}/index.html missing core service from Website-conetent-2: {title}")
+    if len([title for title in service_titles if title in h3_text]) != 5:
+        fail(f"{lang}/index.html does not render exactly five Website-conetent-2 core services")
+
+
+def verify_services(lang: str, index: dict[str, dict[str, str]]) -> None:
+    path = ROOT / lang / "services" / "index.html"
+    parser = parse(path)
+    if parser.service_source != "Google Sheet: Website-conetent-2":
+        fail(f"{lang}/services/index.html is not generated from Website-conetent-2")
+    service_titles = [sheet_text(index, key, lang) for key in EXPECTED_SERVICE_KEYS]
+    h2_text = set(parser.h2)
+    for title in service_titles:
+        if title not in h2_text:
+            fail(f"{lang}/services/index.html missing service from Website-conetent-2: {title}")
+
+
+def verify_sheet_image_rows(index: dict[str, dict[str, str]]) -> None:
+    for key in EXPECTED_SERVICE_KEYS:
+        raw = sheet_link(index, key)
+        if not raw:
+            continue
+        candidate = expected_asset_path(raw)
+        if not (ROOT / candidate.lstrip("/")).exists():
+            # Missing image rows are allowed to be reported, but must not render.
+            for path in PAGES:
+                if raw in text(path) or candidate in text(path):
+                    fail(f"{path.relative_to(ROOT)} renders missing Website-conetent-2 image: {raw}")
 
 
 def main() -> None:
-    for path in [
-        ROOT / "index.html",
-        ROOT / "en" / "index.html",
-        ROOT / "zh" / "index.html",
-        ROOT / "en" / "services" / "index.html",
-        ROOT / "zh" / "services" / "index.html",
-    ]:
+    index = key_index()
+    for path in PAGES:
         if not path.exists():
             fail(f"Missing generated file: {path.relative_to(ROOT)}")
-        verify_no_fake_logo_references(path)
-    verify_home("en")
-    verify_home("zh")
-    verify_services("en")
-    verify_services("zh")
+        verify_no_forbidden_references(path)
+        verify_no_empty_content(path)
+        verify_referenced_images(path)
+        if path.name == "index.html" and path.parent.name in {"en", "zh"} or path.parent.name == "services":
+            verify_logo(path, index)
+    verify_home("en", index)
+    verify_home("zh", index)
+    verify_services("en", index)
+    verify_services("zh", index)
+    verify_sheet_image_rows(index)
     print("Static site verification passed.")
 
 

@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """Sync Animetro static website files from Google Sheets.
 
-The Google Sheet is the source of truth. This script reads:
-- Website-conetent-2
-- Brand Identity
-- Website Images
-- Service Images
+The Google Sheet is the source of truth. This script reads Website-conetent-2
+as the primary source of truth. Fallback image/brand tabs may be exported for
+audit, but generated pages must not use them when Website-conetent-2 already
+defines the content or asset.
 
 It writes raw tab exports to content/ and regenerates static files.
 """
@@ -52,6 +51,12 @@ SERVICE_PLACEHOLDER_IMAGE = (
     "%3Ctext%20x='600'%20y='360'%20text-anchor='middle'%20font-family='Arial,sans-serif'%20font-size='42'%20fill='%235d6674'%3EService%20image%20pending%3C/text%3E"
     "%3C/svg%3E"
 )
+LOCAL_ASSET_DIRS = [
+    ROOT / "assets" / "images",
+    ROOT / "assets" / "images" / "brand",
+    ROOT / "assets" / "images" / "contact",
+    ROOT / "assets" / "images" / "services",
+]
 
 SERVICE_IMAGE_SECTION_IDS = {
     "education strategy & admissions": "education-admissions",
@@ -299,6 +304,24 @@ def local_service_image(file_name: str) -> tuple[str, bool]:
     return image_url, not (ROOT / image_url.lstrip("/")).exists()
 
 
+def local_asset_from_sheet_filename(file_name: str) -> tuple[str, bool]:
+    asset = file_name.strip()
+    if not asset:
+        return "", False
+    if asset.startswith("http://") or asset.startswith("https://"):
+        return asset, False
+    if asset.startswith("/"):
+        return (asset, False) if (ROOT / asset.lstrip("/")).exists() else ("", True)
+    for directory in LOCAL_ASSET_DIRS:
+        candidate = directory / asset
+        if candidate.exists():
+            return "/" + str(candidate.relative_to(ROOT)), False
+    for candidate in (ROOT / "assets" / "images").rglob(asset):
+        if candidate.exists():
+            return "/" + str(candidate.relative_to(ROOT)), False
+    return "", True
+
+
 def service_image_row_id(row: dict[str, str]) -> str:
     raw_id = first(row, ["Service ID", "service_id"])
     if raw_id:
@@ -373,6 +396,30 @@ def service_image_index(service_rows: list[dict[str, str]], website_rows: list[d
     return images
 
 
+def website_content_service_image_index(rows: list[dict[str, str]]) -> dict[str, dict[str, str]]:
+    index = build_key_index(rows)
+    images: dict[str, dict[str, str]] = {}
+    for number, service_id in enumerate(CORE_SERVICE_IDS, start=1):
+        key = f"service_{number}_title"
+        title = text(index, key, "en", service_id)
+        raw_file = link_value(index, key) or image_value(index, key)
+        image_url, missing = local_asset_from_sheet_filename(raw_file)
+        if not raw_file or missing or not image_url:
+            continue
+        images[service_id] = {
+            "image_url": image_url,
+            "image_alt": title,
+            "image_file_name": raw_file,
+            "image_purpose": f"Website-conetent-2 image for {title}",
+            "image_status": status_value(index.get(clean_key(key), {})) or "In Progress",
+            "drive_link": "",
+            "recommended_use": "Homepage/service card",
+            "source_section": title,
+            "is_placeholder": "false",
+        }
+    return images
+
+
 def service_image_figure(service_id: str, title: str, image: dict[str, str] | None) -> str:
     if not image or image.get("is_placeholder") == "true":
         return ""
@@ -400,14 +447,26 @@ def nav_html(index: dict[str, dict[str, str]], lang: str, active: str, depth: in
     other_label = "English" if lang == "zh" else "中文"
     logo_alt = text(index, "header_logo", lang, "艾美加教育顧問" if lang == "zh" else "Animetro Consulting")
     brand_label = "艾美加教育顧問" if lang == "zh" else "Animetro Consulting"
+    def href_for(nav_key: str) -> str:
+        default = home if nav_key == "home" else f"{home}{nav_key}/"
+        raw = link_value(index, f"nav_{nav_key}")
+        if raw.startswith("http://") or raw.startswith("https://"):
+            return raw
+        if raw.startswith("/") and not Path(raw).suffix:
+            if raw in {"/", "/en", "/en/", "/zh", "/zh/"}:
+                return home if nav_key == "home" else raw
+            return f"/{lang}{raw.rstrip('/')}/"
+        return default
+
     links = []
     for nav_key in NAV_KEYS:
         label = text(index, f"nav_{nav_key}", lang, nav_key.title())
-        href = home if nav_key == "home" else f"{home}{nav_key}/"
+        href = href_for(nav_key)
         cls = ' class="active"' if active == nav_key else ""
         links.append(f'<a{cls} href="{href}">{escape(label)}</a>')
     links.append(f'<a class="lang-link" href="{other}" lang="zh-Hant">{escape(other_label)}</a>')
-    links.append('<a class="nav-cta" href="/start-here">Start Here</a>')
+    start_label = text(index, "nav_start_here", lang, "從這裡開始" if lang == "zh" else "Start Here")
+    links.append(f'<a class="nav-cta" href="/{lang}/contact/">{escape(start_label)}</a>')
     nav_links_html = "\n          ".join(links)
     brand_html = brand_mark_html(index, lang, "header")
     return f'''    <header class="site-header">
@@ -680,7 +739,7 @@ def numbered_pairs(index: dict[str, dict[str, str]], lang: str, prefix: str, tit
         desc = text(index, desc_key, lang)
         link = ""
         if links:
-            sid = section_id(index, title_key, service_id_for_number(number) if prefix == "service" else "")
+            sid = service_id_for_number(number) if prefix == "service" else section_id(index, title_key, "")
             link = f"/{lang}/services/#{sid}" if sid else f"/{lang}/services/"
         items.append((title, desc, link))
     return items
@@ -744,8 +803,18 @@ def homepage_html(index: dict[str, dict[str, str]], website_image_rows: list[dic
             testimonials.append((quote, name, ""))
     benefits = [text(index, f"cta_benefit_{i}", lang) for i in range(1, 8)]
     benefits = [item for item in benefits if item]
-    hero_media = hero_media_html(website_image_rows, lang)
+    hero_media = ""
     hero_class = "hero hero-with-media" if hero_media else "hero hero-simple"
+    founder_section = ""
+    if founder_title or founder_subtitle or founder_bio or founder_highlights or founder_cta:
+        founder_section = f'''
+      <section class="section panel" id="meet-emily">
+        {f'<p class="eyebrow">{escape(founder_subtitle)}</p>' if founder_subtitle else ''}
+        {f'<h2>{escape(founder_title)}</h2>' if founder_title else ''}
+        {f'<p class="lead">{escape(founder_bio)}</p>' if founder_bio else ''}
+        {f'<ul class="check-list">{"".join(f"<li>{escape(item)}</li>" for item in founder_highlights)}</ul>' if founder_highlights else ''}
+        {f'<div class="actions"><a class="button secondary" href="/{lang}/about/">{escape(founder_cta)}</a></div>' if founder_cta else ''}
+      </section>'''
 
     body = f'''    <main>
       <section class="{hero_class}">
@@ -786,13 +855,7 @@ def homepage_html(index: dict[str, dict[str, str]], website_image_rows: list[dic
         </div>
       </section>
 
-      <section class="section panel" id="meet-emily">
-        <p class="eyebrow">{escape(founder_subtitle)}</p>
-        <h2>{escape(founder_title)}</h2>
-        <p class="lead">{escape(founder_bio)}</p>
-        {f'<ul class="check-list">{"".join(f"<li>{escape(item)}</li>" for item in founder_highlights)}</ul>' if founder_highlights else ''}
-        {f'<div class="actions"><a class="button secondary" href="/{lang}/about/">{escape(founder_cta)}</a></div>' if founder_cta else ''}
-      </section>
+{founder_section}
 
       <section class="band" id="testimonials">
         <div class="section">
@@ -875,7 +938,7 @@ def services_page_html(
     lang: str,
 ) -> str:
     is_zh = lang == "zh"
-    images = service_image_index(service_image_rows, website_image_rows)
+    images = website_content_service_image_index(services_rows)
     hero_title = text(index, "services_hero_title", lang, text(index, "services_title", lang, "服務" if is_zh else "Services"))
     hero_subtitle = text(index, "services_hero_subtitle", lang, text(index, "services_intro", lang, ""))
     hero_cta = text(index, "services_hero_cta", lang, "預約諮詢" if is_zh else "Book a Consultation")
@@ -896,6 +959,14 @@ def services_page_html(
             {f'<p>{escape(desc)}</p>' if desc else ''}
             {f'<ul class="check-list">{subitems_html}</ul>' if subitems_html else ''}
           </article>''')
+    consultation_section = ""
+    if cta_title or cta_subtitle or cta_button:
+        consultation_section = f'''
+      <section class="section panel" id="consultation">
+        {f'<h2>{escape(cta_title)}</h2>' if cta_title else ''}
+        {f'<p class="lead">{escape(cta_subtitle)}</p>' if cta_subtitle else ''}
+        <div class="actions"><a class="button" href="/{lang}/contact/">{escape(cta_button)}</a></div>
+      </section>'''
     body = f'''    <main>
       <section class="page-hero">
         <p class="eyebrow">{escape(text(index, 'nav_services', lang, '服務' if is_zh else 'Services'))}</p>
@@ -905,28 +976,24 @@ def services_page_html(
       </section>
 
       <section class="section">
-        <div class="service-list" data-content-source="Google Sheet: Services + Service Images + Website Images">
+        <div class="service-list" data-content-source="Google Sheet: Website-conetent-2">
 {chr(10).join(service_articles)}
         </div>
       </section>
 
-      <section class="section panel" id="consultation">
-        <h2>{escape(cta_title)}</h2>
-        {f'<p class="lead">{escape(cta_subtitle)}</p>' if cta_subtitle else ''}
-        <div class="actions"><a class="button" href="/{lang}/contact/">{escape(cta_button)}</a></div>
-      </section>
+{consultation_section}
     </main>'''
     return page_shell(index, lang, "services", text(index, "nav_services", lang, "服務" if is_zh else "Services"), 2, body, hero_subtitle)
 
 
 def write_site(tables: dict[str, SheetTable]) -> None:
-    configure_approved_brand_assets(tables["Logo Package"].rows)
+    configure_approved_brand_assets(tables.get("Logo Package", SheetTable("Logo Package", [], [])).rows)
     content_rows = tables["Website-conetent-2"].rows
     home_rows = content_rows
     services_rows = content_rows
     service_page_rows = content_rows
-    website_image_rows = tables["Website Images"].rows
-    service_image_rows = tables["Service Images"].rows
+    website_image_rows: list[dict[str, str]] = []
+    service_image_rows: list[dict[str, str]] = []
     home_index = build_key_index(home_rows)
     services_index = build_key_index(service_page_rows)
     EN_DIR.mkdir(parents=True, exist_ok=True)
