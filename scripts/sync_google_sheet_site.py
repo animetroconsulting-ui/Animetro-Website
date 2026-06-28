@@ -494,9 +494,9 @@ def configure_approved_brand_assets(logo_rows: list[dict[str, str]]) -> None:
 
 def approved_logo_asset(index: dict[str, dict[str, str]], placement: str) -> str:
     if placement == "header":
-        candidates = [HEADER_LOGO_SRC, link_value(index, "header_logo"), image_value(index, "header_logo")]
+        candidates = [link_value(index, "header_logo"), image_value(index, "header_logo"), HEADER_LOGO_SRC]
     elif placement == "footer":
-        candidates = [FOOTER_LOGO_SRC, link_value(index, "footer_logo"), image_value(index, "footer_logo")]
+        candidates = [link_value(index, "footer_logo"), image_value(index, "footer_logo"), FOOTER_LOGO_SRC]
     else:
         candidates = []
     for candidate in candidates:

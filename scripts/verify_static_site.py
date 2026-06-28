@@ -160,6 +160,20 @@ def approved_logo_filenames() -> set[str]:
     return approved
 
 
+def website_content_logo_filenames() -> set[str]:
+    approved: set[str] = set()
+    for row in load_rows("websitecontentmaster.json"):
+        status = clean_key(first(row, ["Status"]))
+        content_type = clean_key(first(row, ["Content Type"]))
+        key = clean_key(first(row, ["Key"]))
+        if status == "approved" and content_type == "logo" and key in {"header_logo", "footer_logo"}:
+            for field in ["Web Link", "Link", "Image File"]:
+                value = first(row, [field])
+                if value and "." in Path(value).name:
+                    approved.add(Path(value).name)
+    return approved
+
+
 def is_usable_remote_url(value: str) -> bool:
     parsed = urlparse(value.strip())
     return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
@@ -211,12 +225,18 @@ def verify_no_fake_logo_references(path: Path) -> None:
         if forbidden in text:
             fail(f"{path.relative_to(ROOT)} still references unauthorized generated logo asset: {forbidden}")
     approved = approved_logo_filenames()
+    website_content_logos = website_content_logo_filenames()
     for filename in referenced_asset_filenames(text):
         lower = filename.lower()
+        if "header-logo" in lower and website_content_logos and filename not in website_content_logos:
+            fail(
+                f"{path.relative_to(ROOT)} references header/footer logo asset {filename}, "
+                "but Website-conetent-2 names a different approved logo file"
+            )
         if any(hint in lower for hint in BRAND_REFERENCE_HINTS) and filename not in approved:
             fail(
                 f"{path.relative_to(ROOT)} references brand asset {filename}, "
-                "but it is not approved in Logo Package / Brand Identity / Website Images exports"
+                "but it is not approved in Website-conetent-2 or approved fallback image exports"
             )
 
 
