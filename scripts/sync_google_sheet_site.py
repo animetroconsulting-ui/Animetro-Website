@@ -324,7 +324,8 @@ def service_image_index(service_rows: list[dict[str, str]], website_rows: list[d
         image_url, placeholder = local_service_image(file_name)
         if placeholder:
             image_url = SERVICE_PLACEHOLDER_IMAGE
-        if service_id in images:
+        existing = images.get(service_id)
+        if existing and existing.get("is_placeholder") != "true":
             continue
         images[service_id] = {
             "image_url": image_url,
@@ -363,16 +364,8 @@ def service_image_index(service_rows: list[dict[str, str]], website_rows: list[d
 
 
 def service_image_figure(service_id: str, title: str, image: dict[str, str] | None) -> str:
-    image = image or {
-        "image_url": SERVICE_PLACEHOLDER_IMAGE,
-        "image_alt": title,
-        "image_file_name": "service-image-pending.svg",
-        "image_purpose": f"Service page visual for {service_id}",
-        "image_status": "In Progress",
-        "drive_link": "",
-        "recommended_use": "",
-        "is_placeholder": "true",
-    }
+    if not image or image.get("is_placeholder") == "true":
+        return ""
     return f'''            <figure class="service-image" data-image-file-name="{escape(image.get("image_file_name", ""))}" data-image-url="{escape(image.get("image_url", ""))}" data-image-alt="{escape(image.get("image_alt", title))}" data-image-purpose="{escape(image.get("image_purpose", ""))}" data-image-status="{escape(image.get("image_status", "In Progress"))}" data-drive-link="{escape(image.get("drive_link", ""))}" data-recommended-use="{escape(image.get("recommended_use", ""))}" data-placeholder="{escape(image.get("is_placeholder", "false"))}">
               <img src="{escape(image.get("image_url", SERVICE_PLACEHOLDER_IMAGE))}" alt="{escape(image.get("image_alt", title))}">
             </figure>'''
@@ -524,6 +517,11 @@ def local_home_image_url(file_name: str) -> str:
     asset = file_name.strip()
     if not asset:
         return ""
+    aliases = {
+        "animetro-education-strategy-consulting.png": "/assets/images/services/educationstratgyconsulting.jpeg",
+    }
+    if asset.lower() in aliases and (ROOT / aliases[asset.lower()].lstrip("/")).exists():
+        return aliases[asset.lower()]
     if asset.startswith("/"):
         return asset if (ROOT / asset.lstrip("/")).exists() else ""
     image_url = f"/assets/images/{asset}"

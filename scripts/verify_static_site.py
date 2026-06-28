@@ -158,6 +158,9 @@ def is_usable_remote_url(value: str) -> bool:
 
 def approved_home_hero_sources() -> set[str]:
     approved: set[str] = set()
+    local_aliases = {
+        "animetro-education-strategy-consulting.png": "/assets/images/services/educationstratgyconsulting.jpeg",
+    }
     for row in load_rows("website_images.json"):
         status = clean_key(first(row, ["Status"]))
         section = first(row, ["Website Section", "website_section", "section"])
@@ -179,6 +182,9 @@ def approved_home_hero_sources() -> set[str]:
             approved.add(raw_url)
         for value in [raw_url, file_name]:
             if value and not is_usable_remote_url(value):
+                alias = local_aliases.get(value.strip().lower(), "")
+                if alias and (ROOT / alias.lstrip("/")).exists():
+                    approved.add(alias)
                 candidate = f"/assets/images/{value.strip().lstrip('/')}"
                 if (ROOT / candidate.lstrip("/")).exists():
                     approved.add(candidate)
