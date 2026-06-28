@@ -45,11 +45,12 @@ a {
 
 .nav {
   width: min(1240px, calc(100% - 32px));
-  min-height: 112px;
+  min-height: clamp(64px, 12vh, 128px);
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 1rem;
   gap: 24px;
 }
 
@@ -83,10 +84,12 @@ a {
 
 .brand-logo {
   display: block;
+  height: 64px;
   width: auto;
   max-width: min(340px, 50vw);
   max-height: 96px;
   object-fit: contain;
+  aspect-ratio: 4 / 1;
 }
 
 .nav-toggle {
@@ -1523,5 +1526,17 @@ p {
 
   .zh-home .why-card {
     min-height: 116px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    min-height: 72px;
+    padding: 0 0.75rem;
+  }
+
+  .brand-logo {
+    height: 48px;
+    max-width: 72vw;
   }
 }
