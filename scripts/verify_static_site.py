@@ -143,7 +143,7 @@ def text(path: Path) -> str:
 def expected_asset_path(file_name: str) -> str:
     aliases = {
         "animetro-header-logo-light-2026.png": "/assets/images/brand/animetro-header-logo-light-2026.png",
-        "animetro-header-logo-dark-2026.png": "/assets/images/brand/animetro-header-logo-dark-2026.png",
+        "animetro_transparentlogo_final.png": "/assets/images/brand/animetro_transparentlogo_final.png",
         "wechat-qr.jpg": "/assets/images/contact/wechat-qr.jpeg",
         "whatsapp-qr.jpg": "/assets/images/contact/whatsapp-qr.jpeg",
     }

@@ -495,7 +495,7 @@ def sheet_asset_path(value: str, fallback: str) -> str:
         "finallogo0617.png": "",
         "animetrowebsite_header0617.png": "",
         "animetro-header-logo-light-2026.png": "/assets/images/brand/animetro-header-logo-light-2026.png",
-        "animetro-header-logo-dark-2026.png": "/assets/images/brand/animetro-header-logo-dark-2026.png",
+        "animetro_transparentlogo_final.png": "/assets/images/brand/animetro_transparentlogo_final.png",
         "animetro-favicon-logo-2026.png": "",
         "animetro-app-icon-logo-2026.png": "",
         "wechat-qr.jpg": "/assets/images/contact/wechat-qr.jpeg",
