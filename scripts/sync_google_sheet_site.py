@@ -2,9 +2,7 @@
 """Sync Animetro static website files from Google Sheets.
 
 The Google Sheet is the source of truth. This script reads Website-conetent-2
-as the primary source of truth. Fallback image/brand tabs may be exported for
-audit, but generated pages must not use them when Website-conetent-2 already
-defines the content or asset.
+as the primary source of truth for generated website content and assets.
 
 It writes raw tab exports to content/ and regenerates static files.
 """
@@ -33,10 +31,6 @@ ZH_DIR = ROOT / "zh"
 
 REQUIRED_TABS = {
     "Website-conetent-2": ["Website-conetent-2"],
-    "Logo Package": ["Logo Package", "logo package"],
-    "Brand Identity": ["Brand Identity", "brand identity", "    Brand Identity"],
-    "Website Images": ["Website Images", "website images"],
-    "Service Images": ["Service Images", "service images"],
 }
 SHEETS_SCOPE = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 NAV_KEYS = ["home", "services", "about", "resources", "insights", "events", "contact"]

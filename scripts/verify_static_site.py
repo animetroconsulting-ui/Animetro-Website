@@ -11,7 +11,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT_DIR = ROOT / "content"
-CONTENT_EXPORT = CONTENT_DIR / "websitecontentmaster.json"
+CONTENT_EXPORT = CONTENT_DIR / "website_conetent_2.json"
 
 FORBIDDEN_REFERENCES = [
     "animetrowebherobanner0617",
@@ -98,7 +98,7 @@ def first(row: dict[str, str], names: list[str], default: str = "") -> str:
 
 def rows() -> list[dict[str, str]]:
     if not CONTENT_EXPORT.exists():
-        fail("Missing Website-conetent-2 export: content/websitecontentmaster.json")
+        fail("Missing Website-conetent-2 export: content/website_conetent_2.json")
     return json.loads(CONTENT_EXPORT.read_text(encoding="utf-8"))
 
 
